@@ -3,7 +3,7 @@
 A sleek, modern, and highly responsive portfolio website built for showcase of professional development skills, projects, and experience. Designed with a deep-space neon aesthetic, featuring glassmorphism and smooth interactive animations.
 
 ##  Live Demo
-You can view the live site here: [Live Portfolio](/https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
+You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
 
 ##  Key Features
 - **Modern UI/UX**: Premium design using glassmorphism, vibrant gradients, and neon glows.
