@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Active Link Switching on Scroll ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
+    const scrollTopBtn = document.getElementById('scroll-top');
 
     window.addEventListener('scroll', () => {
         let current = '';
@@ -116,7 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.classList.add('active');
             }
         });
+
+        // Scroll to top button visibility
+        if (scrollTopBtn) {
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
     });
+
+    // Scroll to top click
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
     // --- Dark/Light Theme Toggle ---
     const themeToggleBtn = document.getElementById('theme-toggle');
@@ -151,4 +168,213 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Animated Stats Counter ---
+    const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+
+    const animateCounter = (el) => {
+        const target = parseInt(el.getAttribute('data-target'));
+        const duration = 1800;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current) + '+';
+        }, 16);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(el => statsObserver.observe(el));
+
+    // --- Experience Tabs ---
+    const tabBtns = document.querySelectorAll('.exp-tab-btn');
+    const tabContents = document.querySelectorAll('.exp-tab-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            // Show corresponding content
+            const tabId = btn.getAttribute('data-tab');
+            const targetContent = document.getElementById(`tab-${tabId}`);
+            if(targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+
+    // --- Projects Carousel ---
+    const track          = document.getElementById('projectsTrack');
+    const trackContainer = document.getElementById('projectsTrackContainer');
+    const prevBtn        = document.getElementById('projPrev');
+    const nextBtn        = document.getElementById('projNext');
+    const paginationEl   = document.getElementById('projPagination');
+    const currentEl      = document.getElementById('projCurrent');
+    const totalEl        = document.getElementById('projTotal');
+
+    if (track && prevBtn && nextBtn) {
+        const slides = Array.from(track.querySelectorAll('.proj-slide'));
+        let currentPage = 0;
+        let isAnimating  = false;
+
+        // How many slides are visible at once (respects breakpoints)
+        function getSlidesPerPage() {
+            if (window.innerWidth <= 600)  return 1;
+            if (window.innerWidth <= 991)  return 2;
+            return 3;
+        }
+
+        function getTotalPages() {
+            return Math.ceil(slides.length / getSlidesPerPage());
+        }
+
+        // Build / rebuild pagination dots
+        function buildDots() {
+            if (!paginationEl) return;
+            paginationEl.innerHTML = '';
+            const total = getTotalPages();
+            for (let i = 0; i < total; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'proj-dot' + (i === currentPage ? ' active' : '');
+                dot.setAttribute('aria-label', `Go to page ${i + 1}`);
+                dot.addEventListener('click', () => goToPage(i, i < currentPage ? 'right' : 'left'));
+                paginationEl.appendChild(dot);
+            }
+        }
+
+        // Update dot states
+        function updateDots() {
+            if (!paginationEl) return;
+            const dots = paginationEl.querySelectorAll('.proj-dot');
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentPage));
+        }
+
+        // Update counter text
+        function updateCounter() {
+            if (currentEl) currentEl.textContent = currentPage + 1;
+            if (totalEl)   totalEl.textContent   = getTotalPages();
+        }
+
+        // Update arrow disabled state
+        function updateArrows() {
+            const total = getTotalPages();
+            prevBtn.classList.toggle('proj-disabled', currentPage === 0);
+            nextBtn.classList.toggle('proj-disabled', currentPage >= total - 1);
+        }
+
+        // Move track to the correct position with elegant animation
+        function goToPage(page, direction = 'left') {
+            if (isAnimating) return;
+            const total = getTotalPages();
+            if (page < 0 || page >= total) return;
+            isAnimating = true;
+
+            // Step 1: fade+blur out
+            track.classList.add('is-animating');
+            const exitClass = direction === 'left' ? 'slide-left-exit' : 'slide-right-exit';
+            track.classList.add(exitClass);
+
+            // Step 2: after half the transition, snap position and fade back in
+            setTimeout(() => {
+                currentPage = page;
+
+                // Calculate pixel offset
+                const slideWidth   = slides[0].getBoundingClientRect().width;
+                const gap          = 24; // must match CSS gap
+                const perPage      = getSlidesPerPage();
+                const offset       = page * (perPage * (slideWidth + gap));
+                track.style.transform = `translateX(-${offset}px)`;
+
+                // Remove exit class → triggers fade-in via CSS transition removal
+                track.classList.remove(exitClass);
+
+                updateDots();
+                updateCounter();
+                updateArrows();
+
+                // Re-enable after animation completes
+                setTimeout(() => {
+                    track.classList.remove('is-animating');
+                    isAnimating = false;
+                }, 350);
+            }, 280);
+        }
+
+        // Arrow clicks
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) goToPage(currentPage - 1, 'right');
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < getTotalPages() - 1) goToPage(currentPage + 1, 'left');
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const section = document.getElementById('projects');
+            if (!section) return;
+            const rect = section.getBoundingClientRect();
+            // Only intercept when projects section is in view
+            if (rect.top > window.innerHeight || rect.bottom < 0) return;
+            if (e.key === 'ArrowLeft')  goToPage(currentPage - 1, 'right');
+            if (e.key === 'ArrowRight') goToPage(currentPage + 1, 'left');
+        });
+
+        // Touch / swipe support
+        let touchStartX = 0;
+        trackContainer.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        trackContainer.addEventListener('touchend', e => {
+            const delta = touchStartX - e.changedTouches[0].clientX;
+            if (Math.abs(delta) > 50) {
+                if (delta > 0) goToPage(currentPage + 1, 'left');
+                else           goToPage(currentPage - 1, 'right');
+            }
+        }, { passive: true });
+
+        // On window resize, recalculate (recalculate visible slides per page)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Clamp current page within new total
+                currentPage = Math.min(currentPage, getTotalPages() - 1);
+                // Rebuild dots for new breakpoint
+                buildDots();
+                // Snap to correct position instantly (no animation on resize)
+                const slideWidth = slides[0].getBoundingClientRect().width;
+                const gap        = 24;
+                const perPage    = getSlidesPerPage();
+                const offset     = currentPage * (perPage * (slideWidth + gap));
+                track.style.transition = 'none';
+                track.style.transform  = `translateX(-${offset}px)`;
+                setTimeout(() => { track.style.transition = ''; }, 50);
+                updateCounter();
+                updateArrows();
+            }, 150);
+        });
+
+        // Initialize
+        buildDots();
+        updateCounter();
+        updateArrows();
+    }
+
 });

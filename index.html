@@ -4,7 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Full Stack Developer</title>
+    <title>Ahmed Radwan | Full Stack Developer Portfolio</title>
+    <meta name="description" content="Ahmed Radwan – Full Stack Developer specialized in Laravel, PHP, MySQL, Node.js, and modern web technologies. View projects, skills, and get in touch.">
+    <meta name="keywords" content="Ahmed Radwan, Full Stack Developer, Laravel, PHP, MySQL, Portfolio, Web Developer Gaza">
+    <meta name="author" content="Ahmed Radwan">
+    <!-- Open Graph & Twitter -->
+    <meta property="og:title" content="Ahmed Radwan | Full Stack Developer">
+    <meta property="og:description" content="Full Stack Developer specializing in Laravel, PHP, MySQL, and modern web technologies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://a7med-radwan.github.io/portfolio/images/profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ahmed Radwan | Full Stack Developer">
+    <meta name="twitter:description" content="Full Stack Developer specializing in Laravel, PHP, MySQL, and modern web technologies.">
+    <meta name="twitter:image" content="https://a7med-radwan.github.io/portfolio/images/profile.png">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
     <!-- Bootstrap CSS -->
@@ -108,7 +120,7 @@
                 <div class="col-lg-5 mb-5 mb-lg-0 d-flex">
                     <div class="profile-img-container glass-card p-3 w-100 d-flex align-items-center justify-content-center">
                         <img src="images/profile.png"
-                            alt="Ahmed Radwan Profile" class="profile-img">
+                            alt="Ahmed Radwan Profile" class="profile-img" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 d-flex">
@@ -141,8 +153,40 @@
         </div>
     </section>
 
+    <!-- Stats Section -->
+    <section id="stats" class="bg-alt" style="padding: 60px 0;">
+        <div class="container reveal">
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <div class="glass-card stat-card">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label"><i class="fa-solid fa-diagram-project me-1"></i> Projects Built</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card stat-card">
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-label"><i class="fa-solid fa-calendar-check me-1"></i> Years Experience</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card stat-card">
+                        <div class="stat-number" data-target="14">0</div>
+                        <div class="stat-label"><i class="fa-solid fa-code me-1"></i> Technologies</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="glass-card stat-card">
+                        <div class="stat-number">A+</div>
+                        <div class="stat-label"><i class="fa-solid fa-graduation-cap me-1"></i> Graduation Grade</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
-    <section id="skills" class="bg-alt">
+    <section id="skills">
         <div class="container reveal">
             <div class="text-center">
                 <h2 class="section-title">My Skills</h2>
@@ -257,186 +301,229 @@
         <div class="container reveal">
             <div class="text-center">
                 <h2 class="section-title">Featured Projects</h2>
+                <p class="projects-subtitle">Showcasing my best work — use arrows to explore all projects</p>
             </div>
 
-            <div class="row g-4 mt-4">
-                <!-- Project 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Hospital Management System" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">Hospital Management System</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A comprehensive web application for managing hospital operations, secure staff roles, patient records, and medication inventory.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">PHP</span>
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">HTML/CSS</span>
-                                <span class="tech-tag">JavaScript</span>
-                            </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Projects Carousel Wrapper -->
+            <div class="projects-carousel-wrapper mt-5">
 
-                <!-- Project 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="My Expenses System" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">My Expenses System</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A complete personal finance management system to track income, categorize expenses, and generate smart financial plans.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">Laravel 12</span>
-                                <span class="tech-tag">Tailwind CSS</span>
-                                <span class="tech-tag">MySQL</span>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <a href="https://myexpenses1.free.nf/" target="_blank" class="btn-neon px-3 py-2" style="font-size: 0.8rem;">Live Demo</a>
-                                <a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Nav Arrow: Prev -->
+                <button class="proj-nav-btn proj-nav-prev" id="projPrev" aria-label="Previous projects">
+                    <span class="proj-nav-inner">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </span>
+                    <span class="proj-nav-glow"></span>
+                </button>
 
-                <!-- Project 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Pharmacy Management API" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">Pharmacy Management API</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A RESTful API built with Node.js and Express for managing pharmacy operations, drug inventory, and secure JWT authentication.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">Node.js</span>
-                                <span class="tech-tag">Express.js</span>
-                                <span class="tech-tag">MongoDB</span>
-                            </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- Carousel Track Container -->
+                <div class="projects-track-container" id="projectsTrackContainer">
+                    <div class="projects-track" id="projectsTrack">
 
-                <!-- Project 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Library Management System" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">Library Management System</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A desktop application built with JavaFX and SceneBuilder for library management, featuring role-based dashboards and system statistics.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">JavaFX</span>
-                                <span class="tech-tag">CSS</span>
+                        <!-- Project 1 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="Hospital Management System" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">01</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">Hospital Management System</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A comprehensive web application for managing hospital operations, secure staff roles, patient records, and medication inventory.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">PHP</span>
+                                        <span class="tech-tag">MySQL</span>
+                                        <span class="tech-tag">HTML/CSS</span>
+                                        <span class="tech-tag">JavaScript</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Project 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="University Management System" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">University Management System</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A robust procedural Java application managing university operations across Admin, Instructor, and Student portals using 2D arrays.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">Procedural Logic</span>
-                                <span class="tech-tag">Data Structures</span>
+                        <!-- Project 2 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="My Expenses System" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">02</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">My Expenses System</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A complete personal finance management system to track income, categorize expenses, and generate smart financial plans.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">Laravel 12</span>
+                                        <span class="tech-tag">Tailwind CSS</span>
+                                        <span class="tech-tag">MySQL</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="https://myexpenses1.free.nf/" target="_blank" class="btn-neon px-3 py-2" style="font-size: 0.8rem;">Live Demo</a>
+                                        <a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/University-Management-System-Final-Project-Java-1" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Project 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Company Attendance Management System" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">Company Attendance System</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A comprehensive Java system for managing employee attendance, leaves, and roles utilizing OOP patterns and file-based object serialization.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">Java</span>
-                                <span class="tech-tag">OOP</span>
-                                <span class="tech-tag">File Storage</span>
+                        <!-- Project 3 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="Pharmacy Management API" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">03</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">Pharmacy Management API</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A RESTful API built with Node.js and Express for managing pharmacy operations, drug inventory, and secure JWT authentication.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">Express.js</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/Company-Attendance-Management-System-Final-Project-Java-2" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Project 7 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="glass-card project-card">
-                        <div class="project-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                alt="Cloud Data Analytics Toolkit" class="project-img">
-                            <div class="project-img-overlay"></div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title text-gradient">Cloud Data Analytics</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                A distributed data processing and analytics tool for large-scale datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning algorithms, Gradio UI, and Firebase.
-                            </p>
-                            <div class="mt-3 mb-4">
-                                <span class="tech-tag">PySpark</span>
-                                <span class="tech-tag">Gradio</span>
-                                <span class="tech-tag">Machine Learning</span>
+                        <!-- Project 4 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="Library Management System" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">04</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">Library Management System</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A desktop application built with JavaFX and SceneBuilder for library management, featuring role-based dashboards and system statistics.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">Java</span>
+                                        <span class="tech-tag">JavaFX</span>
+                                        <span class="tech-tag">CSS</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex justify-content-end align-items-center">
-                                <a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="University Management System" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">05</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">University Management System</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A robust procedural Java application managing university operations across Admin, Instructor, and Student portals using 2D arrays.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">Java</span>
+                                        <span class="tech-tag">Procedural Logic</span>
+                                        <span class="tech-tag">Data Structures</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/University-Management-System-Final-Project-Java-1" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+
+                        <!-- Project 6 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="Company Attendance Management System" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">06</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">Company Attendance System</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A comprehensive Java system for managing employee attendance, leaves, and roles utilizing OOP patterns and file-based object serialization.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">Java</span>
+                                        <span class="tech-tag">OOP</span>
+                                        <span class="tech-tag">File Storage</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/Company-Attendance-Management-System-Final-Project-Java-2" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 7 -->
+                        <div class="proj-slide">
+                            <div class="glass-card project-card">
+                                <div class="project-img-wrapper">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                        alt="Cloud Data Analytics Toolkit" class="project-img" loading="lazy">
+                                    <div class="project-img-overlay"></div>
+                                    <div class="proj-number-badge">07</div>
+                                </div>
+                                <div class="project-content">
+                                    <h3 class="project-title text-gradient">Cloud Data Analytics</h3>
+                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                        A distributed data processing and analytics tool for large-scale datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning algorithms, Gradio UI, and Firebase.
+                                    </p>
+                                    <div class="mt-3 mb-4">
+                                        <span class="tech-tag">PySpark</span>
+                                        <span class="tech-tag">Gradio</span>
+                                        <span class="tech-tag">Machine Learning</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- end .projects-track -->
+                </div><!-- end .projects-track-container -->
+
+                <!-- Nav Arrow: Next -->
+                <button class="proj-nav-btn proj-nav-next" id="projNext" aria-label="Next projects">
+                    <span class="proj-nav-inner">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </span>
+                    <span class="proj-nav-glow"></span>
+                </button>
+
+            </div><!-- end .projects-carousel-wrapper -->
+
+            <!-- Pagination Dots + Counter -->
+            <div class="proj-pagination" id="projPagination">
+                <!-- dots injected by JS -->
             </div>
+            <div class="proj-counter" id="projCounter">
+                <span id="projCurrent">1</span> / <span id="projTotal">3</span>
+            </div>
+
         </div>
     </section>
 
@@ -444,39 +531,185 @@
     <section id="experience">
         <div class="container reveal">
             <div class="text-center">
-                <h2 class="section-title">Experience & Education</h2>
+                <h2 class="section-title">Experience &amp; Education</h2>
             </div>
 
-            <div class="timeline mt-5">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="glass-card p-4">
-                        <span class="timeline-date">2024 - Present</span>
-                        <h3 class="timeline-title text-gradient">Freelance Web Developer</h3>
-                        <h4 class="timeline-subtitle">Self-Employed / Freelance Platforms</h4>
-                        <p style="color: var(--text-muted); margin-bottom: 0;">
-                            Acquiring and delivering custom web development projects for private clients. Specializing in rapid, secure, and robust application development utilizing Laravel and MySQL. Delivering seamless user experiences with HTML, CSS, JavaScript, and Bootstrap.
-                        </p>
-                    </div>
-                </div>
+            <!-- Tab Navigation -->
+            <div class="exp-tabs mt-5">
+                <button class="exp-tab-btn active" data-tab="experience">
+                    <i class="fa-solid fa-briefcase me-2"></i>Experience
+                </button>
+                <button class="exp-tab-btn" data-tab="education">
+                    <i class="fa-solid fa-graduation-cap me-2"></i>Education
+                </button>
+                <button class="exp-tab-btn" data-tab="certifications">
+                    <i class="fa-solid fa-certificate me-2"></i>Certifications
+                    <span class="cert-badge">4</span>
+                </button>
+            </div>
 
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="glass-card p-4">
-                        <span class="timeline-date">2022 - 2026</span>
-                        <h3 class="timeline-title text-gradient">B.S. Software Development</h3>
-                        <h4 class="timeline-subtitle">Islamic University of Gaza, Faculty of IT</h4>
-                        <p style="color: var(--text-muted); margin-bottom: 0;">
-                            Graduated with an Excellent GPA. <strong style="color: var(--neon-purple);">Capstone Project:</strong> A comprehensive web platform built robustly with Laravel for managing medical points across the Gaza Strip, demonstrating real-world problem-solving and secure application architecture.
-                        </p>
+            <!-- Tab: Experience -->
+            <div class="exp-tab-content active" id="tab-experience">
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-4">
+                            <span class="timeline-date">2024 - Present</span>
+                            <h3 class="timeline-title text-gradient">Freelance Web Developer</h3>
+                            <h4 class="timeline-subtitle">Self-Employed / Freelance Platforms</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 0;">
+                                Acquiring and delivering custom web development projects for private clients. Specializing in rapid, secure, and robust application development utilizing Laravel and MySQL.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-4">
+                            <span class="timeline-date">Apr 2026 - Present</span>
+                            <h3 class="timeline-title text-gradient">PHP Laravel Training Program</h3>
+                            <h4 class="timeline-subtitle">UCAS Technology Incubator - Internship</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 12px;">
+                                Completed a 90-hour project-based training focused on full-stack web development using PHP 8.4 and Laravel 13 - building and deploying a production-ready AI-powered blog application (WriteAI).
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 12px;">
+                                <strong style="color: var(--neon-purple);">Outcome:</strong> Deployed a full-stack AI-powered blog with scalable architecture and AI-driven content generation.
+                            </p>
+                            <div>
+                                <span class="tech-tag">PHP 8.4</span>
+                                <span class="tech-tag">Laravel 13</span>
+                                <span class="tech-tag">Eloquent ORM</span>
+                                <span class="tech-tag">AI Integration</span>
+                                <span class="tech-tag">CI/CD</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Tab: Education -->
+            <div class="exp-tab-content" id="tab-education">
+                <div class="timeline mt-4">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-4">
+                            <span class="timeline-date">2022 - 2026</span>
+                            <h3 class="timeline-title text-gradient">B.S. Software Development</h3>
+                            <h4 class="timeline-subtitle">Islamic University of Gaza, Faculty of IT</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 0;">
+                                Graduated with an <strong style="color: var(--neon-purple);">Excellent GPA</strong>. Capstone Project: A comprehensive web platform built with Laravel for managing medical points across the Gaza Strip - demonstrating real-world problem-solving and secure application architecture.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab: Certifications -->
+            <div class="exp-tab-content" id="tab-certifications">
+                <div class="row g-4 mt-3">
+
+                    <!-- Cert 1: Board Infinity -->
+                    <div class="col-md-6">
+                        <div class="glass-card cert-card p-4 h-100">
+                            <div class="cert-header">
+                                <div class="cert-icon-wrap">
+                                    <i class="fa-solid fa-code"></i>
+                                </div>
+                                <div>
+                                    <span class="cert-issuer">Board Infinity - Coursera</span>
+                                    <span class="cert-date">Apr 2026</span>
+                                </div>
+                            </div>
+                            <h4 class="cert-title">Master Full-Stack Web Development with Laravel &amp; PHP</h4>
+                            <p class="cert-desc">MVC Architecture, Eloquent ORM, Backend Security, RESTful APIs, and production-ready Laravel applications.</p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Laravel</span>
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MVC</span>
+                                <span class="tech-tag">REST APIs</span>
+                            </div>
+                            <a href="https://coursera.org/verify/ZNNRUXKKAY3M" target="_blank" class="cert-verify-btn">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cert 2: GenAI -->
+                    <div class="col-md-6">
+                        <div class="glass-card cert-card p-4 h-100">
+                            <div class="cert-header">
+                                <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(0,180,180,.15),rgba(0,180,180,.05));border-color:rgba(0,200,200,.3);">
+                                    <i class="fa-solid fa-robot" style="color:#00c8c8;"></i>
+                                </div>
+                                <div>
+                                    <span class="cert-issuer">Coursera</span>
+                                    <span class="cert-date">Apr 2026</span>
+                                </div>
+                            </div>
+                            <h4 class="cert-title">GenAI for Back-End Web Developers</h4>
+                            <p class="cert-desc">Hands-on experience using Generative AI for API development, database design, backend workflows, and responsible AI practices.</p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Generative AI</span>
+                                <span class="tech-tag">API Dev</span>
+                                <span class="tech-tag">AI Workflows</span>
+                            </div>
+                            <a href="https://coursera.org/verify/6EW0NT262N1M" target="_blank" class="cert-verify-btn">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Cert 3: UCAS -->
+                    <div class="col-md-6">
+                        <div class="glass-card cert-card p-4 h-100">
+                            <div class="cert-header">
+                                <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(255,140,0,.15),rgba(255,140,0,.05));border-color:rgba(255,140,0,.3);">
+                                    <i class="fa-brands fa-laravel" style="color:#ff8c00;"></i>
+                                </div>
+                                <div>
+                                    <span class="cert-issuer">UCAS Technology Incubator</span>
+                                    <span class="cert-date">2026</span>
+                                </div>
+                            </div>
+                            <h4 class="cert-title">PHP Laravel Training (AI-Powered Web Dev)</h4>
+                            <p class="cert-desc">90-hour project-based program building a production-ready AI blog (WriteAI) with Laravel 13 - auth, CRUD, APIs, and CI/CD.</p>
+                            <div class="mb-3">
+                                <span class="tech-tag">PHP 8.4</span>
+                                <span class="tech-tag">Laravel 13</span>
+                                <span class="tech-tag">AI Integration</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cert 4: Gaza Sky Geeks -->
+                    <div class="col-md-6">
+                        <div class="glass-card cert-card p-4 h-100">
+                            <div class="cert-header">
+                                <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(50,205,50,.15),rgba(50,205,50,.05));border-color:rgba(50,205,50,.3);">
+                                    <i class="fa-solid fa-brain" style="color:#32cd32;"></i>
+                                </div>
+                                <div>
+                                    <span class="cert-issuer">Gaza Sky Geeks - Mercy Corps</span>
+                                    <span class="cert-date">2024</span>
+                                </div>
+                            </div>
+                            <h4 class="cert-title">Beginner Problem-Solving Training</h4>
+                            <p class="cert-desc">Intensive 60-hour program on algorithmic thinking, logical reasoning, and systematic problem-solving techniques.</p>
+                            <div class="mb-3">
+                                <span class="tech-tag">Problem Solving</span>
+                                <span class="tech-tag">Algorithms</span>
+                                <span class="tech-tag">Logic</span>
+                            </div>
+                            <a href="https://drive.google.com/file/d/1xxPakRWN31l32CGvQxUkn_g5qrmwuW2I/view?usp=drive_link" target="_blank" class="cert-verify-btn">
+                                <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="bg-alt">
         <div class="container reveal">
@@ -503,9 +736,9 @@
                                 <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
                                 <span>github.com/a7med-radwan</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/ahmed-radwan-64b733343/" target="_blank" class="contact-item">
+                            <a href="https://www.linkedin.com/in/a7med-radwan" target="_blank" class="contact-item">
                                 <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                                <span>linkedin.com/in/ahmed-radwan-64b733343</span>
+                                <span>linkedin.com/in/a7med-radwan</span>
                             </a>
                             <a href="https://instagram.com/a7med___radwan" target="_blank" class="contact-item">
                                 <div class="contact-icon"><i class="fa-brands fa-instagram"></i></div>
@@ -523,7 +756,7 @@
                             <!-- Disable Captcha (Optional, remove if you want captcha) -->
                             <input type="hidden" name="_captcha" value="false">
                             <!-- Success Page -->
-                            <input type="hidden" name="_next" value="https://ahmed4.radwan7.github.io/portfolio/index.html">
+                            <input type="hidden" name="_next" value="https://a7med-radwan.github.io/portfolio/index.html">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -548,7 +781,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 text-end mt-3">
-                                    <button type="submit" class="btn-neon w-100 border-0">Send Message</button>
+                                    <button type="submit" class="btn-neon w-100 border-10">Send Message</button>
                                 </div>
                             </div>
                         </form>
@@ -561,9 +794,21 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p class="mb-0">&copy; 2026 Ahmed Radwan .</p>
+            <div class="footer-links mb-3">
+                <a href="https://github.com/a7med-radwan" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/a7med-radwan" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/a7med___radwan" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/970595495576" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:ahmed4.radwan7@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p class="mb-0" style="font-size:0.9rem;">&copy; 2026 <span style="color:var(--neon-purple); font-weight:600;">Ahmed Radwan</span>. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Scroll To Top Button -->
+    <button id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
