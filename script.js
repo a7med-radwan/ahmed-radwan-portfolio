@@ -169,6 +169,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Theme Color Switcher ---
+    const colorDots = document.querySelectorAll('.color-dot');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved color preference
+    const savedColor = localStorage.getItem('portfolioColor') || 'amethyst';
+    htmlElement.setAttribute('data-theme-color', savedColor);
+    colorDots.forEach(dot => {
+        dot.classList.toggle('active', dot.getAttribute('data-color') === savedColor);
+    });
+
+    colorDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            const color = dot.getAttribute('data-color');
+            
+            // Add transitioning class for smooth color morph
+            htmlElement.classList.add('color-transitioning');
+            
+            // Set attribute on html element (root)
+            htmlElement.setAttribute('data-theme-color', color);
+            
+            // Update active state in UI
+            colorDots.forEach(d => d.classList.remove('active'));
+            dot.classList.add('active');
+            
+            // Save preference
+            localStorage.setItem('portfolioColor', color);
+
+            // Remove transitioning class after animation
+            setTimeout(() => htmlElement.classList.remove('color-transitioning'), 700);
+        });
+    });
+
     // --- Animated Stats Counter ---
     const statNumbers = document.querySelectorAll('.stat-number[data-target]');
 
