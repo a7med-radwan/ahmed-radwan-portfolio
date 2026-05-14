@@ -1177,7 +1177,9 @@ footer {
 }
 
 body.light-mode footer {
-  background: hsl(var(--p-h), 20%, 96%);
+  background: hsl(var(--p-h), 20%, 97%);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  color: #33334d;
 }
 
 footer .footer-links a {
