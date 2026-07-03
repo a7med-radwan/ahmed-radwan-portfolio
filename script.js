@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Typing Effect ---
     const typingElement = document.getElementById('typing-text');
     const words = [
-        "Building digital experiences",
-        "Crafting modern web applications",
-        "Transforming ideas into reality",
-        "Exploring emerging technologies"
+        "Building secure RESTful APIs",
+        "Crafting scalable Laravel applications",
+        "Integrating AI into web apps",
+        "Transforming ideas into reality"
     ];
     let wordIndex = 0;
     let charIndex = 0;
@@ -408,6 +408,37 @@ document.addEventListener('DOMContentLoaded', () => {
         buildDots();
         updateCounter();
         updateArrows();
+    }
+
+    // --- Certifications Carousel ---
+    const certPrevBtn  = document.getElementById('certPrev');
+    const certNextBtn  = document.getElementById('certNext');
+    const certPages    = document.querySelectorAll('.cert-page');
+    const certDots     = document.querySelectorAll('#certPagination .proj-dot');
+    const certCurrEl   = document.getElementById('certCurrent');
+    const certTotalEl  = document.getElementById('certTotal');
+    let certPage = 0;
+    const certTotal = certPages.length;
+
+    function goToCertPage(n) {
+        certPages[certPage].classList.remove('active');
+        certDots[certPage]?.classList.remove('active');
+        certPage = n;
+        certPages[certPage].classList.add('active');
+        certDots[certPage]?.classList.add('active');
+        if (certCurrEl) certCurrEl.textContent = certPage + 1;
+        certPrevBtn?.classList.toggle('cert-disabled', certPage === 0);
+        certNextBtn?.classList.toggle('cert-disabled', certPage >= certTotal - 1);
+    }
+
+    if (certPrevBtn && certNextBtn && certPages.length) {
+        if (certTotalEl) certTotalEl.textContent = certTotal;
+        certPrevBtn.classList.add('cert-disabled');
+        if (certPage >= certTotal - 1) certNextBtn.classList.add('cert-disabled');
+
+        certPrevBtn.addEventListener('click', () => { if (certPage > 0) goToCertPage(certPage - 1); });
+        certNextBtn.addEventListener('click', () => { if (certPage < certTotal - 1) goToCertPage(certPage + 1); });
+        certDots.forEach((dot, i) => dot.addEventListener('click', () => goToCertPage(i)));
     }
 
 });

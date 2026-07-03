@@ -1556,3 +1556,90 @@ footer,
     height: 16px;
   }
 }
+
+/* =============================================
+   Certifications Carousel
+   ============================================= */
+.cert-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cert-pages-container {
+  flex: 1;
+  min-height: 260px;
+}
+
+.cert-page {
+  display: none;
+}
+
+.cert-page.active {
+  display: block;
+  animation: certPageIn 0.4s ease;
+}
+
+@keyframes certPageIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.cert-nav-btn {
+  flex-shrink: 0;
+  position: relative;
+  top: 100px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--neon-purple-dim);
+  color: var(--neon-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+
+.cert-nav-btn:hover {
+  background: var(--neon-purple);
+  color: #fff;
+  border-color: var(--neon-purple);
+  box-shadow: var(--glow-sm);
+}
+
+.cert-nav-btn.cert-disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cert-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cert-counter {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 576px) {
+  .cert-nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+    top: 80px;
+  }
+}
