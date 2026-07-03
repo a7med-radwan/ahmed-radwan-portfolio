@@ -1,20 +1,19 @@
-# Modern Developer Portfolio - Ahmed Radwan
+# Backend Developer Portfolio - Ahmed Radwan
 
-A sleek, modern, and highly responsive portfolio website built for showcase of professional development skills, projects, and experience. Designed with a deep-space neon aesthetic, featuring glassmorphism and smooth interactive animations.
+A sleek, modern, and highly responsive portfolio website built to showcase my backend development skills, projects, and experience. Designed with a deep-space neon aesthetic, featuring glassmorphism and smooth interactive animations.
 
 ##  Live Demo
 You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
 
 ##  Key Features
+- **Backend & AI Focused**: Showcasing expertise in Laravel 13, RESTful APIs, Node.js, and AI integrations (OpenAI/Claude).
 - **Modern UI/UX**: Premium design using glassmorphism, vibrant gradients, and neon glows.
 - **Fully Responsive**: Optimized for every device: desktops, tablets, and mobile phones.
 - **Interactive Elements**:
-  - Smooth scroll navigation.
-  - Typing animation for introduction.
+  - Smooth scroll navigation and typing animation for introduction.
   - Scroll-reveal effects for sections and cards.
-  - Interactive hover effects on skills and project gallery.
-- **Dark/Light Mode**: Seamless theme switching with persistent local storage preference.
-- **Functional Contact Form**: Integrated with FormSubmit for direct email communication.
+  - Custom JavaScript Carousels for both Projects and Certifications.
+- **Dynamic Themes**: Seamless 6-color theme switching and Dark/Light Mode with persistent local storage preference.
 - **Performance Optimized**: Lightweight assets and clean semantic HTML for SEO.
 
 ##  Built With
