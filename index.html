@@ -25,13 +25,33 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&family=Fira+Code:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body tabindex="0">
+
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-logo">
+                <span class="pl-bracket">&lt;</span><span class="pl-initials">AR</span><span class="pl-bracket">/&gt;</span>
+            </div>
+            <div class="preloader-progress">
+                <div class="preloader-bar" id="preloaderBar"></div>
+            </div>
+            <div class="preloader-status" id="preloaderStatus">Initializing environment...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-ring" class="cursor-ring"></div>
+    <div id="cursor-dot" class="cursor-dot"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top py-3">
@@ -83,13 +103,18 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
-        <div class="hero-bg-anim"></div>
+        <!-- Particle Canvas -->
+        <canvas id="heroCanvas" class="hero-canvas"></canvas>
+        <!-- Aurora Blobs -->
+        <div class="aurora-blob aurora-blob-1"></div>
+        <div class="aurora-blob aurora-blob-2"></div>
+        <div class="aurora-blob aurora-blob-3"></div>
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
                     <span class="hero-subtitle reveal active">Hello World</span>
-                    <h1 class="hero-title mt-3 reveal active" style="transition-delay: 0.2s;">
-                        I am <span class="text-gradient">Ahmed Radwan</span>
+                    <h1 class="hero-title mt-3 reveal active" style="transition-delay: 0.2s; font-family: 'Space Grotesk', 'Outfit', sans-serif;">
+                        I'm <span class="text-gradient glitch-text" data-text="Ahmed Radwan">Ahmed Radwan</span>
                     </h1>
                     <h2 class="h3 font-monospace mb-4 reveal active" style="transition-delay: 0.4s;">
                         &lt;Backend Developer /&gt;
@@ -100,14 +125,19 @@
                     </div>
                     
                     <div class="mt-5 reveal active" style="transition-delay: 0.8s;">
-                        <a href="#projects" class="btn-neon me-3 mb-3">View Projects</a>
+                        <a href="#projects" class="btn-neon magnetic me-3 mb-3">View Projects</a>
                         <a href="https://drive.google.com/drive/folders/1BAPSbcTQz7bEQeWkk5FU2WnHvO9ewEa4?usp=drive_link"
-                            class="btn-neon btn-neon-outline mb-3" target="_blank">Download CV</a>
+                            class="btn-neon btn-neon-outline magnetic mb-3" target="_blank">Download CV</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center reveal active" style="transition-delay: 0.4s;">
                     <div class="hero-img-container mx-auto">
                         <img src="images/profile.png" alt="Ahmed Radwan" class="hero-profile-img">
+                        <!-- Floating Tech Badges -->
+                        <div class="tech-badge-float tech-badge-1"><i class="fa-brands fa-laravel"></i> Laravel 13</div>
+                        <div class="tech-badge-float tech-badge-2"><i class="fa-solid fa-robot"></i> AI APIs</div>
+                        <div class="tech-badge-float tech-badge-3"><i class="fa-solid fa-network-wired"></i> REST APIs</div>
+                        <div class="tech-badge-float tech-badge-4"><i class="fa-solid fa-database"></i> MySQL</div>
                     </div>
                 </div>
             </div>
@@ -118,7 +148,7 @@
     <section id="about">
         <div class="container reveal">
             <div class="text-center">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">About Me</h2>
             </div>
             <div class="row align-items-center mt-5">
                 <div class="col-lg-5 mb-5 mb-lg-0 d-flex">
@@ -129,13 +159,19 @@
                 </div>
                 <div class="col-lg-7 d-flex">
                     <div class="glass-card p-4 p-md-5 w-100">
-                        <h3 class="mb-4 text-gradient">Who am I?</h3>
+                        <h3 class="mb-4 text-gradient" style="font-family: 'Space Grotesk', sans-serif;">Who am I?</h3>
                         <p class="lead" style="color: var(--text-main);">
-                            A passionate Backend Developer specialized in Laravel 13, with hands-on experience covering the full advanced curriculum. Graduated with an Excellent grade in Software Development (2026).
+                            A passionate Backend Developer specialized in Laravel 13, with hands-on experience covering the full advanced curriculum. Graduated with an <strong style="color: var(--neon-purple);">Excellent grade</strong> in Software Development (2026).
                         </p>
                         <p class="mb-4" style="color: var(--text-muted);">
-                            I focus on building secure, scalable RESTful APIs. Skilled in authentication &amp; authorization (JWT, Laravel Sanctum), RBAC, database design across MySQL, SQLite, and MongoDB, and automated testing with PHPUnit and Pest. Experienced in integrating AI capabilities (OpenAI and Claude APIs) into web applications, with additional working knowledge of Node.js.
+                            I focus on building secure, scalable RESTful APIs. Skilled in authentication &amp; authorization (Laravel Sanctum), RBAC, database design across MySQL, SQLite, and MongoDB, and automated testing with PHPUnit and Pest. Experienced in integrating AI capabilities into web applications.
                         </p>
+                        <!-- Code snippet decoration -->
+                        <div class="about-code-block">
+                            <span class="code-keyword">$developer</span> = <span class="code-keyword">new</span> <span class="code-var">AhmedRadwan</span>();<br>
+                            <span class="code-comment">// Stack: Laravel 13 · PHP 8.4 · AI APIs</span><br>
+                            <span class="code-keyword">return</span> $developer-><span class="code-var">build</span>(<span class="code-string">'amazing APIs'</span>);
+                        </div>
 
                         <div class="row mt-4">
                             <div class="col-sm-6 mb-3 mb-sm-0">
@@ -190,465 +226,107 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
-        <div class="container reveal">
-            <div class="text-center">
-                <h2 class="section-title">My Skills</h2>
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Tech Arsenal</h2>
+                <p class="skills-globe-hint">
+                    <i class="fa-solid fa-hand-pointer me-2"></i>Drag to spin &nbsp;&bull;&nbsp; Hover to inspect
+                </p>
             </div>
+        </div>
 
-            <div class="row mt-5">
-                <!-- Section 1: Languages & Frontend -->
-                <div class="col-lg-12 skill-category mb-5">
-                    <h4 class="skill-category-title text-center mb-4"><i class="fa-solid fa-code"></i> Languages & Frontend</h4>
-                    <div class="row g-3 justify-content-center">
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-java skill-icon"></i>
-                                <span class="skill-name">Java</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-js skill-icon"></i>
-                                <span class="skill-name">JavaScript</span>
-                            </div>
-                        </div>
+        <!-- 3D Skill Globe -->
+        <div class="skills-globe-outer" id="skillsGlobeWrapper">
+            <canvas id="skillGloBg" class="skill-globe-bg-canvas"></canvas>
+            <div id="skillTagCloud" class="skill-tag-cloud" aria-label="Interactive 3D skill globe"></div>
+            <!-- Ambient glow rings -->
+            <div class="globe-ambient-ring ring-a"></div>
+            <div class="globe-ambient-ring ring-b"></div>
+        </div>
 
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-php skill-icon"></i>
-                                <span class="skill-name">PHP</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-html5 skill-icon"></i>
-                                <span class="skill-name">HTML5</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-css3-alt skill-icon"></i>
-                                <span class="skill-name">CSS3</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-bootstrap skill-icon"></i>
-                                <span class="skill-name">Bootstrap</span>
-                            </div>
-                        </div>
-
-                    </div>
+        <!-- Skill Category Legend -->
+        <div class="container mt-2">
+            <div class="skill-legend reveal">
+                <div class="skill-legend-item">
+                    <span class="legend-dot" style="background:var(--neon-purple);"></span>
+                    <span>Core Stack</span>
                 </div>
-
-                <!-- Section 2: Backend, Databases & Architecture -->
-                <div class="col-lg-12 skill-category">
-                    <h4 class="skill-category-title text-center mb-4"><i class="fa-solid fa-server"></i> Backend, Databases & Architecture</h4>
-                    <div class="row g-3 justify-content-center">
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-laravel skill-icon"></i>
-                                <span class="skill-name">Laravel</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-node-js skill-icon"></i>
-                                <span class="skill-name">Node.js</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-database skill-icon"></i>
-                                <span class="skill-name">MySQL</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-leaf skill-icon"></i>
-                                <span class="skill-name">MongoDB</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-network-wired skill-icon"></i>
-                                <span class="skill-name">RESTful APIs</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-sitemap skill-icon"></i>
-                                <span class="skill-name">MVC Pattern</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-github skill-icon"></i>
-                                <span class="skill-name">Git / GitHub</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-brands fa-node-js skill-icon"></i>
-                                <span class="skill-name">Express.js</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-database skill-icon"></i>
-                                <span class="skill-name">SQLite</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-book-open skill-icon"></i>
-                                <span class="skill-name">Documentation</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-legend-item">
+                    <span class="legend-dot" style="background:hsl(calc(var(--p-h) + 40), 85%, 60%);"></span>
+                    <span>Data &amp; Backend</span>
                 </div>
-
-                <!-- Section 3: Testing, AI & Tools -->
-                <div class="col-lg-12 skill-category mt-5">
-                    <h4 class="skill-category-title text-center mb-4"><i class="fa-solid fa-flask"></i> Testing, AI &amp; Tools</h4>
-                    <div class="row g-3 justify-content-center">
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-vial skill-icon"></i>
-                                <span class="skill-name">PHPUnit</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-bug-slash skill-icon"></i>
-                                <span class="skill-name">Pest PHP</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-robot skill-icon"></i>
-                                <span class="skill-name">OpenAI API</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-brain skill-icon"></i>
-                                <span class="skill-name">Claude API</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-paper-plane skill-icon"></i>
-                                <span class="skill-name">Postman</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-shield-halved skill-icon"></i>
-                                <span class="skill-name">JWT / Sanctum</span>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                            <div class="glass-card skill-card py-4">
-                                <i class="fa-solid fa-infinity skill-icon"></i>
-                                <span class="skill-name">CI/CD Basics</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skill-legend-item">
+                    <span class="legend-dot" style="background:hsl(calc(var(--p-h) + 80), 80%, 60%);"></span>
+                    <span>AI &amp; Tools</span>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects">
-        <div class="container reveal">
-            <div class="text-center">
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="projects-subtitle">Showcasing my best work — use arrows to explore all projects</p>
+    <section id="projects" style="padding: 60px 0 0 0; overflow: hidden;">
+        <div class="imm-wrapper reveal" id="immWrapper">
+            <div class="text-center mb-3" style="position:relative; z-index:20; padding-top:32px;">
+                <h2 class="section-title" style="font-family:'Space Grotesk',sans-serif; background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.85) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Featured Projects</h2>
+                <p class="projects-subtitle" style="color:rgba(255,255,255,0.55); margin-top:-1rem;">9 production-ready systems &mdash; use arrows or keyboard &larr; &rarr;</p>
             </div>
 
-            <!-- Projects Carousel Wrapper -->
-            <div class="projects-carousel-wrapper mt-5">
-
-                <!-- Nav Arrow: Prev -->
-                <button class="proj-nav-btn proj-nav-prev" id="projPrev" aria-label="Previous projects">
-                    <span class="proj-nav-inner">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </span>
-                    <span class="proj-nav-glow"></span>
-                </button>
-
-                <!-- Carousel Track Container -->
-                <div class="projects-track-container" id="projectsTrackContainer">
-                    <div class="projects-track" id="projectsTrack">
-
-                        <!-- Project 1 - Gradly API -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=600&q=80"
-                                        alt="Gradly API AI-Powered Assistant Engine" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">01</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Gradly API — AI Assistant Engine</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        High-performance Laravel 12 RESTful API with OpenRouter AI for automated goal roadmaps, daily task breakdowns, interactive chatbot, rate-limited auth, Google OAuth, and Redis queues.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Laravel 12</span>
-                                        <span class="tech-tag">OpenRouter AI</span>
-                                        <span class="tech-tag">Sanctum & Socialite</span>
-                                        <span class="tech-tag">Redis & SQLite</span>
-                                        <span class="tech-tag">Docker</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/gradly-api" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 2 - Gaply -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
-                                        alt="Gaply Career Guidance Platform" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">02</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Gaply — Career Guidance & AI Gap Analysis</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        Comprehensive career platform using Laravel 13 & AI to analyze skill gaps, generate personalized weekly roadmaps, calculate readiness scores, optimize bios, and provide an AI interview coach with Sanctum API V1 protection.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Laravel 13</span>
-                                        <span class="tech-tag">Laravel AI SDK</span>
-                                        <span class="tech-tag">Sanctum & Fortify</span>
-                                        <span class="tech-tag">SQLite</span>
-                                        <span class="tech-tag">Queues</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/Gaply" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 3 - Write AI -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80"
-                                        alt="Write AI Blogging Platform" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">03</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Write AI — Blogging Platform</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        AI-powered blog with AI Writer Agent (Groq), SEO Agent (Gemini), semantic search via vector embeddings, 2FA, Passkeys, WebSockets real-time notifications, RBAC, and automated testing.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Laravel 13</span>
-                                        <span class="tech-tag">AI SDK</span>
-                                        <span class="tech-tag">WebSockets</span>
-                                        <span class="tech-tag">PHPUnit</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/ucas-laravel-write-ai" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 4 - SmartTask -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80"
-                                        alt="SmartTask AI Agile Task Manager" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">04</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">SmartTask — AI Agile Task Manager</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        AI-augmented Agile task & sprint manager on Laravel 13. Features agentic AI task decomposition, automated sprint backlog planner, developer analytics dashboard, and Fortify authentication.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Laravel 13</span>
-                                        <span class="tech-tag">Laravel AI SDK</span>
-                                        <span class="tech-tag">Tailwind CSS</span>
-                                        <span class="tech-tag">Fortify</span>
-                                        <span class="tech-tag">Blade</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/smart-task-laravel" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 5 - My Expenses -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="My Expenses System" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">05</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">My Expenses System</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        A complete personal finance management system to track income, categorize expenses, and generate smart financial plans.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Laravel 12</span>
-                                        <span class="tech-tag">Tailwind CSS</span>
-                                        <span class="tech-tag">MySQL</span>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <a href="https://myexpenses1.free.nf/" target="_blank" class="btn-neon px-3 py-2" style="font-size: 0.8rem;">Live Demo</a>
-                                        <a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 6 - Pharmacy Management API -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Pharmacy Management API" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">06</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Pharmacy Management API</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        A RESTful API built with Node.js and Express for managing pharmacy operations, drug inventory, and secure JWT authentication.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Node.js</span>
-                                        <span class="tech-tag">Express.js</span>
-                                        <span class="tech-tag">MongoDB</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 7 - Hospital Management System -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Hospital Management System" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">07</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Hospital Management System</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        A comprehensive web application for managing hospital operations, secure staff roles, patient records, and medication inventory.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">PHP</span>
-                                        <span class="tech-tag">MySQL</span>
-                                        <span class="tech-tag">HTML/CSS</span>
-                                        <span class="tech-tag">JavaScript</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 8 - Library Management System -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Library Management System" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">08</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Library Management System</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        A desktop application built with JavaFX and SceneBuilder for library management, featuring role-based dashboards and system statistics.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">Java</span>
-                                        <span class="tech-tag">JavaFX</span>
-                                        <span class="tech-tag">CSS</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Project 9 - Cloud Data Analytics -->
-                        <div class="proj-slide">
-                            <div class="glass-card project-card">
-                                <div class="project-img-wrapper">
-                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Cloud Data Analytics Toolkit" class="project-img" loading="lazy">
-                                    <div class="project-img-overlay"></div>
-                                    <div class="proj-number-badge">09</div>
-                                </div>
-                                <div class="project-content">
-                                    <h3 class="project-title text-gradient">Cloud Data Analytics</h3>
-                                    <p style="color: var(--text-muted); font-size: 0.95rem;">
-                                        A distributed data processing and analytics tool for large-scale datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning algorithms, Gradio UI, and Firebase.
-                                    </p>
-                                    <div class="mt-3 mb-4">
-                                        <span class="tech-tag">PySpark</span>
-                                        <span class="tech-tag">Gradio</span>
-                                        <span class="tech-tag">Machine Learning</span>
-                                    </div>
-                                    <div class="d-flex justify-content-end align-items-center">
-                                        <a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" class="project-link" title="View Source Code"><i class="fa-brands fa-github"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div><!-- end .projects-track -->
-                </div><!-- end .projects-track-container -->
-
-                <!-- Nav Arrow: Next -->
-                <button class="proj-nav-btn proj-nav-next" id="projNext" aria-label="Next projects">
-                    <span class="proj-nav-inner">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </span>
-                    <span class="proj-nav-glow"></span>
-                </button>
-
-            </div><!-- end .projects-carousel-wrapper -->
-
-            <!-- Pagination Dots + Counter -->
-            <div class="proj-pagination" id="projPagination">
-                <!-- dots injected by JS -->
+            <div class="imm-key-hint"><span class="imm-key">&larr;</span><span class="imm-key">&rarr;</span><span>navigate</span></div>
+            <!-- 01 -->
+            <div class="imm-slide active" data-index="0">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">01</div><div class="imm-info"><div class="imm-label">AI-Powered Platform</div><h3 class="imm-title text-gradient">Gradly API</h3><p class="imm-desc">High-performance Laravel 12 RESTful API with OpenRouter AI for automated goal roadmaps, daily task breakdowns, interactive chatbot, rate-limited auth, Google OAuth, and Redis queues.</p><div class="imm-tags"><span class="tech-tag">Laravel 12</span><span class="tech-tag">OpenRouter AI</span><span class="tech-tag">Sanctum &amp; Socialite</span><span class="tech-tag">Redis &amp; SQLite</span><span class="tech-tag">Docker</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/gradly-api" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Gradly API"><div class="imm-img-shine"></div></div></div></div>
             </div>
-            <div class="proj-counter" id="projCounter">
-                <span id="projCurrent">1</span> / <span id="projTotal">3</span>
+            <!-- 02 -->
+            <div class="imm-slide" data-index="1">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">02</div><div class="imm-info"><div class="imm-label">Career Guidance Platform</div><h3 class="imm-title text-gradient">Gaply</h3><p class="imm-desc">Comprehensive career platform using Laravel 13 &amp; AI to analyze skill gaps, generate personalized weekly roadmaps, calculate readiness scores, optimize bios, and provide an AI interview coach.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel AI SDK</span><span class="tech-tag">Sanctum &amp; Fortify</span><span class="tech-tag">SQLite</span><span class="tech-tag">Queues</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Gaply" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Gaply"><div class="imm-img-shine"></div></div></div></div>
             </div>
-
+            <!-- 03 -->
+            <div class="imm-slide" data-index="2">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">03</div><div class="imm-info"><div class="imm-label">AI Blogging Platform</div><h3 class="imm-title text-gradient">Write AI</h3><p class="imm-desc">AI-powered blog with AI Writer Agent (Groq), SEO Agent (Gemini), semantic search via vector embeddings, 2FA, Passkeys, WebSockets real-time notifications, RBAC, and automated testing.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">AI SDK</span><span class="tech-tag">WebSockets</span><span class="tech-tag">PHPUnit</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/ucas-laravel-write-ai" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Write AI"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 04 -->
+            <div class="imm-slide" data-index="3">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">04</div><div class="imm-info"><div class="imm-label">AI Agile Task Manager</div><h3 class="imm-title text-gradient">SmartTask</h3><p class="imm-desc">AI-augmented Agile task &amp; sprint manager on Laravel 13. Agentic AI task decomposition, automated sprint backlog planner, developer analytics dashboard, and Fortify authentication.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel AI SDK</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Fortify</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/smart-task-laravel" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="SmartTask"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 05 -->
+            <div class="imm-slide" data-index="4">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">05</div><div class="imm-info"><div class="imm-label">Finance Management</div><h3 class="imm-title text-gradient">My Expenses</h3><p class="imm-desc">A complete personal finance management system to track income, categorize expenses, and generate smart financial plans. Live deployment with full CRUD and role-based access control.</p><div class="imm-tags"><span class="tech-tag">Laravel 12</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">MySQL</span></div><div class="imm-links"><a href="https://myexpenses1.free.nf/" target="_blank" class="btn-neon me-2 px-4 py-2" style="font-size:0.85rem;"><i class="fa-solid fa-globe me-2"></i>Live Demo</a><a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" class="btn-neon btn-neon-outline px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-1"></i>Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="My Expenses"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 06 -->
+            <div class="imm-slide" data-index="5">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">06</div><div class="imm-info"><div class="imm-label">RESTful API System</div><h3 class="imm-title text-gradient">Pharmacy API</h3><p class="imm-desc">A RESTful API built with Node.js and Express for managing pharmacy operations, drug inventory, and secure JWT authentication with comprehensive Postman documentation.</p><div class="imm-tags"><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">MongoDB</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Pharmacy API"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 07 -->
+            <div class="imm-slide" data-index="6">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">07</div><div class="imm-info"><div class="imm-label">Web Application</div><h3 class="imm-title text-gradient">Hospital System</h3><p class="imm-desc">A comprehensive web application for managing hospital operations, secure staff roles, patient records, and medication inventory with full RBAC authorization system.</p><div class="imm-tags"><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Hospital System"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 08 -->
+            <div class="imm-slide" data-index="7">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">08</div><div class="imm-info"><div class="imm-label">Desktop Application</div><h3 class="imm-title text-gradient">Library System</h3><p class="imm-desc">A desktop application built with JavaFX and SceneBuilder for library management, featuring role-based dashboards for admins and librarians, with comprehensive system statistics.</p><div class="imm-tags"><span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span><span class="tech-tag">CSS</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Library System"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- 09 -->
+            <div class="imm-slide" data-index="8">
+                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
+                <div class="imm-content"><div class="imm-left"><div class="imm-number">09</div><div class="imm-info"><div class="imm-label">Distributed Systems</div><h3 class="imm-title text-gradient">Cloud Analytics</h3><p class="imm-desc">A distributed data processing and analytics tool for large-scale datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning algorithms, Gradio UI, and Firebase.</p><div class="imm-tags"><span class="tech-tag">PySpark</span><span class="tech-tag">Gradio</span><span class="tech-tag">Machine Learning</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Cloud Analytics"><div class="imm-img-shine"></div></div></div></div>
+            </div>
+            <!-- Nav -->
+            <div class="imm-nav-bar">
+                <button class="imm-nav-btn" id="immPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                <div class="imm-dots-bar" id="immDots"></div>
+                <button class="imm-nav-btn" id="immNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="imm-counter"><span id="immCur">01</span><span class="imm-sep">&nbsp;/&nbsp;</span><span id="immTot">09</span></div>
+        </div>
+    </section>
         </div>
     </section>
 
@@ -656,7 +334,7 @@
     <section id="experience">
         <div class="container reveal">
             <div class="text-center">
-                <h2 class="section-title">Experience &amp; Education</h2>
+                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Experience &amp; Education</h2>
             </div>
 
             <!-- Tab Navigation -->
@@ -702,7 +380,7 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="glass-card p-4">
-                            <span class="timeline-date">May 2026 – Present</span>
+                            <span class="timeline-date">May 2026 – Jul 2026 · 3 mos</span>
                             <h3 class="timeline-title text-gradient">Back-End Developer Intern</h3>
                             <h4 class="timeline-subtitle">BBD Agency — Remote, Canada</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
@@ -717,20 +395,32 @@
                                 <span class="tech-tag">Postman</span>
                                 <span class="tech-tag">Git / GitHub</span>
                             </div>
+                            <div class="mt-3">
+                                <a href="https://select.bbdagency.co/digital-id/id/BBD-BE-WX3Q-37HK"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="exp-verify-btn"
+                                   id="bbd-verify-btn">
+                                    <i class="fa-solid fa-shield-check"></i>
+                                    <span>Verify Experience</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
+                                </a>
+                            </div>
+
                         </div>
                     </div>
-                    <!-- Palworkers -->
+                    <!-- Netloopers -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="glass-card p-4">
-                            <span class="timeline-date">Apr 2026 – Jun 2026</span>
-                            <h3 class="timeline-title text-gradient">Digital Product Development Trainee</h3>
-                            <h4 class="timeline-subtitle">Palworkers — Remote, Gaza Strip</h4>
+                            <span class="timeline-date">Apr 2026 – Jul 2026 · 4 mos</span>
+                            <h3 class="timeline-title text-gradient">AI-Powered Digital Product Development Program</h3>
+                            <h4 class="timeline-subtitle">Netloopers — Internship &nbsp;·&nbsp; Remote, Gaza Strip</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Designed and developed digital product prototypes using AI tools across the full product lifecycle — ideation, UI/UX design, development, and deployment.
+                                Completed an intensive, hands-on training program focused on building digital products using Artificial Intelligence and modern development tools. Covered the full product lifecycle — from ideation and UI/UX design to development, backend integration, and deployment using AI-powered workflows.
                             </p>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Built and integrated frontend interfaces with backend services using Firebase, Supabase, Gemini, Claude, Figma, and Cursor IDE. Delivered a capstone project simulating a real-world end-to-end digital product.
+                                <strong style="color: var(--neon-purple);">Key achievements:</strong> Designed and developed digital product prototypes using AI tools, built and integrated frontend interfaces with backend services (Firebase, Supabase), utilized Gemini, Claude, Figma, and Cursor IDE, and delivered a final capstone project simulating a real-world end-to-end digital product.
                             </p>
                             <div>
                                 <span class="tech-tag">Firebase</span>
@@ -739,8 +429,20 @@
                                 <span class="tech-tag">Figma</span>
                                 <span class="tech-tag">AI Agents</span>
                             </div>
+                            <div class="mt-3">
+                                <a href="https://netloopers.com/certificate/verify/2026-ai-dev-1-0015"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="exp-verify-btn"
+                                   id="netloopers-verify-btn">
+                                    <i class="fa-solid fa-shield-check"></i>
+                                    <span>Verify Certificate</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -989,9 +691,8 @@
     <section id="contact" class="bg-alt">
         <div class="container reveal">
             <div class="text-center">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="mb-5" style="color: var(--text-muted);">Have a project in mind or want to say hello? Let's
-                    talk!</p>
+                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Get In Touch</h2>
+                <p class="mb-5" style="color: var(--text-muted);">Have a project in mind or want to say hello? Let's talk!</p>
             </div>
 
             <div class="row g-5">
