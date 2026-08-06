@@ -62,60 +62,103 @@ class Preloader {
 
 
 /* ================================================================
-   2. CUSTOM CURSOR
+   2. CUSTOM CURSOR (Futuristic Neon Vector Arrow)
    ================================================================ */
 class CustomCursor {
   constructor() {
-    this.ring = document.getElementById('cursor-ring');
-    this.dot = document.getElementById('cursor-dot');
-    if (!this.ring || window.matchMedia('(pointer: coarse)').matches) return;
+    this.cursor = document.getElementById('custom-cursor');
+    if (!this.cursor || window.matchMedia('(pointer: coarse)').matches) return;
 
     this.pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    this.ringPos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    this.cursorPos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     this.visible = false;
+    this.currentHoverType = null;
 
     this.bindEvents();
     this.render();
   }
 
   bindEvents() {
-    document.addEventListener('mousemove', (e) => {
+    window.addEventListener('mousemove', (e) => {
       this.pos.x = e.clientX;
       this.pos.y = e.clientY;
+
       if (!this.visible) {
-        this.ring.style.opacity = '1';
-        this.dot.style.opacity = '1';
+        this.cursor.style.opacity = '1';
         this.visible = true;
       }
+
+      this.checkHoverState(e.target);
     }, { passive: true });
 
     document.addEventListener('mouseleave', () => {
-      this.ring.style.opacity = '0';
-      this.dot.style.opacity = '0';
+      this.cursor.style.opacity = '0';
       this.visible = false;
     });
 
-    // Hover effect
-    const hoverTargets = 'a, button, .skill-card, .project-card, .color-dot, .contact-item, .cert-verify-btn, .footer-links a, #scroll-top';
-    document.querySelectorAll(hoverTargets).forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        this.ring.classList.add('cursor-hover');
-        this.dot.classList.add('cursor-hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        this.ring.classList.remove('cursor-hover');
-        this.dot.classList.remove('cursor-hover');
-      });
+    document.addEventListener('mousedown', (e) => {
+      this.cursor.classList.add('cursor-active');
+      this.createRipple(e.clientX, e.clientY);
+    });
+
+    document.addEventListener('mouseup', () => {
+      this.cursor.classList.remove('cursor-active');
     });
   }
 
-  render() {
-    // Smooth lag for ring
-    this.ringPos.x += (this.pos.x - this.ringPos.x) * 0.1;
-    this.ringPos.y += (this.pos.y - this.ringPos.y) * 0.1;
+  checkHoverState(target) {
+    if (!target) return;
 
-    this.ring.style.transform = `translate(${this.ringPos.x - 20}px, ${this.ringPos.y - 20}px)`;
-    this.dot.style.transform = `translate(${this.pos.x - 4}px,  ${this.pos.y - 4}px)`;
+    const interactive = target.closest('a, button, input, textarea, select, .btn, .color-dot, .contact-item, .cert-verify-btn, #scroll-top, .social-icon, .nav-link, .filter-btn');
+    const textElem = target.closest('p, h1, h2, h3, h4, h5, h6, .hero-tag, .section-subtitle, blockquote');
+    const cardElem = target.closest('.skill-card, .project-card, .timeline-card, .stat-card, .tech-pill, .cert-card');
+
+    if (interactive) {
+      if (this.currentHoverType !== 'hover') {
+        this.clearHoverClasses();
+        this.cursor.classList.add('cursor-hover');
+        this.currentHoverType = 'hover';
+      }
+    } else if (textElem && !textElem.closest('a, button, .skill-card, .project-card')) {
+      if (this.currentHoverType !== 'text') {
+        this.clearHoverClasses();
+        this.cursor.classList.add('cursor-hover-text');
+        this.currentHoverType = 'text';
+      }
+    } else if (cardElem) {
+      if (this.currentHoverType !== 'card') {
+        this.clearHoverClasses();
+        this.cursor.classList.add('cursor-hover-card');
+        this.currentHoverType = 'card';
+      }
+    } else {
+      if (this.currentHoverType !== null) {
+        this.clearHoverClasses();
+        this.currentHoverType = null;
+      }
+    }
+  }
+
+  clearHoverClasses() {
+    this.cursor.classList.remove('cursor-hover', 'cursor-hover-text', 'cursor-hover-card');
+  }
+
+  createRipple(x, y) {
+    const ripple = document.createElement('div');
+    ripple.className = 'cursor-ripple';
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    document.body.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 500);
+  }
+
+  render() {
+    // Direct fluid lerp follow
+    this.cursorPos.x += (this.pos.x - this.cursorPos.x) * 0.4;
+    this.cursorPos.y += (this.pos.y - this.cursorPos.y) * 0.4;
+
+    this.cursor.style.transform = `translate3d(${this.cursorPos.x}px, ${this.cursorPos.y}px, 0)`;
 
     requestAnimationFrame(() => this.render());
   }
@@ -744,50 +787,50 @@ document.addEventListener('DOMContentLoaded', () => {
 class SkillGlobe {
   constructor() {
     this.container = document.getElementById('skillTagCloud');
-    this.bgCanvas  = document.getElementById('skillGloBg');
+    this.bgCanvas = document.getElementById('skillGloBg');
     if (!this.container) return;
 
     // --- Skill data: label + Font Awesome classes + per-skill color ---
     this.SKILLS = [
       // Core Stack — uses theme color
-      { label: 'Laravel',    icon: 'fa-brands fa-laravel',        cat: 0 },
-      { label: 'PHP',        icon: 'fa-brands fa-php',            cat: 0 },
-      { label: 'REST APIs',  icon: 'fa-solid fa-network-wired',   cat: 0 },
-      { label: 'JavaScript', icon: 'fa-brands fa-js',             cat: 0 },
-      { label: 'Java',       icon: 'fa-brands fa-java',           cat: 0 },
-      { label: 'MySQL',      icon: 'fa-solid fa-database',        cat: 0 },
+      { label: 'Laravel', icon: 'fa-brands fa-laravel', cat: 0 },
+      { label: 'PHP', icon: 'fa-brands fa-php', cat: 0 },
+      { label: 'REST APIs', icon: 'fa-solid fa-network-wired', cat: 0 },
+      { label: 'JavaScript', icon: 'fa-brands fa-js', cat: 0 },
+      { label: 'Java', icon: 'fa-brands fa-java', cat: 0 },
+      { label: 'MySQL', icon: 'fa-solid fa-database', cat: 0 },
       // Data & Backend
-      { label: 'Node.js',    icon: 'fa-brands fa-node-js',        cat: 1 },
-      { label: 'MongoDB',    icon: 'fa-solid fa-leaf',            cat: 1 },
-      { label: 'Git/GitHub', icon: 'fa-brands fa-github',         cat: 1 },
-      { label: 'MVC',        icon: 'fa-solid fa-sitemap',         cat: 1 },
-      { label: 'SQLite',     icon: 'fa-solid fa-database',        cat: 1 },
-      { label: 'Bootstrap',  icon: 'fa-brands fa-bootstrap',      cat: 1 },
-      { label: 'Express.js', icon: 'fa-brands fa-node-js',        cat: 1 },
+      { label: 'Node.js', icon: 'fa-brands fa-node-js', cat: 1 },
+      { label: 'MongoDB', icon: 'fa-solid fa-leaf', cat: 1 },
+      { label: 'Git/GitHub', icon: 'fa-brands fa-github', cat: 1 },
+      { label: 'MVC', icon: 'fa-solid fa-sitemap', cat: 1 },
+      { label: 'SQLite', icon: 'fa-solid fa-database', cat: 1 },
+      { label: 'Bootstrap', icon: 'fa-brands fa-bootstrap', cat: 1 },
+      { label: 'Express.js', icon: 'fa-brands fa-node-js', cat: 1 },
       // AI & Tools
-      { label: 'AI APIs',    icon: 'fa-solid fa-robot',           cat: 2 },
-      { label: 'PHPUnit',    icon: 'fa-solid fa-vial',            cat: 2 },
-      { label: 'Pest PHP',   icon: 'fa-solid fa-bug-slash',       cat: 2 },
-      { label: 'Postman',    icon: 'fa-solid fa-paper-plane',     cat: 2 },
-      { label: 'Sanctum',    icon: 'fa-solid fa-shield-halved',   cat: 2 },
-      { label: 'CI/CD',      icon: 'fa-solid fa-infinity',        cat: 2 },
-      { label: 'Docker',     icon: 'fa-solid fa-cube',            cat: 2 },
-      { label: 'CSS3',       icon: 'fa-brands fa-css3-alt',       cat: 2 },
+      { label: 'AI APIs', icon: 'fa-solid fa-robot', cat: 2 },
+      { label: 'PHPUnit', icon: 'fa-solid fa-vial', cat: 2 },
+      { label: 'Pest PHP', icon: 'fa-solid fa-bug-slash', cat: 2 },
+      { label: 'Postman', icon: 'fa-solid fa-paper-plane', cat: 2 },
+      { label: 'Sanctum', icon: 'fa-solid fa-shield-halved', cat: 2 },
+      { label: 'CI/CD', icon: 'fa-solid fa-infinity', cat: 2 },
+      { label: 'Docker', icon: 'fa-solid fa-cube', cat: 2 },
+      { label: 'CSS3', icon: 'fa-brands fa-css3-alt', cat: 2 },
     ];
 
     // Rotation state
-    this.rotX    = 0.4;   // tilt the globe slightly towards viewer
-    this.rotY    = 0;
-    this.velX    = 0;
-    this.velY    = 0.0025; // auto-rotation speed
+    this.rotX = 0.4;   // tilt the globe slightly towards viewer
+    this.rotY = 0;
+    this.velX = 0;
+    this.velY = 0.0025; // auto-rotation speed
     this.baseVelY = 0.0025;
 
     // Drag state
-    this.isDragging  = false;
-    this.lastMouseX  = 0;
-    this.lastMouseY  = 0;
-    this.tags        = [];
-    this.hue         = this.getHue();
+    this.isDragging = false;
+    this.lastMouseX = 0;
+    this.lastMouseY = 0;
+    this.tags = [];
+    this.hue = this.getHue();
     this.isLightMode = document.body.classList.contains('light-mode');
 
     this.init();
@@ -804,7 +847,7 @@ class SkillGlobe {
     const golden = (1 + Math.sqrt(5)) / 2;
     return Array.from({ length: n }, (_, i) => {
       const theta = Math.acos(1 - 2 * (i + 0.5) / n);
-      const phi   = 2 * Math.PI * i / golden;
+      const phi = 2 * Math.PI * i / golden;
       return {
         nx: Math.sin(theta) * Math.cos(phi),
         ny: Math.sin(theta) * Math.sin(phi),
@@ -862,13 +905,13 @@ class SkillGlobe {
     sorted.sort((a, b) => a.depth - b.depth);
 
     sorted.forEach(({ t, x, y, depth }) => {
-      const opacity   = 0.12 + depth * 0.88;
-      const tagScale  = 0.55 + depth * 0.75;  // 0.55x back → 1.3x front
+      const opacity = 0.12 + depth * 0.88;
+      const tagScale = 0.55 + depth * 0.75;  // 0.55x back → 1.3x front
       const tx = x - W / 2;
       const ty = y - H / 2;
       t.el.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(${tagScale.toFixed(3)})`;
-      t.el.style.opacity   = opacity.toFixed(3);
-      t.el.style.zIndex    = Math.round(depth * 99);
+      t.el.style.opacity = opacity.toFixed(3);
+      t.el.style.zIndex = Math.round(depth * 99);
     });
   }
 
@@ -878,7 +921,7 @@ class SkillGlobe {
     const ctx = c.getContext('2d');
     const W = c.width, H = c.height;
     const cx = W / 2, cy = H / 2;
-    const R  = Math.min(
+    const R = Math.min(
       this.container.offsetWidth,
       this.container.offsetHeight
     ) * 0.44;
@@ -890,9 +933,9 @@ class SkillGlobe {
 
     // Outer ambient halo
     const halo = ctx.createRadialGradient(cx, cy, R * 0.3, cx, cy, R * 1.6);
-    halo.addColorStop(0,   `hsla(${h},80%,60%, ${isLight ? 0.06 : 0.12})`);
+    halo.addColorStop(0, `hsla(${h},80%,60%, ${isLight ? 0.06 : 0.12})`);
     halo.addColorStop(0.5, `hsla(${h},80%,50%, ${isLight ? 0.03 : 0.06})`);
-    halo.addColorStop(1,   `hsla(${h},80%,40%, 0)`);
+    halo.addColorStop(1, `hsla(${h},80%,40%, 0)`);
     ctx.beginPath();
     ctx.arc(cx, cy, R * 1.6, 0, Math.PI * 2);
     ctx.fillStyle = halo;
@@ -900,9 +943,9 @@ class SkillGlobe {
 
     // Inner sphere tint
     const inner = ctx.createRadialGradient(cx - R * 0.25, cy - R * 0.25, 0, cx, cy, R);
-    inner.addColorStop(0,   `hsla(${h},70%,70%, ${isLight ? 0.08 : 0.14})`);
+    inner.addColorStop(0, `hsla(${h},70%,70%, ${isLight ? 0.08 : 0.14})`);
     inner.addColorStop(0.6, `hsla(${h},70%,55%, ${isLight ? 0.03 : 0.06})`);
-    inner.addColorStop(1,   `hsla(${h},70%,40%, 0)`);
+    inner.addColorStop(1, `hsla(${h},70%,40%, 0)`);
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, Math.PI * 2);
     ctx.fillStyle = inner;
@@ -938,7 +981,7 @@ class SkillGlobe {
   resizeCanvas() {
     const wrapper = document.getElementById('skillsGlobeWrapper');
     if (!wrapper || !this.bgCanvas) return;
-    this.bgCanvas.width  = wrapper.offsetWidth;
+    this.bgCanvas.width = wrapper.offsetWidth;
     this.bgCanvas.height = wrapper.offsetHeight;
   }
 
@@ -946,7 +989,7 @@ class SkillGlobe {
     if (!this.isDragging) {
       // Decay drag inertia, blend back to base auto-rotation
       this.velX *= 0.94;
-      this.velY  = this.velY * 0.96 + this.baseVelY * 0.04;
+      this.velY = this.velY * 0.96 + this.baseVelY * 0.04;
     }
 
     this.rotY += this.velY;
@@ -954,7 +997,7 @@ class SkillGlobe {
 
     // Soft clamp on X tilt (prevent flipping upside-down)
     const MAX_TILT = Math.PI / 2.2;
-    if (this.rotX >  MAX_TILT) { this.rotX =  MAX_TILT; this.velX *= -0.3; }
+    if (this.rotX > MAX_TILT) { this.rotX = MAX_TILT; this.velX *= -0.3; }
     if (this.rotX < -MAX_TILT) { this.rotX = -MAX_TILT; this.velX *= -0.3; }
 
     this.updateTags();

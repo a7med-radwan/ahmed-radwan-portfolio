@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ahmed Radwan | Backend Developer — Laravel &amp; Node.js</title>
-    <meta name="description" content="Ahmed Radwan – Backend Developer specialized in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration. View projects, skills, and get in touch.">
-    <meta name="keywords" content="Ahmed Radwan, Backend Developer, Laravel, PHP, MySQL, RESTful API, Node.js, AI Integration, Portfolio, Web Developer Gaza">
+    <meta name="description"
+        content="Ahmed Radwan – Backend Developer specialized in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration. View projects, skills, and get in touch.">
+    <meta name="keywords"
+        content="Ahmed Radwan, Backend Developer, Laravel, PHP, MySQL, RESTful API, Node.js, AI Integration, Portfolio, Web Developer Gaza">
     <meta name="author" content="Ahmed Radwan">
     <!-- Open Graph & Twitter -->
     <meta property="og:title" content="Ahmed Radwan | Backend Developer — Laravel &amp; Node.js">
-    <meta property="og:description" content="Backend Developer specializing in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration.">
+    <meta property="og:description"
+        content="Backend Developer specializing in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://a7med-radwan.github.io/portfolio/images/profile.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Ahmed Radwan | Backend Developer — Laravel &amp; Node.js">
-    <meta name="twitter:description" content="Backend Developer specializing in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration.">
+    <meta name="twitter:description"
+        content="Backend Developer specializing in Laravel 13, PHP, RESTful APIs, MySQL, MongoDB, and AI integration.">
     <meta name="twitter:image" content="https://a7med-radwan.github.io/portfolio/images/profile.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +41,8 @@
     <div id="preloader" class="preloader">
         <div class="preloader-inner">
             <div class="preloader-logo">
-                <span class="pl-bracket">&lt;</span><span class="pl-initials">AR</span><span class="pl-bracket">/&gt;</span>
+                <span class="pl-bracket">&lt;</span><span class="pl-initials">AR</span><span
+                    class="pl-bracket">/&gt;</span>
             </div>
             <div class="preloader-progress">
                 <div class="preloader-bar" id="preloaderBar"></div>
@@ -46,9 +51,19 @@
         </div>
     </div>
 
-    <!-- Custom Cursor -->
-    <div id="cursor-ring" class="cursor-ring"></div>
-    <div id="cursor-dot" class="cursor-dot"></div>
+    <!-- Custom Cursor (Futuristic Neon Vector Arrow) -->
+    <div id="custom-cursor" class="custom-cursor">
+        <svg class="cursor-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="cursorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="hsl(var(--p-h), var(--p-s), calc(var(--p-l) + 15%))" />
+                    <stop offset="100%" stop-color="hsl(var(--p-h), var(--p-s), calc(var(--p-l) - 10%))" />
+                </linearGradient>
+            </defs>
+            <path d="M3 3L10.5 21L13.8 13.8L21 10.5L3 3Z" fill="url(#cursorGradient)" stroke="var(--neon-purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="cursor-aura"></div>
+    </div>
 
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress" class="scroll-progress-bar"></div>
@@ -113,17 +128,18 @@
             <div class="row align-items-center">
                 <div class="col-lg-7 text-center text-lg-start mb-5 mb-lg-0">
                     <span class="hero-subtitle reveal active">Hello World</span>
-                    <h1 class="hero-title mt-3 reveal active" style="transition-delay: 0.2s; font-family: 'Space Grotesk', 'Outfit', sans-serif;">
+                    <h1 class="hero-title mt-3 reveal active"
+                        style="transition-delay: 0.2s; font-family: 'Space Grotesk', 'Outfit', sans-serif;">
                         I'm <span class="text-gradient glitch-text" data-text="Ahmed Radwan">Ahmed Radwan</span>
                     </h1>
                     <h2 class="h3 font-monospace mb-4 reveal active" style="transition-delay: 0.4s;">
                         &lt;Backend Developer /&gt;
                     </h2>
-                    
+
                     <div class="typing-container reveal active" style="transition-delay: 0.6s;">
                         <span id="typing-text"></span><span class="typed-cursor">|</span>
                     </div>
-                    
+
                     <div class="mt-5 reveal active" style="transition-delay: 0.8s;">
                         <a href="#projects" class="btn-neon magnetic me-3 mb-3">View Projects</a>
                         <a href="https://drive.google.com/drive/folders/1BAPSbcTQz7bEQeWkk5FU2WnHvO9ewEa4?usp=drive_link"
@@ -136,7 +152,8 @@
                         <!-- Floating Tech Badges -->
                         <div class="tech-badge-float tech-badge-1"><i class="fa-brands fa-laravel"></i> Laravel 13</div>
                         <div class="tech-badge-float tech-badge-2"><i class="fa-solid fa-robot"></i> AI APIs</div>
-                        <div class="tech-badge-float tech-badge-3"><i class="fa-solid fa-network-wired"></i> REST APIs</div>
+                        <div class="tech-badge-float tech-badge-3"><i class="fa-solid fa-network-wired"></i> REST APIs
+                        </div>
                         <div class="tech-badge-float tech-badge-4"><i class="fa-solid fa-database"></i> MySQL</div>
                     </div>
                 </div>
@@ -152,38 +169,50 @@
             </div>
             <div class="row align-items-center mt-5">
                 <div class="col-lg-5 mb-5 mb-lg-0 d-flex">
-                    <div class="profile-img-container glass-card p-3 w-100 d-flex align-items-center justify-content-center">
-                        <img src="images/profile.png"
-                            alt="Ahmed Radwan Profile" class="profile-img" loading="lazy">
+                    <div
+                        class="profile-img-container glass-card p-3 w-100 d-flex align-items-center justify-content-center">
+                        <img src="images/profile.png" alt="Ahmed Radwan Profile" class="profile-img" loading="lazy">
                     </div>
                 </div>
                 <div class="col-lg-7 d-flex">
                     <div class="glass-card p-4 p-md-5 w-100">
                         <h3 class="mb-4 text-gradient" style="font-family: 'Space Grotesk', sans-serif;">Who am I?</h3>
                         <p class="lead" style="color: var(--text-main);">
-                            A passionate Backend Developer specialized in Laravel 13, with hands-on experience covering the full advanced curriculum. Graduated with an <strong style="color: var(--neon-purple);">Excellent grade</strong> in Software Development (2026).
+                            A passionate Backend Developer specialized in Laravel 13, with hands-on experience covering
+                            the full advanced curriculum. Graduated with an <strong
+                                style="color: var(--neon-purple);">Excellent grade</strong> in Software Development
+                            (2026).
                         </p>
                         <p class="mb-4" style="color: var(--text-muted);">
-                            I focus on building secure, scalable RESTful APIs. Skilled in authentication &amp; authorization (Laravel Sanctum), RBAC, database design across MySQL, SQLite, and MongoDB, and automated testing with PHPUnit and Pest. Experienced in integrating AI capabilities into web applications.
+                            I focus on building secure, scalable RESTful APIs. Skilled in authentication &amp;
+                            authorization (Laravel Sanctum), RBAC, database design across MySQL, SQLite, and MongoDB,
+                            and automated testing with PHPUnit and Pest. Experienced in integrating AI capabilities into
+                            web applications.
                         </p>
                         <!-- Code snippet decoration -->
                         <div class="about-code-block">
-                            <span class="code-keyword">$developer</span> = <span class="code-keyword">new</span> <span class="code-var">AhmedRadwan</span>();<br>
+                            <span class="code-keyword">$developer</span> = <span class="code-keyword">new</span> <span
+                                class="code-var">AhmedRadwan</span>();<br>
                             <span class="code-comment">// Stack: Laravel 13 · PHP 8.4 · AI APIs</span><br>
-                            <span class="code-keyword">return</span> $developer-><span class="code-var">build</span>(<span class="code-string">'amazing APIs'</span>);
+                            <span class="code-keyword">return</span> $developer-><span
+                                class="code-var">build</span>(<span class="code-string">'amazing APIs'</span>);
                         </div>
 
                         <div class="row mt-4">
                             <div class="col-sm-6 mb-3 mb-sm-0">
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Secure RESTful APIs</li>
-                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> AI Integration</li>
+                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Secure RESTful
+                                        APIs</li>
+                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> AI Integration
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-sm-6">
                                 <ul class="list-unstyled">
-                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Automated Testing</li>
-                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Clean Code Practices</li>
+                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Automated
+                                        Testing</li>
+                                    <li class="mb-2"><i class="fa-solid fa-check text-gradient me-2"></i> Clean Code
+                                        Practices</li>
                                 </ul>
                             </div>
                         </div>
@@ -268,73 +297,336 @@
     <section id="projects" style="padding: 60px 0 0 0; overflow: hidden;">
         <div class="imm-wrapper reveal" id="immWrapper">
             <div class="text-center mb-3" style="position:relative; z-index:20; padding-top:32px;">
-                <h2 class="section-title" style="font-family:'Space Grotesk',sans-serif; background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.85) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Featured Projects</h2>
-                <p class="projects-subtitle" style="color:rgba(255,255,255,0.55); margin-top:-1rem;">9 production-ready systems &mdash; use arrows or keyboard &larr; &rarr;</p>
+                <h2 class="section-title"
+                    style="font-family:'Space Grotesk',sans-serif; background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.85) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+                    Featured Projects</h2>
+                <p class="projects-subtitle" style="color:rgba(255,255,255,0.55); margin-top:-1rem;">9 production-ready
+                    systems &mdash; use arrows or keyboard &larr; &rarr;</p>
             </div>
 
-            <div class="imm-key-hint"><span class="imm-key">&larr;</span><span class="imm-key">&rarr;</span><span>navigate</span></div>
+            <div class="imm-key-hint"><span class="imm-key">&larr;</span><span
+                    class="imm-key">&rarr;</span><span>navigate</span></div>
             <!-- 01 -->
             <div class="imm-slide active" data-index="0">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">01</div><div class="imm-info"><div class="imm-label">AI-Powered Platform</div><h3 class="imm-title text-gradient">Gradly API</h3><p class="imm-desc">High-performance Laravel 12 RESTful API with OpenRouter AI for automated goal roadmaps, daily task breakdowns, interactive chatbot, rate-limited auth, Google OAuth, and Redis queues.</p><div class="imm-tags"><span class="tech-tag">Laravel 12</span><span class="tech-tag">OpenRouter AI</span><span class="tech-tag">Sanctum &amp; Socialite</span><span class="tech-tag">Redis &amp; SQLite</span><span class="tech-tag">Docker</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/gradly-api" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Gradly API"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">01</div>
+                        <div class="imm-info">
+                            <div class="imm-label">AI-Powered Platform</div>
+                            <h3 class="imm-title text-gradient">Gradly API</h3>
+                            <p class="imm-desc">High-performance Laravel 12 RESTful API with OpenRouter AI for automated
+                                goal roadmaps, daily task breakdowns, interactive chatbot, rate-limited auth, Google
+                                OAuth, and Redis queues.</p>
+                            <div class="imm-tags"><span class="tech-tag">Laravel 12</span><span
+                                    class="tech-tag">OpenRouter AI</span><span class="tech-tag">Sanctum &amp;
+                                    Socialite</span><span class="tech-tag">Redis &amp; SQLite</span><span
+                                    class="tech-tag">Docker</span></div>
+                            <div class="imm-links"><a href="https://github.com/a7med-radwan/gradly-api" target="_blank"
+                                    class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Gradly API">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 02 -->
             <div class="imm-slide" data-index="1">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">02</div><div class="imm-info"><div class="imm-label">Career Guidance Platform</div><h3 class="imm-title text-gradient">Gaply</h3><p class="imm-desc">Comprehensive career platform using Laravel 13 &amp; AI to analyze skill gaps, generate personalized weekly roadmaps, calculate readiness scores, optimize bios, and provide an AI interview coach.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel AI SDK</span><span class="tech-tag">Sanctum &amp; Fortify</span><span class="tech-tag">SQLite</span><span class="tech-tag">Queues</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Gaply" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Gaply"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">02</div>
+                        <div class="imm-info">
+                            <div class="imm-label">Career Guidance Platform</div>
+                            <h3 class="imm-title text-gradient">Gaply</h3>
+                            <p class="imm-desc">Comprehensive career platform using Laravel 13 &amp; AI to analyze skill
+                                gaps, generate personalized weekly roadmaps, calculate readiness scores, optimize bios,
+                                and provide an AI interview coach.</p>
+                            <div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel
+                                    AI SDK</span><span class="tech-tag">Sanctum &amp; Fortify</span><span
+                                    class="tech-tag">SQLite</span><span class="tech-tag">Queues</span></div>
+                            <div class="imm-links"><a href="https://github.com/a7med-radwan/Gaply" target="_blank"
+                                    class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Gaply">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 03 -->
             <div class="imm-slide" data-index="2">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">03</div><div class="imm-info"><div class="imm-label">AI Blogging Platform</div><h3 class="imm-title text-gradient">Write AI</h3><p class="imm-desc">AI-powered blog with AI Writer Agent (Groq), SEO Agent (Gemini), semantic search via vector embeddings, 2FA, Passkeys, WebSockets real-time notifications, RBAC, and automated testing.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">AI SDK</span><span class="tech-tag">WebSockets</span><span class="tech-tag">PHPUnit</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/ucas-laravel-write-ai" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Write AI"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">03</div>
+                        <div class="imm-info">
+                            <div class="imm-label">AI Blogging Platform</div>
+                            <h3 class="imm-title text-gradient">Write AI</h3>
+                            <p class="imm-desc">AI-powered blog with AI Writer Agent (Groq), SEO Agent (Gemini),
+                                semantic search via vector embeddings, 2FA, Passkeys, WebSockets real-time
+                                notifications, RBAC, and automated testing.</p>
+                            <div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">AI
+                                    SDK</span><span class="tech-tag">WebSockets</span><span
+                                    class="tech-tag">PHPUnit</span></div>
+                            <div class="imm-links"><a href="https://github.com/a7med-radwan/ucas-laravel-write-ai"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Write AI">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 04 -->
             <div class="imm-slide" data-index="3">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">04</div><div class="imm-info"><div class="imm-label">AI Agile Task Manager</div><h3 class="imm-title text-gradient">SmartTask</h3><p class="imm-desc">AI-augmented Agile task &amp; sprint manager on Laravel 13. Agentic AI task decomposition, automated sprint backlog planner, developer analytics dashboard, and Fortify authentication.</p><div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel AI SDK</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Fortify</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/smart-task-laravel" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="SmartTask"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">04</div>
+                        <div class="imm-info">
+                            <div class="imm-label">AI Agile Task Manager</div>
+                            <h3 class="imm-title text-gradient">SmartTask</h3>
+                            <p class="imm-desc">AI-augmented Agile task &amp; sprint manager on Laravel 13. Agentic AI
+                                task decomposition, automated sprint backlog planner, developer analytics dashboard, and
+                                Fortify authentication.</p>
+                            <div class="imm-tags"><span class="tech-tag">Laravel 13</span><span class="tech-tag">Laravel
+                                    AI SDK</span><span class="tech-tag">Tailwind CSS</span><span
+                                    class="tech-tag">Fortify</span></div>
+                            <div class="imm-links"><a href="https://github.com/a7med-radwan/smart-task-laravel"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="SmartTask">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 05 -->
             <div class="imm-slide" data-index="4">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">05</div><div class="imm-info"><div class="imm-label">Finance Management</div><h3 class="imm-title text-gradient">My Expenses</h3><p class="imm-desc">A complete personal finance management system to track income, categorize expenses, and generate smart financial plans. Live deployment with full CRUD and role-based access control.</p><div class="imm-tags"><span class="tech-tag">Laravel 12</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">MySQL</span></div><div class="imm-links"><a href="https://myexpenses1.free.nf/" target="_blank" class="btn-neon me-2 px-4 py-2" style="font-size:0.85rem;"><i class="fa-solid fa-globe me-2"></i>Live Demo</a><a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" class="btn-neon btn-neon-outline px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-1"></i>Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="My Expenses"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">05</div>
+                        <div class="imm-info">
+                            <div class="imm-label">Finance Management</div>
+                            <h3 class="imm-title text-gradient">My Expenses</h3>
+                            <p class="imm-desc">A complete personal finance management system to track income,
+                                categorize expenses, and generate smart financial plans. Live deployment with full CRUD
+                                and role-based access control.</p>
+                            <div class="imm-tags"><span class="tech-tag">Laravel 12</span><span
+                                    class="tech-tag">Tailwind CSS</span><span class="tech-tag">MySQL</span></div>
+                            <div class="imm-links"><a href="https://myexpenses1.free.nf/" target="_blank"
+                                    class="btn-neon me-2 px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-solid fa-globe me-2"></i>Live Demo</a><a
+                                    href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank"
+                                    class="btn-neon btn-neon-outline px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-1"></i>Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="My Expenses">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 06 -->
             <div class="imm-slide" data-index="5">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">06</div><div class="imm-info"><div class="imm-label">RESTful API System</div><h3 class="imm-title text-gradient">Pharmacy API</h3><p class="imm-desc">A RESTful API built with Node.js and Express for managing pharmacy operations, drug inventory, and secure JWT authentication with comprehensive Postman documentation.</p><div class="imm-tags"><span class="tech-tag">Node.js</span><span class="tech-tag">Express.js</span><span class="tech-tag">MongoDB</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Pharmacy API"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">06</div>
+                        <div class="imm-info">
+                            <div class="imm-label">RESTful API System</div>
+                            <h3 class="imm-title text-gradient">Pharmacy API</h3>
+                            <p class="imm-desc">A RESTful API built with Node.js and Express for managing pharmacy
+                                operations, drug inventory, and secure JWT authentication with comprehensive Postman
+                                documentation.</p>
+                            <div class="imm-tags"><span class="tech-tag">Node.js</span><span
+                                    class="tech-tag">Express.js</span><span class="tech-tag">MongoDB</span></div>
+                            <div class="imm-links"><a href="https://github.com/a7med-radwan/Pharmacy-Management-System"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Pharmacy API">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 07 -->
             <div class="imm-slide" data-index="6">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">07</div><div class="imm-info"><div class="imm-label">Web Application</div><h3 class="imm-title text-gradient">Hospital System</h3><p class="imm-desc">A comprehensive web application for managing hospital operations, secure staff roles, patient records, and medication inventory with full RBAC authorization system.</p><div class="imm-tags"><span class="tech-tag">PHP</span><span class="tech-tag">MySQL</span><span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Hospital System"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">07</div>
+                        <div class="imm-info">
+                            <div class="imm-label">Web Application</div>
+                            <h3 class="imm-title text-gradient">Hospital System</h3>
+                            <p class="imm-desc">A comprehensive web application for managing hospital operations, secure
+                                staff roles, patient records, and medication inventory with full RBAC authorization
+                                system.</p>
+                            <div class="imm-tags"><span class="tech-tag">PHP</span><span
+                                    class="tech-tag">MySQL</span><span class="tech-tag">HTML/CSS</span><span
+                                    class="tech-tag">JavaScript</span></div>
+                            <div class="imm-links"><a
+                                    href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Hospital System">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 08 -->
             <div class="imm-slide" data-index="7">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">08</div><div class="imm-info"><div class="imm-label">Desktop Application</div><h3 class="imm-title text-gradient">Library System</h3><p class="imm-desc">A desktop application built with JavaFX and SceneBuilder for library management, featuring role-based dashboards for admins and librarians, with comprehensive system statistics.</p><div class="imm-tags"><span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span><span class="tech-tag">CSS</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Library System"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">08</div>
+                        <div class="imm-info">
+                            <div class="imm-label">Desktop Application</div>
+                            <h3 class="imm-title text-gradient">Library System</h3>
+                            <p class="imm-desc">A desktop application built with JavaFX and SceneBuilder for library
+                                management, featuring role-based dashboards for admins and librarians, with
+                                comprehensive system statistics.</p>
+                            <div class="imm-tags"><span class="tech-tag">Java</span><span
+                                    class="tech-tag">JavaFX</span><span class="tech-tag">CSS</span></div>
+                            <div class="imm-links"><a
+                                    href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Library System">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- 09 -->
             <div class="imm-slide" data-index="8">
-                <div class="imm-bg"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80" class="imm-bg-img" loading="lazy" alt=""><div class="imm-bg-overlay"></div></div>
-                <div class="imm-content"><div class="imm-left"><div class="imm-number">09</div><div class="imm-info"><div class="imm-label">Distributed Systems</div><h3 class="imm-title text-gradient">Cloud Analytics</h3><p class="imm-desc">A distributed data processing and analytics tool for large-scale datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning algorithms, Gradio UI, and Firebase.</p><div class="imm-tags"><span class="tech-tag">PySpark</span><span class="tech-tag">Gradio</span><span class="tech-tag">Machine Learning</span></div><div class="imm-links"><a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i class="fa-brands fa-github me-2"></i>Source Code</a></div></div></div><div class="imm-right"><div class="imm-img-frame tilt-card"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="imm-img" loading="lazy" alt="Cloud Analytics"><div class="imm-img-shine"></div></div></div></div>
+                <div class="imm-bg"><img
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80"
+                        class="imm-bg-img" loading="lazy" alt="">
+                    <div class="imm-bg-overlay"></div>
+                </div>
+                <div class="imm-content">
+                    <div class="imm-left">
+                        <div class="imm-number">09</div>
+                        <div class="imm-info">
+                            <div class="imm-label">Distributed Systems</div>
+                            <h3 class="imm-title text-gradient">Cloud Analytics</h3>
+                            <p class="imm-desc">A distributed data processing and analytics tool for large-scale
+                                datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning
+                                algorithms, Gradio UI, and Firebase.</p>
+                            <div class="imm-tags"><span class="tech-tag">PySpark</span><span
+                                    class="tech-tag">Gradio</span><span class="tech-tag">Machine Learning</span></div>
+                            <div class="imm-links"><a
+                                    href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service"
+                                    target="_blank" class="btn-neon px-4 py-2" style="font-size:0.85rem;"><i
+                                        class="fa-brands fa-github me-2"></i>Source Code</a></div>
+                        </div>
+                    </div>
+                    <div class="imm-right">
+                        <div class="imm-img-frame tilt-card"><img
+                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                                class="imm-img" loading="lazy" alt="Cloud Analytics">
+                            <div class="imm-img-shine"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- Nav -->
             <div class="imm-nav-bar">
-                <button class="imm-nav-btn" id="immPrev" aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></button>
+                <button class="imm-nav-btn" id="immPrev" aria-label="Previous"><i
+                        class="fa-solid fa-arrow-left"></i></button>
                 <div class="imm-dots-bar" id="immDots"></div>
-                <button class="imm-nav-btn" id="immNext" aria-label="Next"><i class="fa-solid fa-arrow-right"></i></button>
+                <button class="imm-nav-btn" id="immNext" aria-label="Next"><i
+                        class="fa-solid fa-arrow-right"></i></button>
             </div>
-            <div class="imm-counter"><span id="immCur">01</span><span class="imm-sep">&nbsp;/&nbsp;</span><span id="immTot">09</span></div>
+            <div class="imm-counter"><span id="immCur">01</span><span class="imm-sep">&nbsp;/&nbsp;</span><span
+                    id="immTot">09</span></div>
         </div>
     </section>
-        </div>
+    </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience">
         <div class="container reveal">
             <div class="text-center">
-                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Experience &amp; Education</h2>
+                <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Experience &amp; Education
+                </h2>
             </div>
 
             <!-- Tab Navigation -->
@@ -359,13 +651,19 @@
                         <div class="timeline-dot"></div>
                         <div class="glass-card p-4">
                             <span class="timeline-date">Apr 2026 – Present</span>
-                            <h3 class="timeline-title text-gradient">Backend Trainee — PHP &amp; Laravel (AI-Powered)</h3>
+                            <h3 class="timeline-title text-gradient">Backend Trainee — PHP &amp; Laravel (AI-Powered)
+                            </h3>
                             <h4 class="timeline-subtitle">UCAS Technology Incubator — On-site, Gaza Strip</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Completed a 90-hour project-based training covering PHP 8.4 and Laravel 13, from core fundamentals to production-ready deployment. Built WriteAI, an AI-powered blog implementing auth, CRUD, RESTful APIs (Sanctum), RBAC, notifications, queues, and scheduled tasks.
+                                Completed a 90-hour project-based training covering PHP 8.4 and Laravel 13, from core
+                                fundamentals to production-ready deployment. Built WriteAI, an AI-powered blog
+                                implementing auth, CRUD, RESTful APIs (Sanctum), RBAC, notifications, queues, and
+                                scheduled tasks.
                             </p>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                <strong style="color: var(--neon-purple);">Outcome:</strong> Delivered a production-ready, AI-driven platform demonstrating advanced Laravel architecture and end-to-end feature ownership.
+                                <strong style="color: var(--neon-purple);">Outcome:</strong> Delivered a
+                                production-ready, AI-driven platform demonstrating advanced Laravel architecture and
+                                end-to-end feature ownership.
                             </p>
                             <div>
                                 <span class="tech-tag">PHP 8.4</span>
@@ -384,10 +682,13 @@
                             <h3 class="timeline-title text-gradient">Back-End Developer Intern</h3>
                             <h4 class="timeline-subtitle">BBD Agency — Remote, Canada</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Building and structuring scalable RESTful APIs using Laravel for a production mobile application. Testing, debugging, and documenting API endpoints using Postman to ensure smooth frontend integration.
+                                Building and structuring scalable RESTful APIs using Laravel for a production mobile
+                                application. Testing, debugging, and documenting API endpoints using Postman to ensure
+                                smooth frontend integration.
                             </p>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Collaborating within a development team using Git and GitHub — managing feature branches, code pushes, and pull requests.
+                                Collaborating within a development team using Git and GitHub — managing feature
+                                branches, code pushes, and pull requests.
                             </p>
                             <div>
                                 <span class="tech-tag">Laravel</span>
@@ -396,11 +697,8 @@
                                 <span class="tech-tag">Git / GitHub</span>
                             </div>
                             <div class="mt-3">
-                                <a href="https://select.bbdagency.co/digital-id/id/BBD-BE-WX3Q-37HK"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="exp-verify-btn"
-                                   id="bbd-verify-btn">
+                                <a href="https://select.bbdagency.co/digital-id/id/BBD-BE-WX3Q-37HK" target="_blank"
+                                    rel="noopener noreferrer" class="exp-verify-btn" id="bbd-verify-btn">
                                     <i class="fa-solid fa-shield-check"></i>
                                     <span>Verify Experience</span>
                                     <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
@@ -417,10 +715,17 @@
                             <h3 class="timeline-title text-gradient">AI-Powered Digital Product Development Program</h3>
                             <h4 class="timeline-subtitle">Netloopers — Internship &nbsp;·&nbsp; Remote, Gaza Strip</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Completed an intensive, hands-on training program focused on building digital products using Artificial Intelligence and modern development tools. Covered the full product lifecycle — from ideation and UI/UX design to development, backend integration, and deployment using AI-powered workflows.
+                                Completed an intensive, hands-on training program focused on building digital products
+                                using Artificial Intelligence and modern development tools. Covered the full product
+                                lifecycle — from ideation and UI/UX design to development, backend integration, and
+                                deployment using AI-powered workflows.
                             </p>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                <strong style="color: var(--neon-purple);">Key achievements:</strong> Designed and developed digital product prototypes using AI tools, built and integrated frontend interfaces with backend services (Firebase, Supabase), utilized Gemini, Claude, Figma, and Cursor IDE, and delivered a final capstone project simulating a real-world end-to-end digital product.
+                                <strong style="color: var(--neon-purple);">Key achievements:</strong> Designed and
+                                developed digital product prototypes using AI tools, built and integrated frontend
+                                interfaces with backend services (Firebase, Supabase), utilized Gemini, Claude, Figma,
+                                and Cursor IDE, and delivered a final capstone project simulating a real-world
+                                end-to-end digital product.
                             </p>
                             <div>
                                 <span class="tech-tag">Firebase</span>
@@ -430,11 +735,8 @@
                                 <span class="tech-tag">AI Agents</span>
                             </div>
                             <div class="mt-3">
-                                <a href="https://netloopers.com/certificate/verify/2026-ai-dev-1-0015"
-                                   target="_blank"
-                                   rel="noopener noreferrer"
-                                   class="exp-verify-btn"
-                                   id="netloopers-verify-btn">
+                                <a href="https://netloopers.com/certificate/verify/2026-ai-dev-1-0015" target="_blank"
+                                    rel="noopener noreferrer" class="exp-verify-btn" id="netloopers-verify-btn">
                                     <i class="fa-solid fa-shield-check"></i>
                                     <span>Verify Certificate</span>
                                     <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
@@ -456,7 +758,10 @@
                             <h3 class="timeline-title text-gradient">B.S. Software Development</h3>
                             <h4 class="timeline-subtitle">Islamic University of Gaza, Faculty of IT</h4>
                             <p style="color: var(--text-muted); margin-bottom: 0;">
-                                Graduated with an <strong style="color: var(--neon-purple);">Excellent GPA</strong>. Capstone Project: A comprehensive web platform built with Laravel for managing medical points across the Gaza Strip - demonstrating real-world problem-solving and secure application architecture.
+                                Graduated with an <strong style="color: var(--neon-purple);">Excellent GPA</strong>.
+                                Capstone Project: A comprehensive web platform built with Laravel for managing medical
+                                points across the Gaza Strip - demonstrating real-world problem-solving and secure
+                                application architecture.
                             </p>
                         </div>
                     </div>
@@ -485,7 +790,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(255,140,0,.15),rgba(255,140,0,.05));border-color:rgba(255,140,0,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(255,140,0,.15),rgba(255,140,0,.05));border-color:rgba(255,140,0,.3);">
                                                 <i class="fa-brands fa-laravel" style="color:#ff8c00;"></i>
                                             </div>
                                             <div>
@@ -494,7 +800,8 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">PHP Laravel Training (AI-Powered Web Dev)</h4>
-                                        <p class="cert-desc">90-hour project-based program building a production-ready AI blog (WriteAI) with Laravel 13 — auth, CRUD, APIs, RBAC, and CI/CD.</p>
+                                        <p class="cert-desc">90-hour project-based program building a production-ready
+                                            AI blog (WriteAI) with Laravel 13 — auth, CRUD, APIs, RBAC, and CI/CD.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">PHP 8.4</span>
                                             <span class="tech-tag">Laravel 13</span>
@@ -515,15 +822,18 @@
                                                 <span class="cert-date">Apr 2026</span>
                                             </div>
                                         </div>
-                                        <h4 class="cert-title">Master Full-Stack Web Development with Laravel &amp; PHP</h4>
-                                        <p class="cert-desc">MVC Architecture, Eloquent ORM, Backend Security, RESTful APIs, and production-ready Laravel applications.</p>
+                                        <h4 class="cert-title">Master Full-Stack Web Development with Laravel &amp; PHP
+                                        </h4>
+                                        <p class="cert-desc">MVC Architecture, Eloquent ORM, Backend Security, RESTful
+                                            APIs, and production-ready Laravel applications.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Laravel</span>
                                             <span class="tech-tag">PHP</span>
                                             <span class="tech-tag">MVC</span>
                                             <span class="tech-tag">REST APIs</span>
                                         </div>
-                                        <a href="https://coursera.org/verify/ZNNRUXKKAY3M" target="_blank" class="cert-verify-btn">
+                                        <a href="https://coursera.org/verify/ZNNRUXKKAY3M" target="_blank"
+                                            class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -533,7 +843,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(0,180,180,.15),rgba(0,180,180,.05));border-color:rgba(0,200,200,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(0,180,180,.15),rgba(0,180,180,.05));border-color:rgba(0,200,200,.3);">
                                                 <i class="fa-solid fa-robot" style="color:#00c8c8;"></i>
                                             </div>
                                             <div>
@@ -542,13 +853,16 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">GenAI for Back-End Web Developers</h4>
-                                        <p class="cert-desc">Hands-on experience using Generative AI for API development, database design, backend workflows, and responsible AI practices.</p>
+                                        <p class="cert-desc">Hands-on experience using Generative AI for API
+                                            development, database design, backend workflows, and responsible AI
+                                            practices.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Generative AI</span>
                                             <span class="tech-tag">API Dev</span>
                                             <span class="tech-tag">AI Workflows</span>
                                         </div>
-                                        <a href="https://coursera.org/verify/6EW0NT262N1M" target="_blank" class="cert-verify-btn">
+                                        <a href="https://coursera.org/verify/6EW0NT262N1M" target="_blank"
+                                            class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -558,7 +872,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(24,119,242,.15),rgba(24,119,242,.05));border-color:rgba(24,119,242,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(24,119,242,.15),rgba(24,119,242,.05));border-color:rgba(24,119,242,.3);">
                                                 <i class="fa-brands fa-meta" style="color:#1877f2;"></i>
                                             </div>
                                             <div>
@@ -567,14 +882,17 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">Introduction to Front-End Development</h4>
-                                        <p class="cert-desc">Earned from Meta after 18 hours of coursework (grade: 95.55%). Core web technologies: HTML5, CSS3, responsive design, Bootstrap, and an introduction to React.js.</p>
+                                        <p class="cert-desc">Earned from Meta after 18 hours of coursework (grade:
+                                            95.55%). Core web technologies: HTML5, CSS3, responsive design, Bootstrap,
+                                            and an introduction to React.js.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">HTML5</span>
                                             <span class="tech-tag">CSS3</span>
                                             <span class="tech-tag">Bootstrap</span>
                                             <span class="tech-tag">React.js</span>
                                         </div>
-                                        <a href="https://www.coursera.org/account/accomplishments/verify/CG8A0XT717GN" target="_blank" class="cert-verify-btn">
+                                        <a href="https://www.coursera.org/account/accomplishments/verify/CG8A0XT717GN"
+                                            target="_blank" class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -591,7 +909,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(139,92,246,.05));border-color:rgba(139,92,246,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(139,92,246,.05));border-color:rgba(139,92,246,.3);">
                                                 <i class="fa-solid fa-microchip" style="color:#8b5cf6;"></i>
                                             </div>
                                             <div>
@@ -600,13 +919,16 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">Introduction to AI for Workers in the Digital Sector</h4>
-                                        <p class="cert-desc">Certified course on AI fundamentals, productivity tools, workflow automation, and AI as a digital coworker to enhance efficiency and project execution.</p>
+                                        <p class="cert-desc">Certified course on AI fundamentals, productivity tools,
+                                            workflow automation, and AI as a digital coworker to enhance efficiency and
+                                            project execution.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Artificial Intelligence</span>
                                             <span class="tech-tag">AI Tools</span>
                                             <span class="tech-tag">Automation</span>
                                         </div>
-                                        <a href="https://learning.intracen.org/verify/?q=JJ3AwTLs5B" target="_blank" class="cert-verify-btn">
+                                        <a href="https://learning.intracen.org/verify/?q=JJ3AwTLs5B" target="_blank"
+                                            class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -616,7 +938,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));border-color:rgba(16,185,129,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(16,185,129,.15),rgba(16,185,129,.05));border-color:rgba(16,185,129,.3);">
                                                 <i class="fa-solid fa-briefcase" style="color:#10b981;"></i>
                                             </div>
                                             <div>
@@ -625,13 +948,16 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">Freelance Skills Training — DigiWork Project</h4>
-                                        <p class="cert-desc">30-hour training focused on building a freelance career: platform mastery, proposal writing for global clients, AI productivity tools, project management, and QA standards.</p>
+                                        <p class="cert-desc">30-hour training focused on building a freelance career:
+                                            platform mastery, proposal writing for global clients, AI productivity
+                                            tools, project management, and QA standards.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Freelancing</span>
                                             <span class="tech-tag">AI Productivity</span>
                                             <span class="tech-tag">Project Mgmt</span>
                                         </div>
-                                        <a href="https://drive.google.com/file/d/1p-qstUFxnk4u_Elefyda9WG5mSoOOpJv/view?usp=sharing" target="_blank" class="cert-verify-btn">
+                                        <a href="https://drive.google.com/file/d/1p-qstUFxnk4u_Elefyda9WG5mSoOOpJv/view?usp=sharing"
+                                            target="_blank" class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -641,7 +967,8 @@
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
-                                            <div class="cert-icon-wrap" style="background:linear-gradient(135deg,rgba(50,205,50,.15),rgba(50,205,50,.05));border-color:rgba(50,205,50,.3);">
+                                            <div class="cert-icon-wrap"
+                                                style="background:linear-gradient(135deg,rgba(50,205,50,.15),rgba(50,205,50,.05));border-color:rgba(50,205,50,.3);">
                                                 <i class="fa-solid fa-brain" style="color:#32cd32;"></i>
                                             </div>
                                             <div>
@@ -650,13 +977,15 @@
                                             </div>
                                         </div>
                                         <h4 class="cert-title">Beginner Problem-Solving Training</h4>
-                                        <p class="cert-desc">Intensive 60-hour program on algorithmic thinking, logical reasoning, and systematic problem-solving techniques.</p>
+                                        <p class="cert-desc">Intensive 60-hour program on algorithmic thinking, logical
+                                            reasoning, and systematic problem-solving techniques.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Problem Solving</span>
                                             <span class="tech-tag">Algorithms</span>
                                             <span class="tech-tag">Logic</span>
                                         </div>
-                                        <a href="https://drive.google.com/file/d/1xxPakRWN31l32CGvQxUkn_g5qrmwuW2I/view?usp=drive_link" target="_blank" class="cert-verify-btn">
+                                        <a href="https://drive.google.com/file/d/1xxPakRWN31l32CGvQxUkn_g5qrmwuW2I/view?usp=drive_link"
+                                            target="_blank" class="cert-verify-btn">
                                             <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify
                                         </a>
                                     </div>
@@ -692,7 +1021,8 @@
         <div class="container reveal">
             <div class="text-center">
                 <h2 class="section-title" style="font-family: 'Space Grotesk', sans-serif;">Get In Touch</h2>
-                <p class="mb-5" style="color: var(--text-muted);">Have a project in mind or want to say hello? Let's talk!</p>
+                <p class="mb-5" style="color: var(--text-muted);">Have a project in mind or want to say hello? Let's
+                    talk!</p>
             </div>
 
             <div class="row g-5">
@@ -726,34 +1056,36 @@
 
                 <div class="col-lg-7">
                     <div class="glass-card p-4 p-md-5 h-100">
-                        <form action="https://formsubmit.co/ahmed4.radwan7@gmail.com" method="POST" class="contact-form">
+                        <form action="https://formsubmit.co/ahmed4.radwan7@gmail.com" method="POST"
+                            class="contact-form">
                             <!-- Anti-Spam (HoneyPot) -->
                             <input type="text" name="_honey" style="display:none">
                             <!-- Disable Captcha (Optional, remove if you want captcha) -->
                             <input type="hidden" name="_captcha" value="false">
                             <!-- Success Page -->
-                            <input type="hidden" name="_next" value="https://a7med-radwan.github.io/portfolio/index.html">
+                            <input type="hidden" name="_next"
+                                value="https://a7med-radwan.github.io/portfolio/index.html">
 
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="name" class="form-label visually-hidden">Name</label>
-                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                            required>
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            placeholder="Your Name" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label for="email" class="form-label visually-hidden">Email</label>
-                                        <input type="email" name="email" class="form-control" id="email" placeholder="Your Email"
-                                            required>
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="Your Email" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label for="message" class="form-label visually-hidden">Message</label>
-                                        <textarea name="message" class="form-control" id="message" rows="5" placeholder="Your Message"
-                                            required></textarea>
+                                        <textarea name="message" class="form-control" id="message" rows="5"
+                                            placeholder="Your Message" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 text-end mt-3">
@@ -771,13 +1103,18 @@
     <footer>
         <div class="container">
             <div class="footer-links mb-3">
-                <a href="https://github.com/a7med-radwan" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/a7med-radwan" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://instagram.com/a7med___radwan" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://wa.me/970595495576" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://github.com/a7med-radwan" target="_blank" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/a7med-radwan" target="_blank" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://instagram.com/a7med___radwan" target="_blank" aria-label="Instagram"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/970595495576" target="_blank" aria-label="WhatsApp"><i
+                        class="fa-brands fa-whatsapp"></i></a>
                 <a href="mailto:ahmed4.radwan7@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
             </div>
-            <p class="mb-0" style="font-size:0.9rem;">&copy; 2026 <span style="color:var(--neon-purple); font-weight:600;">Ahmed Radwan</span>. All rights reserved.</p>
+            <p class="mb-0" style="font-size:0.9rem;">&copy; 2026 <span
+                    style="color:var(--neon-purple); font-weight:600;">Ahmed Radwan</span>. All rights reserved.</p>
         </div>
     </footer>
 
