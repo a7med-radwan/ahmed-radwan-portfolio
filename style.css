@@ -322,8 +322,11 @@ section {
 .custom-cursor {
   position: fixed;
   top: 0; left: 0;
-  width: 32px; height: 32px;
-  pointer-events: none;
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  pointer-events: none !important;
   z-index: 99999;
   opacity: 0;
   transform: translate3d(0, 0, 0);
@@ -332,8 +335,11 @@ section {
 }
 
 .cursor-svg {
-  width: 28px;
-  height: 28px;
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  display: block !important;
   filter: drop-shadow(0 0 8px var(--neon-purple-glow)) drop-shadow(0 0 16px hsla(var(--p-h), var(--p-s), var(--p-l), 0.35));
   transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.3s ease;
   transform-origin: 3px 3px;
