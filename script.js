@@ -378,10 +378,11 @@ function initTyping() {
   if (!el) return;
 
   const phrases = [
-    'Laravel & PHP Specialist',
-    'RESTful API Architect',
+    'Full-Stack Developer',
+    'Laravel & React Specialist',
+    'Modern UI & RESTful APIs',
     'AI Integration Engineer',
-    'Backend Problem Solver',
+    'Full-Stack Problem Solver',
     'Clean Code Practitioner'
   ];
 
@@ -794,13 +795,14 @@ class SkillGlobe {
     this.SKILLS = [
       // Core Stack — uses theme color
       { label: 'Laravel', icon: 'fa-brands fa-laravel', cat: 0 },
+      { label: 'React', icon: 'fa-brands fa-react', cat: 0 },
       { label: 'PHP', icon: 'fa-brands fa-php', cat: 0 },
-      { label: 'REST APIs', icon: 'fa-solid fa-network-wired', cat: 0 },
       { label: 'JavaScript', icon: 'fa-brands fa-js', cat: 0 },
-      { label: 'Java', icon: 'fa-brands fa-java', cat: 0 },
+      { label: 'REST APIs', icon: 'fa-solid fa-network-wired', cat: 0 },
       { label: 'MySQL', icon: 'fa-solid fa-database', cat: 0 },
-      // Data & Backend
+      // Frontend & Backend
       { label: 'Node.js', icon: 'fa-brands fa-node-js', cat: 1 },
+      { label: 'HTML5/CSS3', icon: 'fa-brands fa-html5', cat: 1 },
       { label: 'MongoDB', icon: 'fa-solid fa-leaf', cat: 1 },
       { label: 'Git/GitHub', icon: 'fa-brands fa-github', cat: 1 },
       { label: 'MVC', icon: 'fa-solid fa-sitemap', cat: 1 },
@@ -815,7 +817,7 @@ class SkillGlobe {
       { label: 'Sanctum', icon: 'fa-solid fa-shield-halved', cat: 2 },
       { label: 'CI/CD', icon: 'fa-solid fa-infinity', cat: 2 },
       { label: 'Docker', icon: 'fa-solid fa-cube', cat: 2 },
-      { label: 'CSS3', icon: 'fa-brands fa-css3-alt', cat: 2 },
+      { label: 'Java', icon: 'fa-brands fa-java', cat: 2 },
     ];
 
     // Rotation state
