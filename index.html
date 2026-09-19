@@ -53,14 +53,16 @@
 
     <!-- Custom Cursor (Futuristic Neon Vector Arrow) -->
     <div id="custom-cursor" class="custom-cursor">
-        <svg class="cursor-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="cursor-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <linearGradient id="cursorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stop-color="hsl(var(--p-h), var(--p-s), calc(var(--p-l) + 15%))" />
                     <stop offset="100%" stop-color="hsl(var(--p-h), var(--p-s), calc(var(--p-l) - 10%))" />
                 </linearGradient>
             </defs>
-            <path d="M3 3L10.5 21L13.8 13.8L21 10.5L3 3Z" fill="url(#cursorGradient)" stroke="var(--neon-purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 3L10.5 21L13.8 13.8L21 10.5L3 3Z" fill="url(#cursorGradient)" stroke="var(--neon-purple)"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <div class="cursor-aura"></div>
     </div>
@@ -646,99 +648,137 @@
             <!-- Tab: Experience -->
             <div class="exp-tab-content active" id="tab-experience">
                 <div class="timeline mt-4">
-                    <!-- UCAS -->
+                    <!-- Hireland -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="glass-card p-4">
-                            <span class="timeline-date">Apr 2026 – Present</span>
-                            <h3 class="timeline-title text-gradient">Backend Trainee — PHP &amp; Laravel (AI-Powered)
-                            </h3>
-                            <h4 class="timeline-subtitle">UCAS Technology Incubator — On-site, Gaza Strip</h4>
-                            <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Completed a 90-hour project-based training covering PHP 8.4 and Laravel 13, from core
-                                fundamentals to production-ready deployment. Built WriteAI, an AI-powered blog
-                                implementing auth, CRUD, RESTful APIs (Sanctum), RBAC, notifications, queues, and
-                                scheduled tasks.
+                            <span class="timeline-date">Sep 2026 – Present · 1 mo</span>
+                            <h3 class="timeline-title text-gradient">Co-Founder &amp; Back-End Developer</h3>
+                            <h4 class="timeline-subtitle">Hireland · Self-employed &nbsp;·&nbsp; Remote, Gaza Strip</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 14px;">
+                                Co-founded Hireland, an AI-powered platform that aggregates freelance opportunities across global marketplaces and intelligently matches them with developers' CVs and skills.
                             </p>
-                            <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                <strong style="color: var(--neon-purple);">Outcome:</strong> Delivered a
-                                production-ready, AI-driven platform demonstrating advanced Laravel architecture and
-                                end-to-end feature ownership.
-                            </p>
-                            <div>
-                                <span class="tech-tag">PHP 8.4</span>
-                                <span class="tech-tag">Laravel 13</span>
-                                <span class="tech-tag">Eloquent ORM</span>
+                            <p style="color: var(--neon-purple); font-weight: 600; margin-bottom: 8px;">Key Responsibilities &amp; Tech Stack:</p>
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 14px; color: var(--text-muted);">
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span>Architected and built scalable Back-End services to aggregate and filter job postings from multiple global freelancing platforms.</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span>Integrated AI algorithms and models to analyze user CVs and automate intelligent profile-to-job matching.</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span>Collaborated within a cross-functional team of 9 engineers and designers to deliver core platform functionalities and RESTful APIs.</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span>Designed database schemas, optimized query performance, and implemented background job queues to process real-time job feeds.</span>
+                                </li>
+                            </ul>
+                            <div class="mb-2">
+                                <span class="tech-tag">Back-End Development</span>
                                 <span class="tech-tag">AI Integration</span>
-                                <span class="tech-tag">CI/CD</span>
+                                <span class="tech-tag">REST APIs</span>
+                                <span class="tech-tag">Database Design</span>
+                                <span class="tech-tag">System Architecture</span>
+                                <span class="tech-tag">PHP</span>
                             </div>
                         </div>
                     </div>
+
+                    <!-- UCAS Technology Incubator -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card p-4">
+                            <span class="timeline-date">Apr 2026 – Present · 6 mos</span>
+                            <h3 class="timeline-title text-gradient">PHP Laravel Training Program (AI-Powered Web Development)</h3>
+                            <h4 class="timeline-subtitle">UCAS Technology Incubator · Internship &nbsp;·&nbsp; On-site, Gaza Strip</h4>
+                            <p style="color: var(--text-muted); margin-bottom: 12px;">
+                                Completed an intensive 90-hour project-based training program focused on full-stack web development using PHP 8.4 and Laravel 13. The program followed a structured, hands-on approach from core PHP fundamentals to building and deploying a production-ready, AI-powered blog application (WriteAI).
+                            </p>
+                            <p style="color: var(--text-muted); margin-bottom: 14px;">
+                                Throughout the program, I worked on a progressive capstone project where features were developed incrementally, simulating real-world software development workflows. Key implementations included authentication systems, CRUD operations, database design, RESTful APIs, notifications, and AI integrations.
+                            </p>
+                            <p style="color: var(--neon-purple); font-weight: 600; margin-bottom: 8px;">Key Skills &amp; Technologies:</p>
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 14px; color: var(--text-muted);">
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Core:</strong> PHP 8.4, Laravel 13, Object-Oriented Programming (OOP)</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Architecture &amp; Practices:</strong> MVC Architecture, Clean Code, Eloquent ORM, Database Design</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">APIs &amp; Auth:</strong> RESTful APIs (Laravel Sanctum), Authentication &amp; Role-Based Access Control (RBAC)</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Frontend &amp; Media:</strong> Blade Templating Engine, File Uploads &amp; Media Management</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Background &amp; AI:</strong> Queues, Jobs, Scheduled Tasks, AI Integration (OpenAI / Claude APIs)</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Testing &amp; DevOps:</strong> Testing with Pest PHP, CI/CD Pipelines &amp; Deployment Basics</span>
+                                </li>
+                            </ul>
+                            <p style="color: var(--text-muted); margin-bottom: 12px;">
+                                <strong style="color: var(--neon-purple);">Outcome:</strong> Developed and deployed a full-stack, AI-powered blog application featuring scalable architecture, production-ready functionality, and AI-driven content generation capabilities.
+                            </p>
+                            <div class="mb-2">
+                                <span class="tech-tag">PHP 8.4</span>
+                                <span class="tech-tag">Laravel 13</span>
+                                <span class="tech-tag">Eloquent ORM</span>
+                                <span class="tech-tag">Laravel Sanctum</span>
+                                <span class="tech-tag">AI Integration</span>
+                                <span class="tech-tag">Pest PHP</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- BBD Agency -->
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="glass-card p-4">
                             <span class="timeline-date">May 2026 – Jul 2026 · 3 mos</span>
                             <h3 class="timeline-title text-gradient">Back-End Developer Intern</h3>
-                            <h4 class="timeline-subtitle">BBD Agency — Remote, Canada</h4>
+                            <h4 class="timeline-subtitle">BBD AGENCY · Internship &nbsp;·&nbsp; Remote, Canada</h4>
                             <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Building and structuring scalable RESTful APIs using Laravel for a production mobile
-                                application. Testing, debugging, and documenting API endpoints using Postman to ensure
-                                smooth frontend integration.
+                                Currently working as a Back-End Developer Intern on an exciting mobile application project.
                             </p>
-                            <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Collaborating within a development team using Git and GitHub — managing feature
-                                branches, code pushes, and pull requests.
-                            </p>
+                            <p style="color: var(--neon-purple); font-weight: 600; margin-bottom: 8px;">Key Responsibilities &amp; Tech Stack:</p>
+                            <ul style="list-style: none; padding-left: 0; margin-bottom: 14px; color: var(--text-muted);">
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Backend Development:</strong> Building and structuring robust, scalable RESTful APIs using the Laravel framework.</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">API Testing &amp; Documentation:</strong> Using Postman to thoroughly test, debug, and document all API endpoints for smooth frontend integration.</span>
+                                </li>
+                                <li class="mb-1 d-flex align-items-start gap-2">
+                                    <i class="fa-solid fa-angle-right text-gradient mt-1"></i>
+                                    <span><strong style="color: var(--text-main);">Version Control &amp; Collaboration:</strong> Managing source code and collaborating efficiently within a team environment using Git &amp; GitHub (actively handling feature branches, code pushes, and pull requests).</span>
+                                </li>
+                            </ul>
                             <div>
                                 <span class="tech-tag">Laravel</span>
                                 <span class="tech-tag">RESTful APIs</span>
                                 <span class="tech-tag">Postman</span>
                                 <span class="tech-tag">Git / GitHub</span>
+                                <span class="tech-tag">DBMS</span>
                             </div>
                             <div class="mt-3">
                                 <a href="https://select.bbdagency.co/digital-id/id/BBD-BE-WX3Q-37HK" target="_blank"
                                     rel="noopener noreferrer" class="exp-verify-btn" id="bbd-verify-btn">
                                     <i class="fa-solid fa-shield-check"></i>
                                     <span>Verify Experience</span>
-                                    <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <!-- Netloopers -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="glass-card p-4">
-                            <span class="timeline-date">Apr 2026 – Jul 2026 · 4 mos</span>
-                            <h3 class="timeline-title text-gradient">AI-Powered Digital Product Development Program</h3>
-                            <h4 class="timeline-subtitle">Netloopers — Internship &nbsp;·&nbsp; Remote, Gaza Strip</h4>
-                            <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                Completed an intensive, hands-on training program focused on building digital products
-                                using Artificial Intelligence and modern development tools. Covered the full product
-                                lifecycle — from ideation and UI/UX design to development, backend integration, and
-                                deployment using AI-powered workflows.
-                            </p>
-                            <p style="color: var(--text-muted); margin-bottom: 12px;">
-                                <strong style="color: var(--neon-purple);">Key achievements:</strong> Designed and
-                                developed digital product prototypes using AI tools, built and integrated frontend
-                                interfaces with backend services (Firebase, Supabase), utilized Gemini, Claude, Figma,
-                                and Cursor IDE, and delivered a final capstone project simulating a real-world
-                                end-to-end digital product.
-                            </p>
-                            <div>
-                                <span class="tech-tag">Firebase</span>
-                                <span class="tech-tag">Supabase</span>
-                                <span class="tech-tag">Gemini</span>
-                                <span class="tech-tag">Figma</span>
-                                <span class="tech-tag">AI Agents</span>
-                            </div>
-                            <div class="mt-3">
-                                <a href="https://netloopers.com/certificate/verify/2026-ai-dev-1-0015" target="_blank"
-                                    rel="noopener noreferrer" class="exp-verify-btn" id="netloopers-verify-btn">
-                                    <i class="fa-solid fa-shield-check"></i>
-                                    <span>Verify Certificate</span>
                                     <i class="fa-solid fa-arrow-up-right-from-square exp-verify-arrow"></i>
                                 </a>
                             </div>
@@ -786,27 +826,35 @@
                         <div class="cert-page active" id="certPage0">
                             <div class="row g-4">
 
-                                <!-- Cert 1: UCAS Laravel Training -->
+                                <!-- Cert 1: Netloopers - AI-Powered Digital Product Development -->
                                 <div class="col-md-6">
                                     <div class="glass-card cert-card p-4 h-100">
                                         <div class="cert-header">
                                             <div class="cert-icon-wrap"
-                                                style="background:linear-gradient(135deg,rgba(255,140,0,.15),rgba(255,140,0,.05));border-color:rgba(255,140,0,.3);">
-                                                <i class="fa-brands fa-laravel" style="color:#ff8c00;"></i>
+                                                style="background:linear-gradient(135deg,rgba(0,210,255,.15),rgba(0,210,255,.05));border-color:rgba(0,210,255,.3);">
+                                                <i class="fa-solid fa-robot" style="color:#00d2ff;"></i>
                                             </div>
                                             <div>
-                                                <span class="cert-issuer">UCAS Technology Incubator</span>
-                                                <span class="cert-date">2026</span>
+                                                <span class="cert-issuer">Netloopers</span>
+                                                <span class="cert-date">Apr 2026</span>
                                             </div>
                                         </div>
-                                        <h4 class="cert-title">PHP Laravel Training (AI-Powered Web Dev)</h4>
-                                        <p class="cert-desc">90-hour project-based program building a production-ready
-                                            AI blog (WriteAI) with Laravel 13 — auth, CRUD, APIs, RBAC, and CI/CD.</p>
-                                        <div class="mb-3">
-                                            <span class="tech-tag">PHP 8.4</span>
-                                            <span class="tech-tag">Laravel 13</span>
-                                            <span class="tech-tag">AI Integration</span>
+                                        <h4 class="cert-title">AI-Powered Digital Product Development Program</h4>
+                                        <p class="cert-desc">Intensive full-stack product training using AI tools: built end-to-end prototypes, integrated APIs, automated workflows, and deployed a real-world capstone with Gemini, Claude, Firebase, Supabase &amp; Cursor IDE.</p>
+                                        <div style="font-size: 0.75rem; color: var(--text-muted); font-family: 'Fira Code', monospace; margin-bottom: 10px;">
+                                            <i class="fa-solid fa-fingerprint me-1" style="color: var(--neon-purple);"></i>ID: 2026-ai-dev-1-0015
                                         </div>
+                                        <div class="mb-3">
+                                            <span class="tech-tag">AI Agents</span>
+                                            <span class="tech-tag">Firebase</span>
+                                            <span class="tech-tag">Supabase</span>
+                                            <span class="tech-tag">Claude / Gemini</span>
+                                            <span class="tech-tag">Cursor IDE</span>
+                                        </div>
+                                        <a href="https://netloopers.com/certificate/verify/2026-ai-dev-1-0015" target="_blank"
+                                            class="cert-verify-btn">
+                                            <i class="fa-solid fa-arrow-up-right-from-square me-1"></i>Verify Certificate
+                                        </a>
                                     </div>
                                 </div>
 
@@ -825,7 +873,7 @@
                                         <h4 class="cert-title">Master Full-Stack Web Development with Laravel &amp; PHP
                                         </h4>
                                         <p class="cert-desc">MVC Architecture, Eloquent ORM, Backend Security, RESTful
-                                            APIs, and production-ready Laravel applications.</p>
+                                             APIs, and production-ready Laravel applications.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Laravel</span>
                                             <span class="tech-tag">PHP</span>
@@ -854,8 +902,8 @@
                                         </div>
                                         <h4 class="cert-title">GenAI for Back-End Web Developers</h4>
                                         <p class="cert-desc">Hands-on experience using Generative AI for API
-                                            development, database design, backend workflows, and responsible AI
-                                            practices.</p>
+                                             development, database design, backend workflows, and responsible AI
+                                             practices.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Generative AI</span>
                                             <span class="tech-tag">API Dev</span>
@@ -883,8 +931,8 @@
                                         </div>
                                         <h4 class="cert-title">Introduction to Front-End Development</h4>
                                         <p class="cert-desc">Earned from Meta after 18 hours of coursework (grade:
-                                            95.55%). Core web technologies: HTML5, CSS3, responsive design, Bootstrap,
-                                            and an introduction to React.js.</p>
+                                             95.55%). Core web technologies: HTML5, CSS3, responsive design, Bootstrap,
+                                             and an introduction to React.js.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">HTML5</span>
                                             <span class="tech-tag">CSS3</span>
@@ -920,8 +968,8 @@
                                         </div>
                                         <h4 class="cert-title">Introduction to AI for Workers in the Digital Sector</h4>
                                         <p class="cert-desc">Certified course on AI fundamentals, productivity tools,
-                                            workflow automation, and AI as a digital coworker to enhance efficiency and
-                                            project execution.</p>
+                                             workflow automation, and AI as a digital coworker to enhance efficiency and
+                                             project execution.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Artificial Intelligence</span>
                                             <span class="tech-tag">AI Tools</span>
@@ -949,8 +997,8 @@
                                         </div>
                                         <h4 class="cert-title">Freelance Skills Training — DigiWork Project</h4>
                                         <p class="cert-desc">30-hour training focused on building a freelance career:
-                                            platform mastery, proposal writing for global clients, AI productivity
-                                            tools, project management, and QA standards.</p>
+                                             platform mastery, proposal writing for global clients, AI productivity
+                                             tools, project management, and QA standards.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Freelancing</span>
                                             <span class="tech-tag">AI Productivity</span>
@@ -978,7 +1026,7 @@
                                         </div>
                                         <h4 class="cert-title">Beginner Problem-Solving Training</h4>
                                         <p class="cert-desc">Intensive 60-hour program on algorithmic thinking, logical
-                                            reasoning, and systematic problem-solving techniques.</p>
+                                             reasoning, and systematic problem-solving techniques.</p>
                                         <div class="mb-3">
                                             <span class="tech-tag">Problem Solving</span>
                                             <span class="tech-tag">Algorithms</span>
