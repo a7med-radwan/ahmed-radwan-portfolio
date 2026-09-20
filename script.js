@@ -109,7 +109,7 @@ class CustomCursor {
   checkHoverState(target) {
     if (!target) return;
 
-    const interactive = target.closest('a, button, input, textarea, select, .btn, .color-dot, .contact-item, .cert-verify-btn, #scroll-top, .social-icon, .nav-link, .filter-btn');
+    const interactive = target.closest('a, button, input, textarea, select, label, [role="button"], .btn, .btn-neon, .color-dot, .theme-toggle, .navbar-toggler, .navbar-brand, .contact-item, .cert-verify-btn, .exp-verify-btn, .exp-tab-btn, .imm-nav-btn, .cert-nav-btn, .proj-dot, .imm-dot, .skill-tag, #scroll-top, .social-icon, .nav-link, .filter-btn');
     const textElem = target.closest('p, h1, h2, h3, h4, h5, h6, .hero-tag, .section-subtitle, blockquote');
     const cardElem = target.closest('.skill-card, .project-card, .timeline-card, .stat-card, .tech-pill, .cert-card');
 

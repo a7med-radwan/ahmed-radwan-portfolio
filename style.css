@@ -114,16 +114,42 @@ body {
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
-  cursor: none;
-  /* hide default cursor */
 }
 
-@media (pointer: coarse) {
-  body {
-    cursor: auto;
-  }
+/* ================================================================
+   UNIVERSAL CURSOR RESET (Prevent default OS hand/arrow on desktop)
+   ================================================================ */
+html,
+body,
+*,
+*::before,
+*::after,
+a,
+button,
+input,
+textarea,
+select,
+label,
+[role="button"] {
+  cursor: none !important;
+}
 
-  /* restore cursor on touch devices */
+/* Restore native OS cursor strictly on mobile/touch devices */
+@media (pointer: coarse) {
+  html,
+  body,
+  *,
+  *::before,
+  *::after,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"] {
+    cursor: auto !important;
+  }
 }
 
 /* Noise texture overlay */
@@ -2371,7 +2397,7 @@ footer {
 .orbit-skill {
   position: absolute;
   z-index: 10;
-  cursor: pointer;
+  cursor: none;
   will-change: left, top;
 }
 
@@ -3049,7 +3075,7 @@ body.light-mode .imm-key {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  cursor: pointer;
+  cursor: none;
 }
 
 /* Shimmer sweep on hover */
@@ -3156,14 +3182,14 @@ body.light-mode .skills-globe-hint {
   height: 560px;
   max-width: 90vw;
   max-height: 90vw;
-  cursor: grab;
+  cursor: none;
   -webkit-user-select: none;
   user-select: none;
   flex-shrink: 0;
 }
 
 .skill-tag-cloud:active {
-  cursor: grabbing;
+  cursor: none;
 }
 
 /* Individual skill tag */
