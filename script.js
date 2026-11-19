@@ -35,9 +35,9 @@ function applyMotion() {
   motionButton.disabled = reducedMotion.matches;
   motionButton.querySelector('.motion-status').textContent = reducedMotion.matches ? 'Reduced' : motionEnabled ? 'On' : 'Off';
   if (!motionEnabled) {
-    document.querySelectorAll('[data-reveal]').forEach(element => { element.dataset.reveal = 'visible'; });
-    document.querySelectorAll('[data-tilt], [data-magnetic]').forEach(element => {
-      element.style.removeProperty('--tilt-x'); element.style.removeProperty('--tilt-y'); element.style.translate = '';
+    document.querySelectorAll('[data-tilt]').forEach(element => {
+      element.style.removeProperty('--tilt-x');
+      element.style.removeProperty('--tilt-y');
     });
   }
   document.dispatchEvent(new Event('portfolio:motionchange'));
@@ -80,9 +80,11 @@ matchMedia('(min-width: 601px)').addEventListener('change', event => { if (event
 const projectTabs = [...document.querySelectorAll('.work-tab')];
 const projectPanels = [...document.querySelectorAll('.work-panel')];
 const projectList = document.querySelector('.work-index');
+const mobileIndex = matchMedia('(max-width: 600px)');
 let currentProject = 0;
 function selectProject(index, focus = false) {
   index = (index + projectTabs.length) % projectTabs.length;
+  const previousPanel = projectPanels[currentProject];
   projectTabs.forEach((tab, i) => {
     const active = i === index;
     tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1;
@@ -90,12 +92,17 @@ function selectProject(index, focus = false) {
     projectPanels[i].classList.remove('entering');
   });
   currentProject = index;
+  if (projectPanels[index] !== previousPanel && location.hash === '#' + previousPanel.id) {
+    history.replaceState(history.state, '', '#' + projectPanels[index].id);
+  }
   document.getElementById('project-current').textContent = String(index + 1).padStart(2, '0');
   if (motionEnabled) projectPanels[index].classList.add('entering');
   if (focus) projectTabs[index].focus({ preventScroll: true });
-  if (matchMedia('(max-width: 600px)').matches) {
+  if (mobileIndex.matches) {
     const tab = projectTabs[index];
-    projectList.scrollTo({left: tab.offsetLeft - projectList.offsetLeft - (projectList.clientWidth - tab.clientWidth) / 2, behavior: motionEnabled ? 'smooth' : 'instant'});
+    const offset = tab.getBoundingClientRect().left - projectList.getBoundingClientRect().left;
+    const center = projectList.scrollLeft + offset - (projectList.clientWidth - tab.clientWidth) / 2;
+    projectList.scrollTo({left: center, behavior: motionEnabled ? 'smooth' : 'instant'});
   }
 }
 projectTabs.forEach((tab, i) => {
@@ -112,9 +119,158 @@ projectTabs.forEach((tab, i) => {
 projectPanels.forEach(panel => panel.addEventListener('animationend', () => panel.classList.remove('entering')));
 document.getElementById('project-prev').addEventListener('click', () => selectProject(currentProject - 1));
 document.getElementById('project-next').addEventListener('click', () => selectProject(currentProject + 1));
-const mobileIndex = matchMedia('(max-width: 600px)');
 function orientIndex() { projectList.setAttribute('aria-orientation', mobileIndex.matches ? 'horizontal' : 'vertical'); }
 mobileIndex.addEventListener('change', orientIndex); orientIndex();
+
+document.querySelectorAll('[data-tilt]').forEach(diagram => {
+  diagram.addEventListener('pointermove', event => {
+    if (!motionEnabled || !finePointer.matches || event.pointerType !== 'mouse') return;
+    const bounds = diagram.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - .5;
+    const y = (event.clientY - bounds.top) / bounds.height - .5;
+    diagram.style.setProperty('--tilt-x', `${-y * 5}deg`);
+    diagram.style.setProperty('--tilt-y', `${x * 5}deg`);
+  }, { passive: true });
+  diagram.addEventListener('pointerleave', () => {
+    diagram.style.removeProperty('--tilt-x');
+    diagram.style.removeProperty('--tilt-y');
+  });
+});
+
+function setupProjectFilms() {
+  if (typeof window.drawProjectFilm !== 'function') return;
+
+  const previews = new Map();
+  const stills = [.25, .6, 1];
+  const duration = 3600;
+  let colors;
+
+  function render(preview, progress = preview.progress) {
+    const { canvas, context, film } = preview;
+    if (!preview.scale) return;
+    preview.progress = progress;
+    context.setTransform(1, 0, 0, 1, 0, 0);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    const scale = preview.scale;
+    context.setTransform(scale, 0, 0, scale, (canvas.width - 360 * scale) / 2, (canvas.height - 130 * scale) / 2);
+    window.drawProjectFilm(context, film, progress, colors);
+  }
+
+  function measure(preview) {
+    const { canvas } = preview;
+    if (!canvas.clientWidth || !canvas.clientHeight) return;
+    const density = Math.min(devicePixelRatio || 1, 1.6);
+    const width = Math.round(canvas.clientWidth * density);
+    const height = Math.round(canvas.clientHeight * density);
+    if (canvas.width !== width) canvas.width = width;
+    if (canvas.height !== height) canvas.height = height;
+    preview.scale = Math.min(width / 360, height / 130);
+    render(preview);
+  }
+
+  function stop(preview) {
+    cancelAnimationFrame(preview.frame);
+    preview.frame = 0;
+  }
+
+  function play(preview) {
+    if (document.hidden || preview.panel.hidden) return;
+    stop(preview);
+    const start = performance.now();
+    render(preview, 0);
+    function advance(time) {
+      preview.frame = 0;
+      if (!motionEnabled || document.hidden || preview.panel.hidden) return;
+      const progress = Math.min(1, Math.max(0, (time - start) / duration));
+      render(preview, progress);
+      if (progress < 1) preview.frame = requestAnimationFrame(advance);
+    }
+    preview.frame = requestAnimationFrame(advance);
+  }
+
+  function updateControl(preview) {
+    preview.button.textContent = motionEnabled ? 'Replay animation' : 'Next step (' + (preview.step + 1) + '/3)';
+  }
+
+  function refreshColors() {
+    const style = getComputedStyle(root);
+    const tokens = ['accent', 'text', 'muted', 'surface', 'bg', 'line', 'raised'];
+    colors = Object.fromEntries(tokens.map(name => [name, style.getPropertyValue('--' + name).trim()]));
+    for (const preview of previews.values()) render(preview);
+  }
+
+  refreshColors();
+  const sizeObserver = 'ResizeObserver' in window ? new ResizeObserver(entries => {
+    for (const entry of entries) measure(previews.get(entry.target));
+  }) : null;
+  const viewObserver = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      const preview = previews.get(entry.target);
+      if (entry.intersectionRatio >= .22) {
+        measure(preview);
+        if (motionEnabled) play(preview);
+      } else if (preview.frame) {
+        stop(preview);
+        render(preview, 1);
+      }
+    }
+  }, { threshold: .22 }) : null;
+
+  document.querySelectorAll('.work-visual[data-film]').forEach(figure => {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (!context) return;
+    canvas.className = 'project-film';
+    canvas.setAttribute('aria-hidden', 'true');
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'film-control';
+    const preview = {
+      panel: figure.closest('.work-panel'), canvas, context, button,
+      film: figure.dataset.film, step: 0, frame: 0, progress: motionEnabled ? 1 : stills[0]
+    };
+    previews.set(figure, preview);
+    updateControl(preview);
+    button.addEventListener('click', () => {
+      measure(preview);
+      if (motionEnabled) {
+        play(preview);
+      } else {
+        preview.step = (preview.step + 1) % stills.length;
+        render(preview, stills[preview.step]);
+        updateControl(preview);
+      }
+    });
+    figure.classList.add('work-visual--animated');
+    figure.querySelector('figcaption').after(button, canvas);
+    sizeObserver?.observe(figure);
+    viewObserver?.observe(figure);
+    measure(preview);
+  });
+  if (!sizeObserver) window.addEventListener('resize', () => {
+    for (const preview of previews.values()) measure(preview);
+  });
+  document.addEventListener('portfolio:themechange', refreshColors);
+  document.addEventListener('portfolio:motionchange', () => {
+    for (const preview of previews.values()) {
+      stop(preview);
+      preview.step = 0;
+      preview.progress = motionEnabled ? 1 : stills[0];
+      render(preview);
+      updateControl(preview);
+    }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) return;
+    for (const preview of previews.values()) {
+      if (!preview.frame) continue;
+      stop(preview);
+      render(preview, 1);
+    }
+  });
+}
+setupProjectFilms();
 
 const journeyTabs = [...document.querySelectorAll('.journey-tabs [role=tab]')];
 function selectJourney(tab, focus = false) {
@@ -137,179 +293,273 @@ journeyTabs.forEach((tab, i) => {
   });
 });
 
-// Scroll-linked details run at most once per animation frame, without scroll hijacking.
-const hero = document.getElementById('hero');
-const titleLines = [...document.querySelectorAll('.title-line')];
-const ticker = document.querySelector('.ticker-line');
+// Render the reading position without changing native scrolling.
 const progressBar = document.getElementById('rail-progress');
+const scrollPercent = document.getElementById('scroll-percent');
 let scrollScheduled = false;
+
 function updateScroll() {
   scrollScheduled = false;
-  const y = window.scrollY;
   const extent = Math.max(1, root.scrollHeight - innerHeight);
-  const progress = Math.min(1, y / extent);
+  const progress = Math.max(0, Math.min(1, window.scrollY / extent));
   progressBar.style.transform = `scaleY(${progress})`;
-  document.getElementById('scroll-percent').textContent = String(Math.round(progress * 100)).padStart(2, '0');
-  const heroProgress = Math.min(1, y / Math.max(hero.offsetHeight, 1));
-  titleLines.forEach((line, i) => { line.style.transform = motionEnabled ? `translateX(${heroProgress * (i ? 28 : -18)}px)` : ''; });
-  document.querySelector('.title-asterisk').style.transform = motionEnabled ? `rotate(${heroProgress * 140}deg)` : '';
-  ticker.style.transform = motionEnabled ? `translate3d(${-Math.min(y * .12, 320)}px,0,0)` : '';
+  scrollPercent.textContent = String(Math.round(progress * 100)).padStart(2, '0');
 }
-window.addEventListener('scroll', () => { if (!scrollScheduled) { scrollScheduled = true; requestAnimationFrame(updateScroll); } }, {passive:true});
-window.addEventListener('resize', updateScroll, {passive:true});
+
+window.addEventListener('scroll', () => {
+  if (scrollScheduled) return;
+  scrollScheduled = true;
+  requestAnimationFrame(updateScroll);
+}, { passive: true });
+window.addEventListener('resize', updateScroll, { passive: true });
 if ('ResizeObserver' in window) new ResizeObserver(updateScroll).observe(document.body);
 
 if ('IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.dataset.reveal = 'visible'; revealObserver.unobserve(entry.target);
-  }), {threshold:.07});
+  const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.dataset.reveal = 'visible';
+      revealObserver.unobserve(entry.target);
+    }
+  }, { threshold: .12 });
+
   document.querySelectorAll('[data-reveal]').forEach(element => {
-    if (motionEnabled && element.getBoundingClientRect().top > innerHeight) element.dataset.reveal = 'pending';
-    else element.dataset.reveal = 'visible';
-    revealObserver.observe(element);
+    if (element.getBoundingClientRect().top >= innerHeight) revealObserver.observe(element);
   });
-  const sectionObserver = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    document.querySelectorAll('#navigation a, .rail-nav a').forEach(link => {
-      const active = link.hash === '#' + entry.target.id;
+
+  const sectionLinks = [...document.querySelectorAll('#navigation a, .rail-nav a')];
+  const sectionObserver = new IntersectionObserver(entries => {
+    const activeSection = entries.find(entry => entry.isIntersecting)?.target;
+    if (!activeSection) return;
+    for (const link of sectionLinks) {
+      const active = link.hash === '#' + activeSection.id;
       link.classList.toggle('active', active);
-      if (active) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current');
-    });
-  }), {rootMargin:'-15% 0px -60% 0px'});
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }, { rootMargin: '-12% 0px -70% 0px' });
   document.querySelectorAll('main > section[id]').forEach(section => sectionObserver.observe(section));
 }
 
-// Tactile response, using the native cursor and leaving touch scrolling intact.
-document.querySelectorAll('[data-magnetic], [data-tilt]').forEach(element => {
-  element.addEventListener('pointermove', event => {
-    if (!motionEnabled || !finePointer.matches) return;
-    const rect = element.getBoundingClientRect();
-    const x = (event.clientX - rect.left) / rect.width - .5;
-    const y = (event.clientY - rect.top) / rect.height - .5;
-    if (element.hasAttribute('data-tilt')) {
-      element.style.setProperty('--tilt-x', `${-y * 5}deg`);
-      element.style.setProperty('--tilt-y', `${x * 5}deg`);
-    } else element.style.translate = `${x * 10}px ${y * 8}px`;
-  });
-  element.addEventListener('pointerleave', () => {
-    element.style.setProperty('--tilt-x','0deg'); element.style.setProperty('--tilt-y','0deg'); element.style.translate = '';
+// The three layers form a schematic of the kinds of systems Ahmed builds.
+const signal = document.querySelector('.signal-stage');
+const signalButtons = [...signal.querySelectorAll('button[data-layer]')];
+const signalDescription = document.getElementById('signal-description');
+const signalProject = document.getElementById('signal-project');
+const signalExamples = {
+  interface: { panel: 'work-panel-2', description: 'A React interface brings drafting and semantic search into one publishing workflow.' },
+  api: { panel: 'work-panel-5', description: 'An Express API protects pharmacy inventory with JWT authentication.' },
+  ai: { panel: 'work-panel-0', description: 'OpenRouter turns a goal into a roadmap and daily tasks through a Laravel API.' }
+};
+
+function showLinkedProject() {
+  const index = projectPanels.findIndex(panel => '#' + panel.id === location.hash);
+  if (index < 0) return;
+  if (index !== currentProject) selectProject(index);
+  const panel = projectPanels[index];
+  panel.tabIndex = -1;
+  panel.focus({ preventScroll: true });
+  panel.scrollIntoView({ block: 'start' });
+}
+
+window.addEventListener('hashchange', showLinkedProject);
+showLinkedProject();
+
+function selectLayer(button) {
+  signal.dataset.layer = button.dataset.layer;
+  for (const option of signalButtons) option.setAttribute('aria-pressed', String(option === button));
+  const example = signalExamples[button.dataset.layer];
+  signalDescription.textContent = example.description;
+  signalProject.hash = example.panel;
+  signalProject.textContent = 'View ' + document.getElementById(example.panel).querySelector('h3').textContent;
+  signal.dispatchEvent(new Event('signalchange'));
+}
+
+signalButtons.forEach((button, index) => {
+  button.addEventListener('click', () => selectLayer(button));
+  button.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % signalButtons.length;
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index + signalButtons.length - 1) % signalButtons.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = signalButtons.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    signalButtons[next].focus();
+    selectLayer(signalButtons[next]);
   });
 });
 
-// A small, projected Möbius surface. No libraries, textures, network, or GPU setup.
-class Ribbon {
-  constructor(canvas) {
-    this.canvas = canvas; this.ctx = canvas.getContext('2d');
-    if (!this.ctx) return;
-    this.width = 0; this.height = 0; this.rx = .9; this.ry = -.35;
-    this.targetX = .9; this.targetY = -.35; this.turn = 0;
-    this.pointer = {x:0,y:0}; this.drag = null; this.visible = true; this.raf = null; this.last = 0;
-    this.curves = [];
-    for (let j=0;j<=16;j++) {
-      const curve=[];
-      for(let i=0;i<=120;i++) curve.push(this.surface(i/120*Math.PI*2, -.46+j/16*.92));
-      this.curves.push(curve);
-    }
-    for(let i=0;i<88;i++) {
-      const curve=[];
-      for(let j=0;j<=12;j++) curve.push(this.surface(i/88*Math.PI*2, -.46+j/12*.92));
-      this.curves.push(curve);
-    }
-    this.color = getComputedStyle(canvas).color;
-    const resize = () => {
-      const bounds=canvas.getBoundingClientRect();
-      this.width=bounds.width; this.height=bounds.height;
-      const dpr=Math.min(devicePixelRatio||1,2);
-      canvas.width=Math.round(this.width*dpr); canvas.height=Math.round(this.height*dpr);
-      this.ctx.setTransform(dpr,0,0,dpr,0,0); this.draw();
-    };
-    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(canvas);
-    else window.addEventListener('resize',resize,{passive:true});
-    canvas.addEventListener('pointerdown', event => {
-      if(event.button!==0) return;
-      this.drag={id:event.pointerId,x:event.clientX,y:event.clientY,rx:this.targetX,ry:this.targetY};
-      canvas.setPointerCapture(event.pointerId);
-    });
-    canvas.addEventListener('pointermove', event => {
-      const bounds=canvas.getBoundingClientRect();
-      this.pointer.x=(event.clientX-bounds.left)/bounds.width-.5;
-      this.pointer.y=(event.clientY-bounds.top)/bounds.height-.5;
-      if(this.drag && this.drag.id===event.pointerId) {
-        this.targetX=this.drag.rx+(event.clientY-this.drag.y)*.009;
-        this.targetY=this.drag.ry+(event.clientX-this.drag.x)*.009;
-        if(!motionEnabled) { this.rx=this.targetX; this.ry=this.targetY; this.draw(); }
+function drawSignal() {
+  const canvas = document.getElementById('signal-canvas');
+  const context = canvas.getContext('2d');
+  if (!context) return;
+
+  const portrait = signal.querySelector('.signal-portrait');
+  const introduction = signal.querySelector('.hero-introduction');
+  const workLink = signal.querySelector('.hero-link');
+  const controlsLabel = document.getElementById('signal-label');
+  let width = 0;
+  let height = 0;
+  let routes = [];
+  let color = '';
+  let frame = 0;
+  let started = null;
+  let visible = true;
+  let target = 0;
+  let drift = 0;
+
+  function measure() {
+    const bounds = canvas.getBoundingClientRect();
+    const photo = portrait.getBoundingClientRect();
+    width = bounds.width;
+    height = bounds.height;
+    const scale = Math.min(devicePixelRatio || 1, 1.6);
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+
+    const left = photo.left - bounds.left;
+    const right = photo.right - bounds.left;
+    const top = photo.top - bounds.top;
+    const bottom = photo.bottom - bounds.top;
+    const compact = getComputedStyle(signal).getPropertyValue('--signal-columns').trim() === '1';
+    const leftStart = introduction.getBoundingClientRect().bottom - bounds.top + 8;
+    const leftSpan = Math.max(8, workLink.getBoundingClientRect().top - bounds.top - leftStart - 7);
+    const controlTop = controlsLabel.getBoundingClientRect().top - bounds.top;
+    const rightStart = Math.max(16, controlTop * .2);
+    const rightSpan = Math.max(20, controlTop - rightStart - 33);
+    const bend = Math.min(25, left * .055);
+
+    routes = Array.from({ length: compact ? 3 : 9 }, (_, i) => {
+      if (compact) {
+        const gap = 3 + i * 3;
+        return [
+          [[left + 19, top + gap], [gap, top + gap], [gap, bottom - 20 + i * 6], [left + 10, bottom - 10 + i * 6]],
+          [[right - 19, top + 15 + i * 6], [width - gap, top + 15 + i * 6], [width - gap, bottom - gap], [right - 10, bottom - gap]]
+        ];
       }
+
+      const exit = leftStart + i * leftSpan / 8;
+      const branch = rightStart + i * rightSpan / 8;
+      const rightEdge = width - 22 - i * 4;
+      return [
+        [[23 + i * 5, exit], [left * .7, exit], [left * .7 + bend, exit - bend], [left + 1, exit - bend]],
+        [[right - 1, branch + bend], [right + .25 * (width - right), branch + bend], [right + .25 * (width - right) + bend, branch], [rightEdge, branch]]
+      ];
     });
-    const endDrag=()=>{this.drag=null;};
-    canvas.addEventListener('pointerup',endDrag); canvas.addEventListener('pointercancel',endDrag);
-    canvas.addEventListener('lostpointercapture',endDrag);
-    canvas.addEventListener('pointerleave',()=>{this.pointer={x:0,y:0};});
-    canvas.addEventListener('dblclick',()=>this.reset());
-    canvas.addEventListener('keydown',event=>{
-      if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(event.key)) return;
-      event.preventDefault();
-      if(event.key==='Home') { this.reset(); return; }
-      this.targetY += event.key==='ArrowLeft'?-.18:event.key==='ArrowRight'?.18:0;
-      this.targetX += event.key==='ArrowUp'?-.18:event.key==='ArrowDown'?.18:0;
-      if(!motionEnabled) {this.rx=this.targetX;this.ry=this.targetY;this.draw();}
-    });
-    document.getElementById('reset-scene').addEventListener('click',()=>this.reset());
-    document.addEventListener('portfolio:themechange',()=>{this.color=getComputedStyle(canvas).color;this.draw();});
-    document.addEventListener('portfolio:motionchange',()=>this.schedule());
-    document.addEventListener('visibilitychange',()=>this.schedule());
-    if('IntersectionObserver' in window) new IntersectionObserver(entries=>{this.visible=entries[0].isIntersecting;this.schedule();},{threshold:0}).observe(canvas);
-    resize(); this.schedule();
+    render();
   }
-  surface(t,v) { return [(1+v*Math.cos(t/2))*Math.cos(t),(1+v*Math.cos(t/2))*Math.sin(t),v*Math.sin(t/2)]; }
-  reset() { this.targetX=.9;this.targetY=-.35;this.turn=0;this.pointer={x:0,y:0}; if(!motionEnabled){this.rx=.9;this.ry=-.35;this.draw();} }
-  schedule() {
-    if(this.raf) cancelAnimationFrame(this.raf);
-    this.raf=null;this.last=0;
-    if(motionEnabled && this.visible && !document.hidden) this.raf=requestAnimationFrame(t=>this.frame(t));
-    else this.draw();
+
+  function trace(points, active, progress) {
+    const positions = points.map(([x, y], index) => [x, index === 0 || index === points.length - 1 ? y : y + drift]);
+    context.beginPath();
+    context.moveTo(...positions[0]);
+    for (let i = 1; i < positions.length; i++) context.lineTo(...positions[i]);
+    context.globalAlpha = active ? .85 : .28;
+    context.lineWidth = active ? 1.5 : .85;
+    context.stroke();
+
+    const endpoint = positions[positions[0][0] < width / 2 ? 0 : positions.length - 1];
+    context.beginPath();
+    context.arc(...endpoint, active ? 3.5 : 2, 0, Math.PI * 2);
+    if (active) context.fill();
+    else context.stroke();
+
+    if (!active || progress === null) return;
+    const legs = positions.slice(1).map(([x, y], i) => ({
+      dx: x - positions[i][0],
+      dy: y - positions[i][1]
+    }));
+    const lengths = legs.map(({ dx, dy }) => Math.hypot(dx, dy));
+    let distance = lengths.reduce((sum, length) => sum + length, 0) * progress;
+    let segment = 0;
+    while (segment < legs.length - 1 && distance > lengths[segment]) distance -= lengths[segment++];
+    const ratio = lengths[segment] ? distance / lengths[segment] : 0;
+    const x = positions[segment][0] + legs[segment].dx * ratio;
+    const y = positions[segment][1] + legs[segment].dy * ratio;
+    context.globalAlpha = 1;
+    context.beginPath();
+    context.arc(x, y, 4, 0, Math.PI * 2);
+    context.fill();
   }
-  frame(time) {
-    const dt=Math.min((time-(this.last||time))/1000,.05);this.last=time;
-    if(!this.drag) this.turn+=dt*.08;
-    const hover=finePointer.matches?1:0;
-    this.rx+=(this.targetX+this.pointer.y*.15*hover-this.rx)*.065;
-    this.ry+=(this.targetY+this.pointer.x*.2*hover-this.ry)*.065;
-    this.draw();
-    if(motionEnabled && this.visible && !document.hidden) this.raf=requestAnimationFrame(t=>this.frame(t));
-    else this.raf=null;
-  }
-  draw() {
-    if(!this.ctx || !this.width || !this.height) return;
-    const ctx=this.ctx,w=this.width,h=this.height;
-    ctx.clearRect(0,0,w,h);
-    const ax=this.rx,ay=this.ry+this.turn,az=-.35;
-    const sx=Math.sin(ax),cx=Math.cos(ax),sy=Math.sin(ay),cy=Math.cos(ay),sz=Math.sin(az),cz=Math.cos(az);
-    const scale=Math.min(w*.32,h*.33);
-    const project=p=>{
-      const x=p[0]*cz-p[1]*sz,y=p[0]*sz+p[1]*cz;
-      const yy=y*cx-p[2]*sx,zz=y*sx+p[2]*cx;
-      const xx=x*cy+zz*sy,z=-x*sy+zz*cy;
-      const perspective=4.5/(4.5+z);
-      return [w*.5+xx*scale*perspective,h*.5+yy*scale*perspective,z];
-    };
-    ctx.strokeStyle=this.color;
-    for(const curve of this.curves){
-      const points=curve.map(project);
-      const depth=points.reduce((sum,p)=>sum+p[2],0)/points.length;
-      ctx.globalAlpha=Math.max(.13,Math.min(.8,.43-depth*.21));
-      ctx.lineWidth=.65;
-      ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke();
+
+  function render(progress = null) {
+    context.clearRect(0, 0, width, height);
+    context.strokeStyle = color;
+    context.fillStyle = color;
+    const layer = signalButtons.findIndex(button => button.dataset.layer === signal.dataset.layer);
+    const activeIndex = routes.length === 3 ? layer : 1 + layer * 3;
+    for (const [index, pair] of routes.entries()) {
+      for (const path of pair) trace(path, index === activeIndex, progress);
     }
-    ctx.globalAlpha=.15;ctx.lineWidth=.6;
-    for(const [x,y] of [[w*.08,h*.35],[w*.92,h*.65]]){ctx.beginPath();ctx.moveTo(x-5,y);ctx.lineTo(x+5,y);ctx.moveTo(x,y-5);ctx.lineTo(x,y+5);ctx.stroke();}
-    ctx.globalAlpha=1;
-    this.canvas.dataset.rotation=`${this.rx.toFixed(3)},${(this.ry+this.turn).toFixed(3)}`;
-    document.getElementById('scene-x').textContent=String(Math.round(this.ry*100));
-    document.getElementById('scene-y').textContent=String(Math.round(this.rx*100));
+    context.globalAlpha = 1;
   }
+
+  function animate(time) {
+    frame = 0;
+    drift += (target - drift) * .24;
+    const elapsed = started === null ? 0 : Math.max(0, time - started);
+    if (elapsed > 960) started = null;
+    render(started === null ? null : elapsed / 960);
+    if (started !== null || Math.abs(target - drift) > .12) queue();
+  }
+
+  function queue() {
+    if (!frame && motionEnabled && finePointer.matches && visible && !document.hidden) {
+      frame = requestAnimationFrame(animate);
+    }
+  }
+
+  function resetMotion() {
+    cancelAnimationFrame(frame);
+    frame = 0;
+    started = null;
+    target = 0;
+    drift = 0;
+    render();
+  }
+
+  function refreshColor() {
+    color = getComputedStyle(canvas).color;
+    render();
+  }
+
+  signal.addEventListener('signalchange', () => {
+    if (motionEnabled && finePointer.matches && visible && !document.hidden) {
+      started = performance.now();
+      queue();
+    }
+    render();
+  });
+  signal.addEventListener('pointermove', event => {
+    if (!motionEnabled || !finePointer.matches || event.pointerType !== 'mouse') return;
+    const bounds = signal.getBoundingClientRect();
+    target = ((event.clientY - bounds.top) / bounds.height - .5) * 23;
+    queue();
+  }, { passive: true });
+  signal.addEventListener('pointerleave', () => {
+    target = 0;
+    queue();
+  });
+  document.addEventListener('portfolio:themechange', refreshColor);
+  document.addEventListener('portfolio:motionchange', resetMotion);
+  document.addEventListener('visibilitychange', resetMotion);
+  finePointer.addEventListener('change', resetMotion);
+
+  if ('ResizeObserver' in window) new ResizeObserver(measure).observe(signal);
+  else window.addEventListener('resize', measure, { passive: true });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (!visible) resetMotion();
+    }).observe(signal);
+  }
+  refreshColor();
+  measure();
+  document.fonts?.ready.then(measure);
 }
-new Ribbon(document.getElementById('ribbon-canvas'));
+drawSignal();
 
 function updateClock() {
   const clock=document.getElementById('local-clock');

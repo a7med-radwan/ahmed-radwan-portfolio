@@ -1,6 +1,12 @@
 # Full-Stack Developer Portfolio - Ahmed Radwan
 
-A self-contained, interactive portfolio for Ahmed Radwan, with a draggable wireframe ribbon, a nine-project inspection surface, a photographic about section, and an indexed professional history.
+## Creative direction
+
+**The Human Signal** puts Ahmed’s name and portrait at the center of an editorial composition. A canvas routing diagram frames the photograph and lets visitors trace three layers of his work: interfaces, APIs, and AI integrations. The same linework carries into the project diagrams, connecting the opening interaction to concrete engineering decisions and their source code.
+
+Condensed headlines and a fine rule grid set the rhythm. Each existing palette supplies the page accent and diagram ink in both light and dark mode. The portrait and selected route are visible independently of motion. Native scrolling carries the visitor from the introduction through projects, skills, experience, and contact.
+
+A static portfolio for Ahmed Haitham Radwan, a full-stack developer and teaching assistant at the Islamic University of Gaza.
 
 ##  Live Demo
 You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
@@ -8,16 +14,17 @@ You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io
 ##  Key Features
 - **Full-Stack & AI Focused**: Showcasing expertise in Laravel 13, React, RESTful APIs, Node.js, and AI integrations (OpenAI/Claude).
 - **Current background**: Teaching Assistant at the Islamic University of Gaza, followed by development experience, education, and eleven certifications and courses.
-- **Visual identity**: A neutral black-and-white theme, editorial typography, a section rail, and project architecture illustrations that adapt to every palette.
-- **Fully Responsive**: Optimized for every device: desktops, tablets, and mobile phones.
+- **Visual identity**: A typographic masthead, a real portrait, and architecture diagrams that adapt to every palette.
+- **Responsive layouts**: A wide editorial plate on desktop and a stacked portrait with touch targets on mobile.
 - **Interactive Elements**:
-  - A real-time canvas ribbon that rotates automatically and responds to dragging or arrow keys. Home or Reset restores its initial view.
+  - The signal diagram connects Interfaces to Write AI, APIs to Pharmacy API, and AI integrations to Gradly API. Each route opens a directly linkable case study. The controls also support arrow keys, Home, and End.
   - Nine projects selected through an index, previous/next controls, or arrow keys, Home, and End.
-  - Scroll-linked typography, entrance transitions, magnetic links, and subtle pointer-driven perspective.
+  - Each case study has a short animated schematic that plays when it comes into view. Use Replay animation to watch it again, or Next step to explore still frames with motion turned off.
+  - A masked masthead entrance, scroll-position indicator, section transitions, and subtle pointer response.
   - Keyboard-accessible experience, education, and certification tabs.
   - Expandable skill categories and work history, mobile navigation, and native focus indicators.
 - **Dynamic Themes**: Black & white, Amethyst, Electric Blue, Cyber Teal, Matrix Green, Deep Indigo, and Solar Gold, each with dark/light mode. Existing saved theme preferences remain valid; new visits start in black & white.
-- **Motion preferences**: An explicit motion switch, automatic reduced-motion support, and suspension of canvas animation while off-screen or in a hidden tab.
+- **Motion preferences**: The motion switch and system reduced-motion setting keep the selected route visible as a static drawing. Canvas animation runs on demand with a fine pointer and pauses when the diagram leaves the viewport or the tab is hidden.
 - **Performance Optimized**: Lightweight assets and clean semantic HTML for SEO.
 
 ##  Built With
@@ -30,9 +37,11 @@ You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io
 
 ##  Project Structure
 - `index.html`: Main application entry point.
-- `style.css`: Comprehensive design system and responsive rules.
-- `script.js`: Ribbon rendering, project selection, navigation, tabs, motion, scroll effects, and theme preferences.
-- `images/`: Directory for logos and profile assets.
+- `style.css`: Themes, editorial layout, hero, and section styling.
+- `work.css`: Project navigation and responsive architecture diagrams.
+- `project-films.js`: Canvas illustrations for the nine case studies.
+- `script.js`: Signal drawing, project selection, navigation, tabs, motion, scroll position, and theme preferences.
+- `images/profile.png` and `images/profile-900.jpg`: The existing source photograph and a smaller copy used by the hero.
 - `fonts/`: Local WOFF2 files, font declarations, and licenses.
 - `documents/Ahmed_Radwan_CV.pdf`: The current résumé, opened by the portfolio's résumé link.
 

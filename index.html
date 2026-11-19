@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme-color="mono" data-mode="dark"><head>
-<script>try{const c=localStorage.getItem("portfolio-theme-color");document.documentElement.dataset.themeColor=["mono","amethyst","blue","teal","green","indigo","gold"].includes(c)?c:"mono";document.documentElement.dataset.mode=localStorage.getItem("portfolio-theme")==="light"?"light":"dark";document.documentElement.dataset.motion=matchMedia("(prefers-reduced-motion: reduce)").matches||localStorage.getItem("portfolio-motion")==="off"?"off":"on"}catch{}</script>
 <meta charset="utf-8"/>
+<script>try{const c=localStorage.getItem("portfolio-theme-color");document.documentElement.dataset.themeColor=["mono","amethyst","blue","teal","green","indigo","gold"].includes(c)?c:"mono";document.documentElement.dataset.mode=localStorage.getItem("portfolio-theme")==="light"?"light":"dark";document.documentElement.dataset.motion=matchMedia("(prefers-reduced-motion: reduce)").matches||localStorage.getItem("portfolio-motion")==="off"?"off":"on"}catch{}</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ahmed Radwan | Full-Stack Developer — Laravel &amp; React</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3C/svg%3E"/>
@@ -11,17 +11,19 @@
 <meta content="Ahmed Radwan | Full-Stack Developer — Laravel &amp; React" property="og:title"/>
 <meta content="Full-Stack Developer and Teaching Assistant at the Islamic University of Gaza. Building web applications with Laravel, React, RESTful APIs, and AI integration." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="https://a7med-radwan.github.io/ahmed-radwan-portfolio/images/profile.png" property="og:image"/>
+<meta content="https://a7med-radwan.github.io/ahmed-radwan-portfolio/images/profile-900.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Ahmed Radwan | Full-Stack Developer — Laravel &amp; React" name="twitter:title"/>
 <meta content="Full-Stack Developer and Teaching Assistant at the Islamic University of Gaza. Building web applications with Laravel, React, RESTful APIs, and AI integration." name="twitter:description"/>
-<meta content="https://a7med-radwan.github.io/ahmed-radwan-portfolio/images/profile.png" name="twitter:image"/>
-<link as="font" crossorigin="" href="fonts/barlow-condensed-latin-700.woff2" rel="preload" type="font/woff2"/>
+<meta content="https://a7med-radwan.github.io/ahmed-radwan-portfolio/images/profile-900.jpg" name="twitter:image"/>
+<link as="font" crossorigin="" href="fonts/barlow-condensed-latin-800.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="fonts/manrope-latin-400.woff2" rel="preload" type="font/woff2"/>
 <link href="fonts/fonts.css" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
+<link href="work.css" rel="stylesheet"/>
 <noscript><style>
 .work-panel[hidden],#panel-education[hidden],#panel-certifications[hidden]{display:block!important}
+.signal-controls{display:none!important}
 .work-browser{display:block}.work-sidebar,.journey-tabs,.header-actions{display:none}.work-panel+.work-panel{margin-top:60px}
 @media(max-width:600px){.site-header{height:auto}.header-inner{flex-direction:column;align-items:start;padding-block:20px}#navigation{display:flex;position:static;flex-direction:row;flex-wrap:wrap;padding:0;border:0;background:none}}
 </style></noscript>
@@ -30,69 +32,284 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <aside class="index-rail" aria-label="Page index"><a class="rail-logo" href="#hero" aria-label="Ahmed Radwan home">ar<span>.</span></a><div class="rail-track"><span id="rail-progress"></span></div><nav class="rail-nav" aria-label="Section index"><a href="#projects" aria-label="01 Selected work">01</a><a href="#about" aria-label="02 About and skills">02</a><a href="#experience" aria-label="03 Experience">03</a><a href="#contact" aria-label="04 Contact">04</a></nav><span class="rail-bottom" aria-hidden="true">SCROLL <span id="scroll-percent">00</span>%</span></aside>
 <div class="page-shell">
-<header class="site-header"><div class="header-inner"><a class="wordmark" href="#hero">AHMED RADWAN<span>DEVELOPER & TEACHING ASSISTANT</span></a><nav id="navigation" aria-label="Main navigation"><a href="#projects">Work <sup>09</sup></a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact ↗</a></nav><div class="header-actions"><details class="appearance"><summary aria-label="Appearance settings"><span class="appearance-symbol" aria-hidden="true"></span><span class="appearance-label">Appearance</span></summary><div class="appearance-panel"><div class="panel-heading"><span>Change the atmosphere.</span><span aria-hidden="true">↙</span></div><div class="theme-options"><button class="theme-option" data-color="mono" aria-pressed="true"><span class="swatch swatch-mono" aria-hidden="true"></span>Black & white<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="amethyst" aria-pressed="false"><span class="swatch swatch-amethyst" aria-hidden="true"></span>Amethyst<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="blue" aria-pressed="false"><span class="swatch swatch-blue" aria-hidden="true"></span>Electric blue<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="teal" aria-pressed="false"><span class="swatch swatch-teal" aria-hidden="true"></span>Cyber teal<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="green" aria-pressed="false"><span class="swatch swatch-green" aria-hidden="true"></span>Matrix green<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="indigo" aria-pressed="false"><span class="swatch swatch-indigo" aria-hidden="true"></span>Deep indigo<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="gold" aria-pressed="false"><span class="swatch swatch-gold" aria-hidden="true"></span>Solar gold<span class="theme-check" aria-hidden="true">✓</span></button></div><div class="appearance-controls"><button id="theme-toggle" aria-pressed="false">Light mode <span>☀</span></button><button id="motion-toggle" aria-pressed="true">Motion <span class="motion-status">On</span></button></div></div></details><button class="menu-toggle" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span></button></div></div></header>
-<main id="main">
-<section id="hero" class="hero section-shell">
-<div class="hero-topline"><span class="eyebrow">INDEPENDENT PORTFOLIO / 2026</span><span class="availability"><i></i> Open to opportunities</span></div>
-<div class="hero-stage"><div class="hero-copy"><span class="hero-introduction">A developer in Gaza. A curious mind everywhere.</span><h1><span class="title-line"><span>I like a good</span></span><span class="title-line"><em>problem.</em><span class="title-asterisk" aria-hidden="true">*</span></span></h1><p>I’m Ahmed Radwan, a full-stack developer and teaching assistant. I build web applications with Laravel, React, and AI — and help others learn how.</p><a href="#projects" class="hero-link" data-magnetic><span class="round-arrow" aria-hidden="true">↙</span><span>Take a look at my work<span class="link-small">A selection of 9 projects</span></span></a></div>
-<div class="hero-scene"><canvas id="ribbon-canvas" tabindex="0" aria-label="Interactive wireframe ribbon. Drag or use arrow keys to rotate. Press Home to reset.">An interactive wireframe ribbon representing connected systems.</canvas><div class="scene-label scene-label-top"><span class="scene-cross">+</span> A FEW MOVING PARTS.</div><div class="scene-label scene-label-bottom"><span>DRAG TO ROTATE</span><button id="reset-scene" aria-label="Reset ribbon rotation">RESET ↺</button></div><span class="scene-coordinate" aria-hidden="true">X <span id="scene-x">00</span> / Y <span id="scene-y">00</span></span></div></div>
-<div class="hero-bottom"><span>CURRENTLY <strong>Teaching Assistant @ IUG</strong></span><a class="resume-link" href="documents/Ahmed_Radwan_CV.pdf" target="_blank" rel="noopener noreferrer">View résumé <span>↗</span></a><span class="local-time">PALESTINE <time id="local-clock"></time></span><a href="#projects" class="scroll-cue" aria-label="Scroll to selected work">SCROLL TO EXPLORE <span>↓</span></a></div>
+<header class="site-header"><div class="header-inner"><a class="wordmark" href="#hero">Ahmed Radwan</a><nav id="navigation" aria-label="Main navigation"><a href="#projects">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav><div class="header-actions"><details class="appearance"><summary aria-label="Appearance settings"><span class="appearance-symbol" aria-hidden="true"></span><span class="appearance-label">Appearance</span></summary><div class="appearance-panel"><div class="panel-heading">Appearance</div><div class="theme-options"><button class="theme-option" data-color="mono" aria-pressed="true"><span class="swatch swatch-mono" aria-hidden="true"></span>Black & white<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="amethyst" aria-pressed="false"><span class="swatch swatch-amethyst" aria-hidden="true"></span>Amethyst<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="blue" aria-pressed="false"><span class="swatch swatch-blue" aria-hidden="true"></span>Electric blue<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="teal" aria-pressed="false"><span class="swatch swatch-teal" aria-hidden="true"></span>Cyber teal<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="green" aria-pressed="false"><span class="swatch swatch-green" aria-hidden="true"></span>Matrix green<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="indigo" aria-pressed="false"><span class="swatch swatch-indigo" aria-hidden="true"></span>Deep indigo<span class="theme-check" aria-hidden="true">✓</span></button><button class="theme-option" data-color="gold" aria-pressed="false"><span class="swatch swatch-gold" aria-hidden="true"></span>Solar gold<span class="theme-check" aria-hidden="true">✓</span></button></div><div class="appearance-controls"><button id="theme-toggle" aria-pressed="false">Light mode <span>☀</span></button><button id="motion-toggle" aria-pressed="true">Motion <span class="motion-status">On</span></button></div></div></details><button class="menu-toggle" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span></button></div></div></header>
+<main id="main" tabindex="-1">
+<section id="hero" class="hero section-shell" aria-labelledby="hero-name">
+  <div class="hero-topline">
+    <span class="eyebrow">Developer portfolio</span>
+    <span class="availability">Open to opportunities</span>
+  </div>
+  <div class="hero-masthead">
+    <h1 id="hero-name"><span>Ahmed</span> <span>Radwan</span></h1>
+  </div>
+  <div class="signal-stage" data-layer="interface">
+    <canvas id="signal-canvas" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="hero-role">Software<br class="role-break"/> engineer</p>
+      <p class="hero-introduction">I build full-stack applications with Laravel, React, and AI, and teach web development at the Islamic University of Gaza.</p>
+      <a href="#projects" class="hero-link">Explore my work</a>
+    </div>
+    <figure class="signal-portrait">
+      <img src="images/profile-900.jpg" alt="Portrait of Ahmed Radwan" width="900" height="675" fetchpriority="high"/>
+      <span class="portrait-mark portrait-mark-top" aria-hidden="true"></span>
+      <span class="portrait-mark portrait-mark-bottom" aria-hidden="true"></span>
+    </figure>
+    <div class="signal-controls" role="group" aria-labelledby="signal-label">
+      <p id="signal-label" class="eyebrow">Explore the signal</p>
+      <div class="signal-options">
+        <button type="button" data-layer="interface" aria-pressed="true">Interfaces</button>
+        <button type="button" data-layer="api" aria-pressed="false">APIs</button>
+        <button type="button" data-layer="ai" aria-pressed="false" aria-label="AI integrations"><span>AI<span class="signal-option-detail"> integrations</span></span></button>
+      </div>
+      <div class="signal-example">
+        <p id="signal-description" aria-live="polite">A React interface brings drafting and semantic search into one publishing workflow.</p>
+        <a id="signal-project" href="#work-panel-2">View Write AI</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <span class="hero-location">Gaza, Palestine <time id="local-clock"></time></span>
+    <a class="resume-link" href="documents/Ahmed_Radwan_CV.pdf" target="_blank" rel="noopener noreferrer">View résumé</a>
+  </div>
 </section>
-<div class="stack-ticker" aria-hidden="true"><div class="ticker-line"><span>Interfaces</span><b>↗</b><span>APIs</span><b>↗</b><span>Intelligence</span><b>↗</b><span>Interfaces</span><b>↗</b><span>APIs</span><b>↗</b><span>Intelligence</span><b>↗</b></div></div>
-<section id="projects" class="section-shell section-space"><div class="section-heading" data-reveal><div><span class="eyebrow section-index">01 / SELECTED WORK</span><h2>Some things<br>I’ve put into the world<span class="accent-dot">.</span></h2></div><p>Pick a project. Look under the hood.</p></div><div class="work-browser" data-reveal><div class="work-sidebar"><div class="work-index-label"><span>PROJECT INDEX</span><span>09</span></div><div class="work-index" role="tablist" aria-label="Select a project" aria-orientation="vertical"><button id="work-tab-0" class="work-tab" role="tab" aria-selected="true" aria-controls="work-panel-0" tabindex="0"><span class="work-number">01</span><span>Gradly API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-1" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-1" tabindex="-1"><span class="work-number">02</span><span>Gaply</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-2" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-2" tabindex="-1"><span class="work-number">03</span><span>Write AI</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-3" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-3" tabindex="-1"><span class="work-number">04</span><span>SmartTask</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-4" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-4" tabindex="-1"><span class="work-number">05</span><span>My Expenses</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-5" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-5" tabindex="-1"><span class="work-number">06</span><span>Pharmacy API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-6" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-6" tabindex="-1"><span class="work-number">07</span><span>Hospital System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-7" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-7" tabindex="-1"><span class="work-number">08</span><span>Library System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button><button id="work-tab-8" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-8" tabindex="-1"><span class="work-number">09</span><span>Cloud Analytics</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button></div><div class="work-controls"><span><strong id="project-current">01</strong> / 09</span><div><button id="project-prev" class="arrow-button" aria-label="Previous project">←</button><button id="project-next" class="arrow-button" aria-label="Next project">→</button></div></div></div><div class="work-stage"><article id="work-panel-0" class="work-panel" role="tabpanel" aria-labelledby="work-tab-0" >
-      <div class="work-visual visual-0" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 01 / SYSTEM MAP</span><span>Laravel 12</span></div><div class="poster-rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">Gradly API<span>AI-POWERED PLANNING</span></div><div class="project-flow"><span class="flow-node">Your goals</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">AI engine</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">A clear roadmap</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">AI-POWERED PLANNING</span><h3>Gradly API</h3></div><p>High-performance Laravel 12 RESTful API with OpenRouter AI for automated
-                                goal roadmaps, daily task breakdowns, interactive chatbot, rate-limited auth, Google
-                                OAuth, and Redis queues.</p></div><div class="work-bottom"><div class="tags"><span>Laravel 12</span><span>OpenRouter AI</span><span>Sanctum &amp;
-                                    Socialite</span><span>Redis &amp; SQLite</span><span>Docker</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/gradly-api" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-1" class="work-panel" role="tabpanel" aria-labelledby="work-tab-1" hidden>
-      <div class="work-visual visual-1" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 02 / SYSTEM MAP</span><span>Laravel 13</span></div><div class="poster-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="poster-title">Gaply<span>CAREER GUIDANCE</span></div><div class="project-flow"><span class="flow-node">Skills</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">AI analysis</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Your roadmap</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">CAREER GUIDANCE</span><h3>Gaply</h3></div><p>Comprehensive career platform using Laravel 13 &amp; AI to analyze skill
-                                gaps, generate personalized weekly roadmaps, calculate readiness scores, optimize bios,
-                                and provide an AI interview coach.</p></div><div class="work-bottom"><div class="tags"><span>Laravel 13</span><span>Laravel
-                                    AI SDK</span><span>Sanctum &amp; Fortify</span><span>SQLite</span><span>Queues</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/Gaply" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-2" class="work-panel" role="tabpanel" aria-labelledby="work-tab-2" hidden>
-      <div class="work-visual visual-2" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 03 / SYSTEM MAP</span><span>Laravel 13</span></div><div class="poster-paper" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">Write AI<span>AI-POWERED PUBLISHING</span></div><div class="project-flow"><span class="flow-node">Idea</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">AI agents</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Published</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">AI-POWERED PUBLISHING</span><h3>Write AI</h3></div><p>AI-powered blogging platform with a React front end and Laravel back end. Features AI Writer Agent (Groq), SEO Agent (Gemini), semantic search via vector embeddings, 2FA, Passkeys, real-time WebSocket notifications, RBAC, and automated testing.</p></div><div class="work-bottom"><div class="tags"><span>Laravel 13</span><span>React</span><span>AI
-                                    SDK</span><span>WebSockets</span><span>PHPUnit</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/ucas-laravel-write-ai" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-3" class="work-panel" role="tabpanel" aria-labelledby="work-tab-3" hidden>
-      <div class="work-visual visual-0" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 04 / SYSTEM MAP</span><span>Laravel 13</span></div><div class="poster-rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">SmartTask<span>AGILE TASK MANAGEMENT</span></div><div class="project-flow"><span class="flow-node">Tasks</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Sprint planner</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Backlog</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">AGILE TASK MANAGEMENT</span><h3>SmartTask</h3></div><p>AI-augmented Agile task &amp; sprint manager on Laravel 13. Agentic AI
-                                task decomposition, automated sprint backlog planner, developer analytics dashboard, and
-                                Fortify authentication.</p></div><div class="work-bottom"><div class="tags"><span>Laravel 13</span><span>Laravel
-                                    AI SDK</span><span>Tailwind CSS</span><span>Fortify</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/smart-task-laravel" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-4" class="work-panel" role="tabpanel" aria-labelledby="work-tab-4" hidden>
-      <div class="work-visual visual-1" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 05 / SYSTEM MAP</span><span>Laravel 12</span></div><div class="poster-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="poster-title">My Expenses<span>PERSONAL FINANCE</span></div><div class="project-flow"><span class="flow-node">Income</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Categories</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Financial plan</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">PERSONAL FINANCE</span><h3>My Expenses</h3></div><p>A complete personal finance management system to track income,
-                                categorize expenses, and generate smart financial plans. Live deployment with full CRUD
-                                and role-based access control.</p></div><div class="work-bottom"><div class="tags"><span>Laravel 12</span><span>Tailwind CSS</span><span>MySQL</span></div><div class="project-links"><a href="https://myexpenses1.free.nf/" target="_blank" rel="noopener noreferrer" class="project-link">Live Demo <span>↗</span></a><a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-5" class="work-panel" role="tabpanel" aria-labelledby="work-tab-5" hidden>
-      <div class="work-visual visual-2" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 06 / SYSTEM MAP</span><span>Node.js</span></div><div class="poster-paper" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">Pharmacy API<span>PHARMACY OPERATIONS</span></div><div class="project-flow"><span class="flow-node">Inventory</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">REST API</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Pharmacy</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">PHARMACY OPERATIONS</span><h3>Pharmacy API</h3></div><p>A RESTful API built with Node.js and Express for managing pharmacy
-                                operations, drug inventory, and secure JWT authentication with comprehensive Postman
-                                documentation.</p></div><div class="work-bottom"><div class="tags"><span>Node.js</span><span>Express.js</span><span>MongoDB</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-6" class="work-panel" role="tabpanel" aria-labelledby="work-tab-6" hidden>
-      <div class="work-visual visual-0" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 07 / SYSTEM MAP</span><span>PHP</span></div><div class="poster-rings" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">Hospital System<span>HOSPITAL MANAGEMENT</span></div><div class="project-flow"><span class="flow-node">Staff</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Authorization</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Patient records</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">HOSPITAL MANAGEMENT</span><h3>Hospital System</h3></div><p>A comprehensive web application for managing hospital operations, secure
-                                staff roles, patient records, and medication inventory with full RBAC authorization
-                                system.</p></div><div class="work-bottom"><div class="tags"><span>PHP</span><span>MySQL</span><span>HTML/CSS</span><span>JavaScript</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-7" class="work-panel" role="tabpanel" aria-labelledby="work-tab-7" hidden>
-      <div class="work-visual visual-1" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 08 / SYSTEM MAP</span><span>Java</span></div><div class="poster-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><div class="poster-title">Library System<span>LIBRARY MANAGEMENT</span></div><div class="project-flow"><span class="flow-node">Librarian</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">JavaFX</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Library</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">LIBRARY MANAGEMENT</span><h3>Library System</h3></div><p>A desktop application built with JavaFX and SceneBuilder for library
-                                management, featuring role-based dashboards for admins and librarians, with
-                                comprehensive system statistics.</p></div><div class="work-bottom"><div class="tags"><span>Java</span><span>JavaFX</span><span>CSS</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article><article id="work-panel-8" class="work-panel" role="tabpanel" aria-labelledby="work-tab-8" hidden>
-      <div class="work-visual visual-2" data-tilt aria-hidden="true"><div class="poster-meta"><span>PROJECT 09 / SYSTEM MAP</span><span>PySpark</span></div><div class="poster-paper" aria-hidden="true"><i></i><i></i><i></i></div><div class="poster-title">Cloud Analytics<span>DISTRIBUTED ANALYTICS</span></div><div class="project-flow"><span class="flow-node">Data</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Apache Spark</span><span class="flow-arrow" aria-hidden="true">→</span><span class="flow-node">Analytics</span></div><div class="poster-footer"><span>DESIGNED & DEVELOPED BY AHMED</span><span>↗</span></div></div>
-      <div class="work-description"><div><span class="eyebrow">DISTRIBUTED ANALYTICS</span><h3>Cloud Analytics</h3></div><p>A distributed data processing and analytics tool for large-scale
-                                datasets. Utilizes Apache Spark for massive parallel operations, Machine Learning
-                                algorithms, Gradio UI, and Firebase.</p></div><div class="work-bottom"><div class="tags"><span>PySpark</span><span>Gradio</span><span>Machine Learning</span></div><div class="project-links"><a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" rel="noopener noreferrer" class="project-link">Source Code <span>↗</span></a></div></div>
-    </article></div></div></section>
-<section id="about" class="about-section section-space"><div class="section-shell"><div class="about-layout"><div class="portrait-column" data-reveal><div class="portrait-card" data-tilt><span class="portrait-registration">FIG. 01 — THE PERSON</span><div class="portrait-image"><img src="images/profile.png" alt="Ahmed Radwan" loading="lazy" width="600" height="720"/></div><div class="portrait-caption"><strong>Ahmed Radwan</strong><span>Gaza, Palestine ↗</span></div><span class="portrait-corner" aria-hidden="true">+</span></div><p class="portrait-note">Usually writing code. Sometimes explaining it.</p></div><div class="about-copy" data-reveal><span class="eyebrow section-index">02 / A LITTLE CONTEXT</span><h2>On both sides<br>of the learning curve.</h2><p>I’m a full-stack developer based in Gaza, Palestine, and a teaching assistant at the Islamic University of Gaza. I specialize in Laravel and React, building thoughtful interfaces, dependable backends, and useful AI integrations.</p><p>A Software Development graduate with an Excellent grade, I support Web Development and Web Programming courses and mentor IT students as they build real-world applications. I bring the same problem-solving mindset to architecture, APIs, databases, and the details people interact with.</p><div class="about-stats">
-<div><strong>09<span>+</span></strong><span>Projects built</span>
-</div><div><strong>02</strong><span>Years of experience</span>
+<section id="projects" class="section-shell section-space" aria-labelledby="projects-title">
+  <div class="section-heading" data-reveal>
+    <h2 id="projects-title">Selected work.</h2>
+  </div>
+  <div class="work-browser" data-reveal>
+    <div class="work-sidebar">
+      <div class="work-index-label" aria-hidden="true">Project index</div>
+      <div class="work-index" role="tablist" aria-label="Select a project" aria-orientation="vertical">
+        <button id="work-tab-0" class="work-tab" role="tab" aria-selected="true" aria-controls="work-panel-0" tabindex="0"><span class="work-number" aria-hidden="true">01</span><span>Gradly API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-1" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-1" tabindex="-1"><span class="work-number" aria-hidden="true">02</span><span>Gaply</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-2" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-2" tabindex="-1"><span class="work-number" aria-hidden="true">03</span><span>Write AI</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-3" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-3" tabindex="-1"><span class="work-number" aria-hidden="true">04</span><span>SmartTask</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-4" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-4" tabindex="-1"><span class="work-number" aria-hidden="true">05</span><span>My Expenses</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-5" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-5" tabindex="-1"><span class="work-number" aria-hidden="true">06</span><span>Pharmacy API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-6" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-6" tabindex="-1"><span class="work-number" aria-hidden="true">07</span><span>Hospital System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-7" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-7" tabindex="-1"><span class="work-number" aria-hidden="true">08</span><span>Library System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-8" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-8" tabindex="-1"><span class="work-number" aria-hidden="true">09</span><span>Cloud Analytics</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+      </div>
+      <div class="work-controls">
+        <span aria-live="polite" aria-atomic="true"><span class="work-visually-hidden">Project </span><strong id="project-current">01</strong> / 09</span>
+        <div><button id="project-prev" class="work-arrow-button" aria-label="Previous project">←</button><button id="project-next" class="work-arrow-button" aria-label="Next project">→</button></div>
+      </div>
+    </div>
+    <div class="work-stage">
+      <article id="work-panel-0" class="work-panel" role="tabpanel" aria-labelledby="work-tab-0">
+        <header class="work-title"><span class="work-category">AI-powered planning</span><h3>Gradly API</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="gradly">
+            <figcaption>Goal planning flow</figcaption>
+            <ol class="work-map work-map--pipeline">
+              <li class="work-node"><small>Input</small><strong>Goal</strong></li>
+              <li class="work-node work-node--active"><small>Generation</small><strong>OpenRouter AI</strong></li>
+              <li class="work-node"><small>Output</small><strong>Roadmap &amp; daily tasks</strong></li>
+            </ol>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Break a broad goal into a roadmap with tasks people can act on each day.</p>
+            <p>A Laravel REST API integrates OpenRouter for generation and uses Redis queues. It supports a planning chatbot, rate-limited authentication and Google sign-in.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Laravel 12</li><li>OpenRouter AI</li><li>Sanctum &amp; Socialite</li><li>Redis &amp; SQLite</li><li>Docker</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/gradly-api" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-1" class="work-panel" role="tabpanel" aria-labelledby="work-tab-1" hidden>
+        <header class="work-title"><span class="work-category">Career guidance</span><h3>Gaply</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="gaply">
+            <figcaption>Career guidance workflow</figcaption>
+            <div class="work-map work-map--branch">
+              <div class="work-node work-node--active"><small>Assessment</small><strong>AI skill-gap analysis</strong></div>
+              <ul class="work-branches">
+                <li class="work-node"><strong>Readiness score</strong></li>
+                <li class="work-node"><strong>Weekly roadmap</strong></li>
+              </ul>
+            </div>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Turn a skill-gap assessment into a week-by-week plan.</p>
+            <p>Laravel and its AI SDK support skills analysis, readiness scoring and personalized roadmaps. The platform also offers profile bio suggestions and an AI interview coach.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Laravel 13</li><li>Laravel AI SDK</li><li>Sanctum &amp; Fortify</li><li>SQLite</li><li>Queues</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/Gaply" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-2" class="work-panel" role="tabpanel" aria-labelledby="work-tab-2" hidden>
+        <header class="work-title"><span class="work-category">AI-powered publishing</span><h3>Write AI</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="write-ai">
+            <figcaption>Publishing architecture</figcaption>
+            <ul class="work-map work-map--layers">
+              <li class="work-node"><small>Interface</small><strong>React front end</strong></li>
+              <li class="work-node work-node--active"><small>Application</small><strong>Laravel backend</strong></li>
+              <li class="work-node"><small>AI services</small><strong>Groq writer · Gemini SEO</strong></li>
+            </ul>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Bring drafting, search and SEO into a single publishing workflow.</p>
+            <p>A React front end and Laravel back end support separate writing and SEO agents, embedding-based semantic search and real-time notifications. The project includes passkeys, 2FA, role-based permissions and automated tests.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Laravel 13</li><li>React</li><li>Laravel AI SDK</li><li>WebSockets</li><li>PHPUnit</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/ucas-laravel-write-ai" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-3" class="work-panel" role="tabpanel" aria-labelledby="work-tab-3" hidden>
+        <header class="work-title"><span class="work-category">Agile task management</span><h3>SmartTask</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="smarttask">
+            <figcaption>Sprint planning flow</figcaption>
+            <ol class="work-map work-map--steps">
+              <li class="work-node"><small>01</small><strong>Define a task</strong></li>
+              <li class="work-node work-node--active"><small>02</small><strong>Break it down with AI</strong></li>
+              <li class="work-node"><small>03</small><strong>Plan the sprint backlog</strong></li>
+            </ol>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Break larger tasks into work a team can plan into a sprint.</p>
+            <p>The Laravel application uses the AI SDK to decompose tasks and plan sprint backlogs. It includes a developer analytics dashboard and uses Fortify for authentication.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Laravel 13</li><li>Laravel AI SDK</li><li>Tailwind CSS</li><li>Fortify</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/smart-task-laravel" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-4" class="work-panel" role="tabpanel" aria-labelledby="work-tab-4" hidden>
+        <header class="work-title"><span class="work-category">Personal finance</span><h3>My Expenses</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="expenses">
+            <figcaption>Financial planning inputs</figcaption>
+            <div class="work-map work-map--merge">
+              <ul class="work-branches">
+                <li class="work-node"><strong>Income</strong></li>
+                <li class="work-node"><strong>Expense categories</strong></li>
+              </ul>
+              <div class="work-node work-node--active"><small>Output</small><strong>Financial plan</strong></div>
+            </div>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Use income and categorized expenses to build a personal finance plan.</p>
+            <p>A Laravel and MySQL application manages financial records with full create, read, update and delete operations, plus role-based access control.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Laravel 12</li><li>Tailwind CSS</li><li>MySQL</li></ul>
+          <div class="project-links"><a href="https://myexpenses1.free.nf/" target="_blank" rel="noopener noreferrer" class="project-link">Live demo <span aria-hidden="true">↗</span></a><a href="https://github.com/a7med-radwan/MyEexpense-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-5" class="work-panel" role="tabpanel" aria-labelledby="work-tab-5" hidden>
+        <header class="work-title"><span class="work-category">Pharmacy operations</span><h3>Pharmacy API</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="pharmacy">
+            <figcaption>API request path</figcaption>
+            <ol class="work-map work-map--pipeline">
+              <li class="work-node"><small>Identity</small><strong>JWT</strong></li>
+              <li class="work-node work-node--active"><small>Application</small><strong>Express API</strong></li>
+              <li class="work-node"><small>Storage</small><strong>Drug inventory</strong></li>
+            </ol>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Expose pharmacy operations and inventory through a REST API.</p>
+            <p>Node.js and Express handle API requests, JWT handles authentication, and MongoDB stores application data. Postman documentation describes the API for callers.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Node.js</li><li>Express.js</li><li>MongoDB</li><li>Postman</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/Pharmacy-Management-System" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-6" class="work-panel" role="tabpanel" aria-labelledby="work-tab-6" hidden>
+        <header class="work-title"><span class="work-category">Hospital management</span><h3>Hospital System</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="hospital">
+            <figcaption>Staff access and records</figcaption>
+            <div class="work-map work-map--branch">
+              <div class="work-node work-node--active"><small>Authorization</small><strong>Staff roles</strong></div>
+              <ul class="work-branches">
+                <li class="work-node"><strong>Patient records</strong></li>
+                <li class="work-node"><strong>Medication inventory</strong></li>
+              </ul>
+            </div>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Give hospital staff access to operational records according to their roles.</p>
+            <p>A PHP and MySQL web application manages patient records and medication inventory, with role-based authorization for staff.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>PHP</li><li>MySQL</li><li>HTML &amp; CSS</li><li>JavaScript</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/Hospital-Management-System-Final-Project-Web-2" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-7" class="work-panel" role="tabpanel" aria-labelledby="work-tab-7" hidden>
+        <header class="work-title"><span class="work-category">Library management</span><h3>Library System</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="library">
+            <figcaption>Desktop application views</figcaption>
+            <ul class="work-map work-map--layers">
+              <li class="work-node"><small>View</small><strong>Administrator dashboard</strong></li>
+              <li class="work-node"><small>View</small><strong>Librarian dashboard</strong></li>
+              <li class="work-node work-node--active"><small>Toolkit</small><strong>JavaFX · SceneBuilder</strong></li>
+            </ul>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Give administrators and librarians distinct views of the same library system.</p>
+            <p>The JavaFX desktop application uses SceneBuilder for its interface and provides role-based dashboards with system statistics.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>Java</li><li>JavaFX</li><li>SceneBuilder</li><li>CSS</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/SceneBuilber-Library-Managments-System-Final-Project-Java-3" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+      <article id="work-panel-8" class="work-panel" role="tabpanel" aria-labelledby="work-tab-8" hidden>
+        <header class="work-title"><span class="work-category">Distributed analytics</span><h3>Cloud Analytics</h3></header>
+        <div class="work-study">
+          <figure class="work-visual" data-tilt data-film="cloud">
+            <figcaption>Distributed data workflow</figcaption>
+            <ol class="work-map work-map--steps">
+              <li class="work-node"><small>Input</small><strong>Dataset</strong></li>
+              <li class="work-node work-node--active"><small>Processing</small><strong>Apache Spark</strong></li>
+              <li class="work-node"><small>Interface</small><strong>Gradio analytics</strong></li>
+            </ol>
+          </figure>
+          <div class="work-description">
+            <p class="work-lead">Make distributed data processing accessible from a web interface.</p>
+            <p>PySpark runs parallel dataset operations and machine-learning workflows. Gradio provides the interface, and the project also uses Firebase.</p>
+          </div>
+        </div>
+        <div class="work-bottom">
+          <ul class="work-stack" aria-label="Technologies"><li>PySpark</li><li>Gradio</li><li>Machine learning</li><li>Firebase</li></ul>
+          <div class="project-links"><a href="https://github.com/a7med-radwan/Cloud-Based-Distributed-Data-Processing-Service" target="_blank" rel="noopener noreferrer" class="project-link">Source code <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<section id="about" class="about-section section-space" aria-labelledby="about-title">
+  <div class="section-shell">
+    <div class="about-layout">
+      <div data-reveal>
+        <span class="eyebrow section-index">About</span>
+        <h2 id="about-title">I build software.<br/>I teach it, too.</h2>
+      </div>
+      <div class="about-copy" data-reveal>
+        <p>I’m Ahmed Haitham Radwan, a full-stack developer based in Gaza, Palestine, and a teaching assistant at the Islamic University of Gaza. My work spans Laravel backends, React interfaces, and AI integrations.</p>
+        <p>At the university, I support web development courses and mentor students as they build applications. I’m a Software Development graduate with an Excellent grade.</p>
+<div class="about-stats">
+<div><strong>9<span>+</span></strong><span>Projects built</span>
+</div><div><strong>2</strong><span>Years of experience</span>
 </div><div><strong>A<span>+</span></strong><span>Graduation grade</span>
-</div></div><div class="language-note"><span class="eyebrow">ALSO SPEAKING</span><span>Arabic · Native / English · Intermediate</span></div></div></div><div id="skills" class="skills-layout"><div class="skills-intro" data-reveal><span class="eyebrow section-index">THE TOOLBOX</span><h2>What I<br>work with.</h2><p>From the interface to the infrastructure.<br>Open a category to explore.</p></div><div class="skill-list" data-reveal><details class="skill-group" open><summary><span class="skill-number">01</span><h3>Frontend</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>React</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Tailwind CSS</span><span>Responsive design</span></div></details><details class="skill-group" open><summary><span class="skill-number">02</span><h3>Backend</h3><span class="skill-count">05</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>Laravel 13</span><span>PHP 8.4</span><span>Node.js</span><span>Express.js</span><span>Object-Oriented Programming</span></div></details><details class="skill-group" ><summary><span class="skill-number">03</span><h3>APIs & authentication</h3><span class="skill-count">06</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>RESTful APIs</span><span>Sanctum</span><span>Fortify</span><span>Socialite</span><span>JWT</span><span>OAuth 2.0</span></div></details><details class="skill-group" ><summary><span class="skill-number">04</span><h3>Data & databases</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>MongoDB</span><span>Eloquent ORM</span><span>Database Design</span><span>RBAC</span></div></details><details class="skill-group" ><summary><span class="skill-number">05</span><h3>AI & automation</h3><span class="skill-count">08</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>Laravel AI SDK</span><span>OpenRouter AI</span><span>Groq</span><span>Gemini API</span><span>OpenAI / Claude APIs</span><span>Vector Embeddings</span><span>AI agents</span><span>Automation</span></div></details><details class="skill-group" ><summary><span class="skill-number">06</span><h3>Testing & delivery</h3><span class="skill-count">09</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>PHPUnit</span><span>Pest</span><span>Postman</span><span>API Documentation</span><span>Docker</span><span>Git</span><span>GitHub</span><span>CI/CD Pipelines</span><span>Queues &amp; Jobs</span></div></details><details class="skill-group" ><summary><span class="skill-number">07</span><h3>Architecture & more</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>MVC</span><span>Clean Code</span><span>SOLID Principles</span><span>WebSockets</span><span>Event-Driven Design</span><span>Java</span><span>JavaFX</span></div></details></div></div></div></section>
-<section id="experience" class="section-shell section-space"><div class="section-heading" data-reveal><div><span class="eyebrow section-index">03 / SO FAR</span><h2>A few chapters<br>in the story.</h2></div><a href="documents/Ahmed_Radwan_CV.pdf" class="text-link" target="_blank" rel="noopener noreferrer">The full résumé <span>↗</span></a></div><div class="journey" data-reveal><div class="journey-tabs" role="tablist" aria-label="Professional background"><button id="tab-experience" role="tab" aria-selected="true" aria-controls="panel-experience" tabindex="0">Experience <sup>04</sup></button><button id="tab-education" role="tab" aria-selected="false" aria-controls="panel-education" tabindex="-1">Education</button><button id="tab-certifications" role="tab" aria-selected="false" aria-controls="panel-certifications" tabindex="-1">Certifications <sup>11</sup></button></div><div id="panel-experience" role="tabpanel" aria-labelledby="tab-experience"><details class="journey-entry" open><summary><span class="journey-date">Sep 2026 – Present</span><span class="journey-role"><strong>Teaching Assistant</strong><span>Islamic University of Gaza · Part-time · Hybrid, Gaza Strip</span></span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="journey-body"><p>Supporting the teaching and assessment of Web Development and Web Programming courses for IT students at the Islamic University of Gaza.</p><div class="responsibilities"><ul>
+</div></div><div class="language-note"><span class="eyebrow">Languages</span><span>Arabic · Native / English · Intermediate</span></div></div></div><div id="skills" class="skills-layout"><div class="skills-intro" data-reveal><h2>What I work with.</h2></div><div class="skill-list" data-reveal><details class="skill-group" open><summary><h3>Frontend</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>React</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Tailwind CSS</span><span>Responsive design</span></div></details><details class="skill-group" open><summary><h3>Backend</h3><span class="skill-count">05</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>Laravel 13</span><span>PHP 8.4</span><span>Node.js</span><span>Express.js</span><span>Object-Oriented Programming</span></div></details><details class="skill-group" ><summary><h3>APIs & authentication</h3><span class="skill-count">06</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>RESTful APIs</span><span>Sanctum</span><span>Fortify</span><span>Socialite</span><span>JWT</span><span>OAuth 2.0</span></div></details><details class="skill-group" ><summary><h3>Data & databases</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>MySQL</span><span>PostgreSQL</span><span>SQLite</span><span>MongoDB</span><span>Eloquent ORM</span><span>Database Design</span><span>RBAC</span></div></details><details class="skill-group" ><summary><h3>AI & automation</h3><span class="skill-count">08</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>Laravel AI SDK</span><span>OpenRouter AI</span><span>Groq</span><span>Gemini API</span><span>OpenAI / Claude APIs</span><span>Vector Embeddings</span><span>AI agents</span><span>Automation</span></div></details><details class="skill-group" ><summary><h3>Testing & delivery</h3><span class="skill-count">09</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>PHPUnit</span><span>Pest</span><span>Postman</span><span>API Documentation</span><span>Docker</span><span>Git</span><span>GitHub</span><span>CI/CD Pipelines</span><span>Queues &amp; Jobs</span></div></details><details class="skill-group" ><summary><h3>Architecture & more</h3><span class="skill-count">07</span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="skill-items"><span>MVC</span><span>Clean Code</span><span>SOLID Principles</span><span>WebSockets</span><span>Event-Driven Design</span><span>Java</span><span>JavaFX</span></div></details></div></div></div></section>
+<section id="experience" class="section-shell section-space" aria-labelledby="experience-title"><div class="section-heading" data-reveal><div><h2 id="experience-title">Experience &amp;<br/>education.</h2></div><a href="documents/Ahmed_Radwan_CV.pdf" class="text-link" target="_blank" rel="noopener noreferrer">View résumé</a></div><div class="journey" data-reveal><div class="journey-tabs" role="tablist" aria-label="Professional background"><button id="tab-experience" role="tab" aria-selected="true" aria-controls="panel-experience" tabindex="0">Experience <sup>04</sup></button><button id="tab-education" role="tab" aria-selected="false" aria-controls="panel-education" tabindex="-1">Education</button><button id="tab-certifications" role="tab" aria-selected="false" aria-controls="panel-certifications" tabindex="-1">Certifications <sup>11</sup></button></div><div id="panel-experience" role="tabpanel" aria-labelledby="tab-experience"><details class="journey-entry" open><summary><span class="journey-date">Sep 2026 – Present</span><span class="journey-role"><strong>Teaching Assistant</strong><span>Islamic University of Gaza · Part-time · Hybrid, Gaza Strip</span></span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="journey-body"><p>Supporting the teaching and assessment of Web Development and Web Programming courses for IT students at the Islamic University of Gaza.</p><div class="responsibilities"><ul>
 <li>Assist in teaching and evaluating core Web Development and Web Programming courses.</li>
 <li>Mentor students in practical implementation, helping them master web fundamentals and build real-world software applications.</li>
 </ul><p><strong>Key skills:</strong> Web Programming, HTML, CSS, JavaScript, Teaching, Mentoring.</p></div></div></details><details class="journey-entry" ><summary><span class="journey-date">Sep 2026 – Present</span><span class="journey-role"><strong>Co-Founder &amp; Back-End Developer</strong><span>Hireland · Self-employed  ·  Remote, Gaza Strip</span></span><span class="entry-plus" aria-hidden="true">+</span></summary><div class="journey-body"><p>Co-founded Hireland, an AI-powered platform that aggregates freelance opportunities across global marketplaces and intelligently matches them with developers' CVs and skills.</p><div class="responsibilities"><p>Key Responsibilities &amp; Tech Stack:</p><ul>
@@ -155,10 +372,11 @@
                                              platform mastery, proposal writing for global clients, AI productivity
                                              tools, project management, and QA standards.</p></div><div class="cert-end"><span>May 2026</span><a href="https://drive.google.com/file/d/1p-qstUFxnk4u_Elefyda9WG5mSoOOpJv/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="verify-link">Verify <span>↗</span></a></div></article><article class="certificate"><span class="cert-number">11</span><div><span class="eyebrow">Gaza Sky Geeks — Mercy Corps</span><h3>Beginner Problem-Solving Training</h3><p>Intensive 60-hour program on algorithmic thinking, logical
                                              reasoning, and systematic problem-solving techniques.</p></div><div class="cert-end"><span>2024</span><a href="https://drive.google.com/file/d/1xxPakRWN31l32CGvQxUkn_g5qrmwuW2I/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="verify-link">Verify <span>↗</span></a></div></article></div></div></section>
-<section id="contact" class="contact-section section-space"><div class="section-shell"><div class="contact-intro" data-reveal><span class="eyebrow section-index">04 / YOUR TURN</span><span>Have something in mind?<br>I’d like to hear about it.</span></div><a href="mailto:ahmed4.radwan7@gmail.com" class="contact-title" data-reveal data-magnetic>Let’s talk<span>↗</span></a><div class="contact-layout"><div class="contact-aside" data-reveal><a class="email-link" href="mailto:ahmed4.radwan7@gmail.com">ahmed4.radwan7@gmail.com</a><p>A project, an opportunity, or a question.<br>Start wherever you like.</p><div class="social-links"><a href="https://github.com/a7med-radwan" rel="noopener noreferrer" target="_blank">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/a7med-radwan" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a><a href="https://wa.me/970595495576" rel="noopener noreferrer" target="_blank">WhatsApp <span>↗</span></a><a href="https://instagram.com/a7med___radwan" rel="noopener noreferrer" target="_blank">Instagram <span>↗</span></a>
+<section id="contact" class="contact-section section-space" aria-labelledby="contact-title"><div class="section-shell"><span class="eyebrow section-index">Contact</span><h2 id="contact-title" class="contact-title" data-reveal><a href="mailto:ahmed4.radwan7@gmail.com">Let’s talk.</a></h2>
+<div class="contact-layout"><div class="contact-aside" data-reveal><a class="email-link" href="mailto:ahmed4.radwan7@gmail.com">ahmed4.radwan7@gmail.com</a><p>For projects, job opportunities, and questions.</p><div class="social-links"><a href="https://github.com/a7med-radwan" rel="noopener noreferrer" target="_blank">GitHub <span>↗</span></a><a href="https://www.linkedin.com/in/a7med-radwan" rel="noopener noreferrer" target="_blank">LinkedIn <span>↗</span></a><a href="https://wa.me/970595495576" rel="noopener noreferrer" target="_blank">WhatsApp <span>↗</span></a><a href="https://instagram.com/a7med___radwan" rel="noopener noreferrer" target="_blank">Instagram <span>↗</span></a>
 </div></div><div data-reveal><form action="https://formsubmit.co/ahmed4.radwan7@gmail.com" class="contact-form" method="POST"><input aria-hidden="true" autocomplete="off" class="honeypot" name="_honey" tabindex="-1" type="text"/><input name="_captcha" type="hidden" value="false"/><input name="_next" type="hidden" value="https://a7med-radwan.github.io/ahmed-radwan-portfolio/index.html"/>
 <div class="form-row"><label for="name">Your name<input autocomplete="name" id="name" name="name" placeholder="What should I call you?" required=""/></label><label for="email">Email address<input autocomplete="email" id="email" name="email" placeholder="you@example.com" required="" type="email"/></label>
-</div><label for="message">A little about your project<textarea id="message" name="message" placeholder="The idea, the ambition, the next big thing…" required="" rows="3"></textarea></label><button class="button button-primary" type="submit">Send message <span>↗</span></button>
+</div><label for="message">A little about your project<textarea id="message" name="message" placeholder="Tell me what you have in mind." required="" rows="3"></textarea></label><button class="button button-primary" type="submit">Send message</button>
 </form></div></div></div></section>
-</main><footer class="site-footer section-shell"><div><a href="#hero">Ahmed Radwan</a><span>© 2026</span><a href="#hero" class="back-top">Back to the beginning ↑</a></div><span class="footer-wordmark" aria-hidden="true">STILL CURIOUS.</span></footer>
-</div><script src="script.js"></script></body></html>
+</main><footer class="site-footer section-shell"><div><a href="#hero">Ahmed Radwan</a><span>© 2026</span><a href="#hero" class="back-top">Back to top</a></div></footer>
+</div><script src="project-films.js" defer></script><script src="script.js" defer></script></body></html>
