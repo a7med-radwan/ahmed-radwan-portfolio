@@ -20,6 +20,90 @@
 .work-index-label { margin: 0 0 14px; }
 .work-index { display: flex; flex-direction: column; }
 
+.work-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 16px;
+}
+
+.work-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 34px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 11px/1 var(--mono);
+  letter-spacing: .045em;
+  transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.work-filter-chip sup { color: var(--accent); font-size: 9px; letter-spacing: 0; }
+.work-filter-chip:hover { color: var(--text); background: var(--wash); }
+.work-filter-chip[aria-pressed=true] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--ink);
+}
+.work-filter-chip[aria-pressed=true] sup { color: inherit; opacity: .68; }
+
+.work-tab[hidden] { display: none; }
+
+.work-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+}
+
+.work-badge {
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font: 10px/1.3 var(--mono);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.work-badge--live { border-color: var(--accent); color: var(--accent); }
+
+.work-delivered { margin-top: 20px; }
+
+.work-description .work-delivered-label {
+  margin: 0 0 9px;
+  color: var(--muted);
+  font: 10px/1.3 var(--mono);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.work-delivered ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-delivered li {
+  position: relative;
+  padding-inline-start: 17px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.work-delivered li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: .72em;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+}
+
 .work-tab {
   display: flex;
   align-items: center;
@@ -277,6 +361,15 @@
   .work-browser { display: flex; flex-direction: column; gap: 24px; padding-top: 14px; }
   .work-sidebar, .work-stage { width: 100%; }
   .work-index-label { margin-bottom: 8px; }
+  .work-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 12px;
+    padding-block-end: 2px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+  .work-filter-chip { flex: none; }
   .work-index {
     display: flex;
     flex-direction: row;

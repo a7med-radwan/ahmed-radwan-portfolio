@@ -81,7 +81,40 @@ const projectTabs = [...document.querySelectorAll('.work-tab')];
 const projectPanels = [...document.querySelectorAll('.work-panel')];
 const projectList = document.querySelector('.work-index');
 const mobileIndex = matchMedia('(max-width: 600px)');
+const projectFilters = [...document.querySelectorAll('.work-filter-chip')];
+const projectFilterStatus = document.getElementById('work-filter-status');
+let activeFilter = 'all';
 let currentProject = 0;
+
+function filterMatches(tab) {
+  if (activeFilter === 'all') return true;
+  return (tab.dataset.tags || '').split(' ').includes(activeFilter);
+}
+
+function visibleProjectIndices() {
+  return projectTabs.reduce((list, tab, i) => (filterMatches(tab) ? list.concat(i) : list), []);
+}
+
+function stepProject(direction) {
+  const list = visibleProjectIndices();
+  if (!list.length) return currentProject;
+  const position = Math.max(0, list.indexOf(currentProject));
+  return list[(position + direction + list.length) % list.length];
+}
+
+function applyProjectFilter(filter) {
+  activeFilter = filter;
+  projectFilters.forEach(chip => chip.setAttribute('aria-pressed', String(chip.dataset.filter === filter)));
+  let firstVisible = -1;
+  projectTabs.forEach((tab, i) => {
+    const match = filterMatches(tab);
+    tab.hidden = !match;
+    if (match && firstVisible < 0) firstVisible = i;
+  });
+  const count = visibleProjectIndices().length;
+  if (projectFilterStatus) projectFilterStatus.textContent = `${count} project${count === 1 ? '' : 's'} shown`;
+  if (firstVisible >= 0 && !filterMatches(projectTabs[currentProject])) selectProject(firstVisible);
+}
 function selectProject(index, focus = false) {
   index = (index + projectTabs.length) % projectTabs.length;
   const previousPanel = projectPanels[currentProject];
@@ -109,16 +142,17 @@ projectTabs.forEach((tab, i) => {
   tab.addEventListener('click', () => selectProject(i));
   tab.addEventListener('keydown', event => {
     let next;
-    if (['ArrowRight','ArrowDown'].includes(event.key)) next = i + 1;
-    if (['ArrowLeft','ArrowUp'].includes(event.key)) next = i - 1;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = projectTabs.length - 1;
+    if (['ArrowRight','ArrowDown'].includes(event.key)) next = stepProject(1);
+    if (['ArrowLeft','ArrowUp'].includes(event.key)) next = stepProject(-1);
+    if (event.key === 'Home') next = visibleProjectIndices()[0];
+    if (event.key === 'End') next = visibleProjectIndices().slice(-1)[0];
     if (next !== undefined) { event.preventDefault(); selectProject(next, true); }
   });
 });
 projectPanels.forEach(panel => panel.addEventListener('animationend', () => panel.classList.remove('entering')));
-document.getElementById('project-prev').addEventListener('click', () => selectProject(currentProject - 1));
-document.getElementById('project-next').addEventListener('click', () => selectProject(currentProject + 1));
+document.getElementById('project-prev').addEventListener('click', () => selectProject(stepProject(-1)));
+document.getElementById('project-next').addEventListener('click', () => selectProject(stepProject(1)));
+projectFilters.forEach(chip => chip.addEventListener('click', () => applyProjectFilter(chip.dataset.filter || 'all')));
 function orientIndex() { projectList.setAttribute('aria-orientation', mobileIndex.matches ? 'horizontal' : 'vertical'); }
 mobileIndex.addEventListener('change', orientIndex); orientIndex();
 
@@ -355,6 +389,7 @@ const signalExamples = {
 function showLinkedProject() {
   const index = projectPanels.findIndex(panel => '#' + panel.id === location.hash);
   if (index < 0) return;
+  if (!filterMatches(projectTabs[index])) applyProjectFilter('all');
   if (index !== currentProject) selectProject(index);
   const panel = projectPanels[index];
   panel.tabIndex = -1;

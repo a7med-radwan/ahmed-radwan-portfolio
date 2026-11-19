@@ -78,26 +78,34 @@
   </div>
   <div class="work-browser" data-reveal>
     <div class="work-sidebar">
+      <div class="work-filter" role="group" aria-label="Filter projects by focus">
+        <button type="button" class="work-filter-chip" data-filter="all" aria-pressed="true">All<sup>09</sup></button>
+        <button type="button" class="work-filter-chip" data-filter="laravel" aria-pressed="false">Laravel<sup>05</sup></button>
+        <button type="button" class="work-filter-chip" data-filter="react" aria-pressed="false">React<sup>01</sup></button>
+        <button type="button" class="work-filter-chip" data-filter="ai" aria-pressed="false">AI<sup>05</sup></button>
+        <button type="button" class="work-filter-chip" data-filter="api" aria-pressed="false">APIs<sup>02</sup></button>
+      </div>
       <div class="work-index-label" aria-hidden="true">Project index</div>
       <div class="work-index" role="tablist" aria-label="Select a project" aria-orientation="vertical">
-        <button id="work-tab-0" class="work-tab" role="tab" aria-selected="true" aria-controls="work-panel-0" tabindex="0"><span class="work-number" aria-hidden="true">01</span><span>Gradly API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-1" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-1" tabindex="-1"><span class="work-number" aria-hidden="true">02</span><span>Gaply</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-2" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-2" tabindex="-1"><span class="work-number" aria-hidden="true">03</span><span>Write AI</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-3" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-3" tabindex="-1"><span class="work-number" aria-hidden="true">04</span><span>SmartTask</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-4" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-4" tabindex="-1"><span class="work-number" aria-hidden="true">05</span><span>My Expenses</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-5" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-5" tabindex="-1"><span class="work-number" aria-hidden="true">06</span><span>Pharmacy API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-6" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-6" tabindex="-1"><span class="work-number" aria-hidden="true">07</span><span>Hospital System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-7" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-7" tabindex="-1"><span class="work-number" aria-hidden="true">08</span><span>Library System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
-        <button id="work-tab-8" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-8" tabindex="-1"><span class="work-number" aria-hidden="true">09</span><span>Cloud Analytics</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-0" class="work-tab" role="tab" aria-selected="true" aria-controls="work-panel-0" tabindex="0" data-tags="laravel ai api"><span class="work-number" aria-hidden="true">01</span><span>Gradly API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-1" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-1" tabindex="-1" data-tags="laravel ai"><span class="work-number" aria-hidden="true">02</span><span>Gaply</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-2" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-2" tabindex="-1" data-tags="laravel ai react"><span class="work-number" aria-hidden="true">03</span><span>Write AI</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-3" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-3" tabindex="-1" data-tags="laravel ai"><span class="work-number" aria-hidden="true">04</span><span>SmartTask</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-4" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-4" tabindex="-1" data-tags="laravel"><span class="work-number" aria-hidden="true">05</span><span>My Expenses</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-5" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-5" tabindex="-1" data-tags="api"><span class="work-number" aria-hidden="true">06</span><span>Pharmacy API</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-6" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-6" tabindex="-1" data-tags="php"><span class="work-number" aria-hidden="true">07</span><span>Hospital System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-7" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-7" tabindex="-1" data-tags="java"><span class="work-number" aria-hidden="true">08</span><span>Library System</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
+        <button id="work-tab-8" class="work-tab" role="tab" aria-selected="false" aria-controls="work-panel-8" tabindex="-1" data-tags="ai python"><span class="work-number" aria-hidden="true">09</span><span>Cloud Analytics</span><span class="work-tab-arrow" aria-hidden="true">↗</span></button>
       </div>
       <div class="work-controls">
         <span aria-live="polite" aria-atomic="true"><span class="work-visually-hidden">Project </span><strong id="project-current">01</strong> / 09</span>
+        <p id="work-filter-status" class="work-visually-hidden" aria-live="polite">9 projects shown</p>
         <div><button id="project-prev" class="work-arrow-button" aria-label="Previous project">←</button><button id="project-next" class="work-arrow-button" aria-label="Next project">→</button></div>
       </div>
     </div>
     <div class="work-stage">
       <article id="work-panel-0" class="work-panel" role="tabpanel" aria-labelledby="work-tab-0">
-        <header class="work-title"><span class="work-category">AI-powered planning</span><h3>Gradly API</h3></header>
+        <header class="work-title"><span class="work-category">AI-powered planning</span><h3>Gradly API</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Backend API</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="gradly">
             <figcaption>Goal planning flow</figcaption>
@@ -109,7 +117,15 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Break a broad goal into a roadmap with tasks people can act on each day.</p>
-            <p>A Laravel REST API integrates OpenRouter for generation and uses Redis queues. It supports a planning chatbot, rate-limited authentication and Google sign-in.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>OpenRouter generation turns one goal into a roadmap and daily tasks.</li>
+                <li>Redis queues keep slow AI calls out of the request cycle.</li>
+                <li>Rate-limited Sanctum authentication plus Google sign-in.</li>
+                <li>A planning chatbot grounded in the generated roadmap.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -118,7 +134,7 @@
         </div>
       </article>
       <article id="work-panel-1" class="work-panel" role="tabpanel" aria-labelledby="work-tab-1" hidden>
-        <header class="work-title"><span class="work-category">Career guidance</span><h3>Gaply</h3></header>
+        <header class="work-title"><span class="work-category">Career guidance</span><h3>Gaply</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Full-stack app</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="gaply">
             <figcaption>Career guidance workflow</figcaption>
@@ -132,7 +148,15 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Turn a skill-gap assessment into a week-by-week plan.</p>
-            <p>Laravel and its AI SDK support skills analysis, readiness scoring and personalized roadmaps. The platform also offers profile bio suggestions and an AI interview coach.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>AI skill-gap analysis with a readiness score per profile.</li>
+                <li>Personalised weekly roadmaps generated from that score.</li>
+                <li>Profile bio suggestions and an AI interview coach.</li>
+                <li>Queued analysis jobs with Sanctum and Fortify authentication.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -141,7 +165,7 @@
         </div>
       </article>
       <article id="work-panel-2" class="work-panel" role="tabpanel" aria-labelledby="work-tab-2" hidden>
-        <header class="work-title"><span class="work-category">AI-powered publishing</span><h3>Write AI</h3></header>
+        <header class="work-title"><span class="work-category">AI-powered publishing</span><h3>Write AI</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Full-stack + AI</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="write-ai">
             <figcaption>Publishing architecture</figcaption>
@@ -153,7 +177,15 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Bring drafting, search and SEO into a single publishing workflow.</p>
-            <p>A React front end and Laravel back end support separate writing and SEO agents, embedding-based semantic search and real-time notifications. The project includes passkeys, 2FA, role-based permissions and automated tests.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>Separate writing (Groq) and SEO (Gemini) agents behind one editor.</li>
+                <li>Embedding-based semantic search across saved drafts.</li>
+                <li>Real-time notifications over WebSockets.</li>
+                <li>Passkeys, 2FA and role-based permissions, covered by PHPUnit tests.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -162,7 +194,7 @@
         </div>
       </article>
       <article id="work-panel-3" class="work-panel" role="tabpanel" aria-labelledby="work-tab-3" hidden>
-        <header class="work-title"><span class="work-category">Agile task management</span><h3>SmartTask</h3></header>
+        <header class="work-title"><span class="work-category">Agile task management</span><h3>SmartTask</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Full-stack app</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="smarttask">
             <figcaption>Sprint planning flow</figcaption>
@@ -174,7 +206,15 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Break larger tasks into work a team can plan into a sprint.</p>
-            <p>The Laravel application uses the AI SDK to decompose tasks and plan sprint backlogs. It includes a developer analytics dashboard and uses Fortify for authentication.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>AI task decomposition into smaller, assignable items.</li>
+                <li>Sprint backlog planning built from the generated tasks.</li>
+                <li>A developer analytics dashboard for team progress.</li>
+                <li>Fortify authentication and a Tailwind CSS interface.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -183,7 +223,7 @@
         </div>
       </article>
       <article id="work-panel-4" class="work-panel" role="tabpanel" aria-labelledby="work-tab-4" hidden>
-        <header class="work-title"><span class="work-category">Personal finance</span><h3>My Expenses</h3></header>
+        <header class="work-title"><span class="work-category">Personal finance</span><h3>My Expenses</h3><p class="work-badges"><span class="work-badge work-badge--live">Live demo</span><span class="work-badge">Open source</span><span class="work-badge">Full-stack app</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="expenses">
             <figcaption>Financial planning inputs</figcaption>
@@ -197,7 +237,14 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Use income and categorized expenses to build a personal finance plan.</p>
-            <p>A Laravel and MySQL application manages financial records with full create, read, update and delete operations, plus role-based access control.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>Full create, read, update and delete flows for financial records.</li>
+                <li>Role-based access control on shared data.</li>
+                <li>A financial plan generated from recorded income and expenses.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -206,7 +253,7 @@
         </div>
       </article>
       <article id="work-panel-5" class="work-panel" role="tabpanel" aria-labelledby="work-tab-5" hidden>
-        <header class="work-title"><span class="work-category">Pharmacy operations</span><h3>Pharmacy API</h3></header>
+        <header class="work-title"><span class="work-category">Pharmacy operations</span><h3>Pharmacy API</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Backend API</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="pharmacy">
             <figcaption>API request path</figcaption>
@@ -218,7 +265,14 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Expose pharmacy operations and inventory through a REST API.</p>
-            <p>Node.js and Express handle API requests, JWT handles authentication, and MongoDB stores application data. Postman documentation describes the API for callers.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>JWT-protected REST endpoints for pharmacy operations.</li>
+                <li>Drug inventory stored and queried in MongoDB.</li>
+                <li>A Postman collection documenting every route for API consumers.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -227,7 +281,7 @@
         </div>
       </article>
       <article id="work-panel-6" class="work-panel" role="tabpanel" aria-labelledby="work-tab-6" hidden>
-        <header class="work-title"><span class="work-category">Hospital management</span><h3>Hospital System</h3></header>
+        <header class="work-title"><span class="work-category">Hospital management</span><h3>Hospital System</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Web app</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="hospital">
             <figcaption>Staff access and records</figcaption>
@@ -241,7 +295,14 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Give hospital staff access to operational records according to their roles.</p>
-            <p>A PHP and MySQL web application manages patient records and medication inventory, with role-based authorization for staff.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>Patient record management on PHP and MySQL.</li>
+                <li>Medication inventory tracking for pharmacy staff.</li>
+                <li>Role-based authorization for every staff account.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -250,7 +311,7 @@
         </div>
       </article>
       <article id="work-panel-7" class="work-panel" role="tabpanel" aria-labelledby="work-tab-7" hidden>
-        <header class="work-title"><span class="work-category">Library management</span><h3>Library System</h3></header>
+        <header class="work-title"><span class="work-category">Library management</span><h3>Library System</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Desktop app</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="library">
             <figcaption>Desktop application views</figcaption>
@@ -262,7 +323,14 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Give administrators and librarians distinct views of the same library system.</p>
-            <p>The JavaFX desktop application uses SceneBuilder for its interface and provides role-based dashboards with system statistics.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>Separate administrator and librarian dashboards.</li>
+                <li>System statistics surfaced directly on the dashboard.</li>
+                <li>A JavaFX interface laid out in SceneBuilder.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
@@ -271,7 +339,7 @@
         </div>
       </article>
       <article id="work-panel-8" class="work-panel" role="tabpanel" aria-labelledby="work-tab-8" hidden>
-        <header class="work-title"><span class="work-category">Distributed analytics</span><h3>Cloud Analytics</h3></header>
+        <header class="work-title"><span class="work-category">Distributed analytics</span><h3>Cloud Analytics</h3><p class="work-badges"><span class="work-badge">Open source</span><span class="work-badge">Data + ML</span></p></header>
         <div class="work-study">
           <figure class="work-visual" data-tilt data-film="cloud">
             <figcaption>Distributed data workflow</figcaption>
@@ -283,7 +351,15 @@
           </figure>
           <div class="work-description">
             <p class="work-lead">Make distributed data processing accessible from a web interface.</p>
-            <p>PySpark runs parallel dataset operations and machine-learning workflows. Gradio provides the interface, and the project also uses Firebase.</p>
+            <div class="work-delivered">
+              <p class="work-delivered-label">Delivered</p>
+              <ul>
+                <li>PySpark jobs for parallel dataset operations.</li>
+                <li>Machine-learning workflows over the processed data.</li>
+                <li>A Gradio interface for running analysis without writing code.</li>
+                <li>Firebase backing for the surrounding service.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="work-bottom">
