@@ -9,7 +9,11 @@ Condensed headlines and a fine rule grid set the rhythm. Each existing palette s
 A static portfolio for Ahmed Haitham Radwan, a full-stack developer and teaching assistant at the Islamic University of Gaza.
 
 ##  Live Demo
-You can view the live site here: [Live Portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
+- Cloudflare Pages: [ahmed-radwan.pages.dev](https://ahmed-radwan.pages.dev/)
+- GitHub Pages (kept online): [a7med-radwan.github.io/ahmed-radwan-portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
+
+##  Deployment
+The site is a static project with no build step. Cloudflare Pages deploys the repository root from the `main` branch with the build command `exit 0` and the output directory `/`. Pushes to `main` automatically publish a new production deployment.
 
 ##  Key Features
 - **Full-Stack & AI Focused**: Showcasing expertise in Laravel 13, React, RESTful APIs, Node.js, and AI integrations (OpenAI/Claude).
