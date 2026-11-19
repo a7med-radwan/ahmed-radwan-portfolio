@@ -9,7 +9,7 @@ Condensed headlines and a fine rule grid set the rhythm. Each existing palette s
 A static portfolio for Ahmed Haitham Radwan, a full-stack developer and teaching assistant at the Islamic University of Gaza.
 
 ##  Live Demo
-- Cloudflare Pages: [ahmed-radwan.pages.dev](https://ahmed-radwan.pages.dev/)
+- Cloudflare Pages: [ahmedradwan.pages.dev](https://ahmedradwan.pages.dev/)
 - GitHub Pages (kept online): [a7med-radwan.github.io/ahmed-radwan-portfolio](https://a7med-radwan.github.io/ahmed-radwan-portfolio/)
 
 ##  Deployment
